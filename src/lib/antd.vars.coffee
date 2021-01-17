@@ -1,6 +1,8 @@
 #!/usr/bin/env coffee
 
 css = {
+  code:
+    family: "code,monospace"
   shadow:
     1:
       up: "0 0 2px rgba(0, 0, 0, 0.1)"

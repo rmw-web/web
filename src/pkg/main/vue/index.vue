@@ -97,6 +97,12 @@
         span {{i.url}}
         a(@click="rm(i.key)") X
         button(@click="update(i.key)") 更新
+    pre
+      | def test
+      |    pass
+    code
+      | def test
+      |    pass
     footer
       a(href="/404") 404
   aside
@@ -126,7 +132,7 @@ setup:=>
   {task} = DB
 
   onUnmounted =>
-    console.log "cancel", state
+    console.log "cancel task"
     task$?.cancel()
 
   # setInterval(
