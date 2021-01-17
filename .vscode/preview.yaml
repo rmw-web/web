@@ -1,0 +1,8 @@
+# .vscode/preview.yml
+autoOpen: true # 打开工作空间时是否自动开启所有应用的预览
+apps:
+  - port: 50020 # 应用的端口
+    run: ./dev.sh # 应用的启动命令
+    root: . # 应用的启动目录
+    name: 人物库 # 应用名称
+    description: 人物库网站前端 # 应用描述

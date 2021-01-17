@@ -1,0 +1,12 @@
+nohup.out
+.DS_Store
+
+*.swp
+*.log
+
+node_modules/
+dist/
+
+src/config
+src/config.*
+file/font

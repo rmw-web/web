@@ -1,0 +1,52 @@
+{
+  "search.exclude": {
+    "**/node_modules": true,
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/*.meta": true,
+    "**/*.lock": true,
+  },
+  "editor.fontFamily": "Menlo,'DejaVu Sans Mono','Liberation Mono','Ubuntu Mono',monospace",
+  "terminal.integrated.fontFamily": "SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace",
+  "zenMode.centerLayout": false,
+  "zenMode.hideTabs": false,
+  "editor.fontSize": 13,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2, // 代码缩进的空格数量
+  "git.autofetch": true,
+  "editor.wordWrap": "on",
+  "git.confirmSync": false,
+  "workbench.activityBar.visible": false,
+  "editor.minimap.enabled": false,
+  "files.trimTrailingWhitespace": true,
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#000",
+    "activityBar.foreground": "#555",
+    "editor.background": "#000",
+    "editor.findMatchHighlightBackground": "#350",
+    "editor.findMatchBackground": "#030",
+    "editor.findMatchBorder": "#a40",
+    "editor.selectionBackground": "#036",
+    "editor.selectionHighlightBackground": "#550",
+    "editorSuggestWidget.background": "#001",
+    "panel.background": "#000",
+    "sideBar.background": "#000",
+    "statusBar.background": "#000",
+    "statusBar.debuggingBackground": "#511f1f",
+    "statusBar.noFolderBackground": "#0A0A0D",
+  },
+  "git.enableSmartCommit": true,
+  "languageStylus.useSeparator": false,
+  "stylusSupremacy.insertBraces": false, // 是否使用括号
+  "stylusSupremacy.insertColons": false, // 属性名和属性值之间是否插入冒号
+  "stylusSupremacy.insertSemicolons": false, // 属性值后面是否使用分号
+  "terminal.integrated.cursorStyle": "underline",
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.shell.linux": "zsh",
+  "workbench.editor.openPositioning": "last",
+  "terminal.integrated.env.linux": {
+    "PATH": "${env:HOME}/.asdf/shims:/usr/bin:${env:PATH}"
+  }
+}

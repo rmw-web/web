@@ -1,0 +1,29 @@
+span.img, p.img
+  display flex
+  justify-content center
+  position relative
+  user-select none
+
+  img
+    z-index -1
+
+  i
+    line-height 0
+    position relative
+
+    &.s:before
+      position absolute
+      top 0
+      left 0
+      right 0
+      bottom 0
+      box-shadow 0 0 6px rgba(0, 0, 0, 0.5) inset
+      content ''
+
+span.img
+  padding-bottom .5rem
+  margin-top 0.4rem
+p.img > span.img
+  margin-top -0.1rem
+p.img
+  margin-bottom 1.8rem
