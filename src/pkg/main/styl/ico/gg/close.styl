@@ -1,26 +1,25 @@
-.gg.add
+.gg.close
   box-sizing border-box
   position relative
   display block
+  transform scale(var(--ggs, 1))
   width 22px
   height 22px
-  border 1px solid
-  border-radius 22px
+  border 2px solid transparent
+  border-radius 40px
 
-.gg.add::after, .gg.add::before
+.gg.close::after, .gg.close::before
   content ''
   display block
   box-sizing border-box
   position absolute
-  width 11px
-  height 1px
+  width 16px
+  height 2px
   background currentColor
+  transform rotate(45deg)
   border-radius 5px
-  top 10px
-  left 5px
+  top 8px
+  left 1px
 
-.gg.add::after
-  width 1px
-  height 11px
-  top 5px
-  left 10px
+.gg.close::after
+  transform rotate(-45deg)
