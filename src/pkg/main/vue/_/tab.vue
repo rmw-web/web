@@ -3,6 +3,7 @@
 @import '@/pkg/main/styl/ico/gg/close'
 @import '@/pkg/main/styl/ico/gg/bookmark'
 @import '@/pkg/main/styl/ico/gg/ghost'
+@import '@/pkg/main/styl/ico/gg/im'
 @import '@/pkg/main/styl/ico/gg/arrow-down'
 fontSize = 0.75rem
 nav
@@ -83,6 +84,8 @@ config-provider
       menu
         b
           a.gg.plus
+        b
+          a.gg.im
         b
           a.gg.bookmark
         b

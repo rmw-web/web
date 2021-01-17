@@ -9,29 +9,22 @@
   border-top-left-radius 22px
   border-top-right-radius 22px
   overflow hidden
-  background radial-gradient(
-    circle,
-    currentColor 60%,
-    transparent 40%
-  )
-  no-repeat 2px 4px / 2px 2px, radial-gradient(
-    circle,
-    currentColor 60%,
-    transparent 40%
-  )
-  no-repeat 6px 4px / 2px 2px
+  background radial-gradient(circle, currentColor 60%, transparent 40%) no-repeat 3px 4px/3px 3px, radial-gradient(circle, currentColor 60%, transparent 40%) no-repeat 8px 4px/3px 3px
+  
 .gg.ghost::after, .gg.ghost::before
-  content ''
-  display block
-  box-sizing border-box
-  position absolute
-  width 6px
-  height 6px
-  border-top 2px solid
-  border-right 2px solid
-  bottom -3px
-  transform rotate(-45deg)
+  content: '';
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid;
+  border-right: 2px solid;
+  bottom: -4px;
+  transform: rotate(-45deg);
+  
 .gg.ghost::before
   left -1px
+  
 .gg.ghost::after
   right -1px
