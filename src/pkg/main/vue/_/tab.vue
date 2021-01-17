@@ -2,6 +2,7 @@
 @import '@/pkg/main/styl/ico/gg/plus'
 @import '@/pkg/main/styl/ico/gg/close'
 @import '@/pkg/main/styl/ico/gg/bookmark'
+@import '@/pkg/main/styl/ico/gg/ghost'
 @import '@/pkg/main/styl/ico/gg/arrow-down'
 fontSize = 0.75rem
 nav
@@ -84,6 +85,8 @@ config-provider
           a.gg.plus
         b
           a.gg.bookmark
+        b
+          a.gg.ghost
       b.now 人民网络
         b
           a.gg.close
