@@ -80,31 +80,7 @@
 .page
   main
     h1 我问问 h1
-    form(@submit.prevent="submit")
-      p
-        input(placeholder="节点网址" type=text v-model="form.addr")
-      p
-        input(placeholder="站点公钥" v-model="form.key")
-      p
-        input(placeholder="文件路径" v-model="form.url")
-      p
-        a-button(type="primary") 参数
-      p
-        button(type="submit") 添加下载
-    ol
-      li(v-for="i in li")
-        | {{i.time}}
-        span {{i.url}}
-        a(@click="rm(i.key)") X
-        button(@click="update(i.key)") 更新
-    pre
-      | def test
-      |    pass
-    code
-      | def test
-      |    pass
-    footer
-      a(href="/404") 404
+    a(href="/404") 404
   aside
     footer
       input(placeholder="想说什么 ···")
@@ -160,9 +136,6 @@ setup:=>
   # )
 
   form = {
-    addr:"p4bHzAquvx_5h_tK5j-WpQokOhv7JteHbPfADIIP2bQ"
-    key:"p4bHzAquvx_5h_tK5j-WpQokOhv7JteHbPfADIIP2bQ"
-    url:"xaa"
   }
   return {
     form: ref form
