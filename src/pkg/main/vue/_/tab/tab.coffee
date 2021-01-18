@@ -1,4 +1,4 @@
-import {ref} from 'vue'
+import {ref, onBeforeMount} from 'vue'
 import goto from '@/coffee/goto'
 
 class Tab
@@ -8,12 +8,13 @@ class Tab
     @exist = new Set()
 
   open: (title)->
-    {exist,li} = @
-    document.title = title
-    path = location.pathname[1..]
-    if not exist.has path
-      exist.add path
-      li.push [title, path]
+    onBeforeMount =>
+      {exist,li} = @
+      document.title = title
+      path = location.pathname[1..]
+      if not exist.has path
+        exist.add path
+        li.push [title, path]
     return
 
   x:(pos)->
@@ -34,6 +35,6 @@ class Tab
         goto '/'
     return
 
-export default new Tab()
 
-
+export default tab = new Tab()
+export tab = tab.open.bind(tab)
