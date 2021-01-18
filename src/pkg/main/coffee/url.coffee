@@ -1,5 +1,5 @@
 import Pop from "@/coffee/Pop"
-import {URL as _URL} from '../url.txt'
+import _URL from '../url.txt'
 URL = new Set(_URL.split("\n"))
 
 INDEX = 'index'
