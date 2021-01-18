@@ -1,14 +1,17 @@
 <style lang="stylus" scoped>
 @import '@/pkg/main/styl/ico/gg/add'
 .page
+  display flex
+  top 0
+  bottom 0
+  left 0
+  right 0
+  position absolute
+  overflow hidden
   &>aside, &>main
     display flex
-    position absolute
-    top 0
-    bottom 0
+    flex 1
   &>aside
-    width 50%
-    right 0
     &>footer
       display flex
       width 100%
@@ -54,9 +57,6 @@
               color #f40
   &>main
     border-right 1px solid #eee
-    left 0
-    right 50%
-    position absolute
     padding 2.3rem
     display flex
     flex-direction column

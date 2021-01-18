@@ -44,7 +44,7 @@
   div
     div(ref="wrap")
       slot
-  aside(@click="click" ref="aside" v-if="turn")
+  aside(@click="click" ref="aside" v-if="turn" @mousedown="down")
     i(ref="i")
 </template>
 
@@ -91,6 +91,12 @@ setup:=>
   aside = shallowRef()
   scrollTo = undefined
   turn = ref 0
+  _mouseunbind = undefined
+
+  mouseunbind = =>
+    _mouseunbind?()
+    _mouseunbind = undefined
+
   onMounted =>
     mv = main.value
     wv = wrap.value
@@ -121,7 +127,9 @@ setup:=>
     onUnmounted =>
       unbind()
       ro.disconnect()
+      mouseunbind()
     return
+
   {
     turn
     main
@@ -135,7 +143,28 @@ setup:=>
       {clientHeight,scrollHeight} = mv
       scrollTo parseInt(e.offsetY/clientHeight * (scrollHeight-clientHeight))
       return
+    down:(e)=>
+      mouseunbind()
+      av = aside.value
+      iv = i.value
+      top = iv.offsetTop
+      Y = e.offsetY
+      max = av.clientHeight-iv.clientHeight
+      _mouseunbind = $on document,{
+        mouseup:mouseunbind
+        mousemove:({offsetY})=>
+          pos = top + offsetY - Y
+          if pos < 0
+            top = pos = 0
+            Y = offsetY
+          else if pos > max
+            top = pos = max
+            Y = offsetY
+          mv = main.value
+          mv.scrollTop = pos/max*(mv.scrollHeight-mv.clientHeight)
+          return
 
+      }
   }
 }
 </script>
