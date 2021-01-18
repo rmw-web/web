@@ -84,7 +84,7 @@ config-provider
       menu
         b(v-for="(url,ico) in menu" :class="{now:url==pwd}")
           a.gg(:href="`/${url}`" :class="ico")
-      b(v-for="[title,url] in tab" :class="{now:url==pwd}" @click="goto(url)" :title="'/'+url")
+      b(v-for="[title,url] in tab" :class="{now:url==pwd}" @click="goto(url)" :title="url")
         | {{title}}
         b
           a.gg.close
