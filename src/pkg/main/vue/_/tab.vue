@@ -1,4 +1,6 @@
 <style lang="stylus" scoped>
+.nav.ant-dropdown-menu
+  margin-top -5px
 @import '@/pkg/main/styl/ico/gg/plus'
 @import '@/pkg/main/styl/ico/gg/close'
 @import '@/pkg/main/styl/ico/gg/bookmark'
@@ -20,17 +22,16 @@ nav
   width 100%
   &>main
     display flex
-  b
-    position relative
+  b, menu a
+    vertical-align bottom
+  &>main>b, menu>a
+    display inline-flex
     height calc(2.3rem - 1px)
     border-right 1px solid #eee
-    display inline-block
     cursor pointer
     font-weight 500
     align-items center
-    padding 0 0.75rem
-    line-height 2.4rem
-    vertical-align bottom
+    position relative
     &:hover
       background #f0f0f0
       font-weight 500
@@ -41,18 +42,16 @@ nav
       background #fff
       margin-bottom -1px
       padding-bottom 1px
-.nav.ant-dropdown-menu
-  margin-top -5px
 menu
   display flex
-  &>b
+  &>a
     padding 0
-    display flex
     width 2.3rem
     align-items center
     justify-content center
     color #777
-b
+main>b
+  padding 0.15rem 0.75rem 0
   &>b
     height 2.3rem
     position relative
@@ -65,33 +64,32 @@ b
     &:hover
       background transparent
     &>.gg.close
-      margin-top -0.23rem
+      margin-top -0.1rem
       &:hover
         color #fff
         background #777
-  &>a
-    color #777
-    height 100%
-    transform scale(0.65)
-  &:hover
-    &>a
-      color #333
+main>b>b>a, menu>a>b
+  color #777
+  height 100%
+  transform scale(0.65)
+main>b>b:hover>a, menu>a:hover>b
+  color #333
 </style>
 <template lang="pug">
 config-provider
   nav
     main
       menu
-        b(v-for="(url,ico) in menu" :class="{now:url==pwd}")
-          a.gg(:href="`/${url}`" :class="ico")
+        a(v-for="(url,ico) in menu" :class="{now:url==pwd}" :href="`/${url}`")
+          b.gg(:class="ico")
       b(v-for="[title,url] in tab" :class="{now:url==pwd}" @click="goto(url)" :title="url")
         | {{title}}
         b
           a.gg.close
     menu
       a-dropdown
-        b.ant-dropdown-link
-          a.gg.arrow-down
+        a.ant-dropdown-link
+          b.gg.arrow-down
         template(#overlay)
           a-menu.nav
             a-menu-item
@@ -103,8 +101,9 @@ config-provider
 import ADropdown from "@/lib/antd/dropdown"
 import {ConfigProvider} from 'ant-design-vue'
 import AMenu from "@/lib/antd/menu"
+import {$on} from '@/coffee/$'
 import goto from "@/coffee/goto"
-import {shallowRef, ref} from 'vue'
+import {shallowRef, ref, onUnmounted} from 'vue'
 #import {onUnmounted, shallowRef, onBeforeMount, ref} from 'vue'
 
 export default {
@@ -122,6 +121,12 @@ setup:=>
     "msg"
   }
   pwd = shallowRef(location.pathname[1..])
+  unbind = $on window,{
+    pushState:=>
+      pwd.value = location.pathname[1..]
+  }
+  onUnmounted =>
+    unbind()
   tab = [
     ["人民网络","rmw"]
     ["十万个冷笑话","10000"]

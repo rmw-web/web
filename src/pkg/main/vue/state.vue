@@ -4,7 +4,7 @@
   &>aside, &>main
     display flex
     position absolute
-    top 2.4rem
+    top 2.3rem
     bottom 0
   &>aside
     width 50%
@@ -15,7 +15,7 @@
       flex-direction column
       align-self flex-end
       &>nav, &>nav>menu, &>input
-        height 2.4rem
+        height 2.3rem
         line-height @height
         display flex
       &>input
@@ -30,12 +30,12 @@
         &>a
           transform scale(0.7)
           color #777
-          height 2.4rem
-          line-height 2.4rem
+          height 2.3rem
+          line-height 2.3rem
           display flex
           align-items center
           justify-content center
-          width 2.4rem
+          width 2.3rem
           &:hover
             color #f40
         &>menu
