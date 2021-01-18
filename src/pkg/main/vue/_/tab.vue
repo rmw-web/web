@@ -9,6 +9,13 @@
 @import '@/pkg/main/styl/ico/gg/arrow-down'
 fontSize = 0.75rem
 headerHeight = 2.3rem
+.page
+  position absolute
+  top 0
+  bottom 0
+  left 0
+  right 0
+  transition top 0.3s
 main, header
   position absolute
 main
@@ -90,30 +97,32 @@ nav>b>b:hover>a, menu>a:hover>b
 </style>
 <template lang="pug">
 config-provider
-  header
-    nav
+  .page(ref="page")
+    header
+      nav
+        menu
+          a(v-for="(url,ico) in menu" :class="{now:url==pwd}" :href="`/${url}`")
+            b.gg(:class="ico")
+        b(v-for="[title,url],n in tab.li" :class="{now:url==pwd}" @click="goto(url)" :title="url")
+          | {{title}}
+          b
+            a.gg.close(@click.stop="tab.x(n)")
       menu
-        a(v-for="(url,ico) in menu" :class="{now:url==pwd}" :href="`/${url}`")
-          b.gg(:class="ico")
-      b(v-for="[title,url],n in tab.li" :class="{now:url==pwd}" @click="goto(url)" :title="url")
-        | {{title}}
-        b
-          a.gg.close(@click.stop="tab.x(n)")
-    menu
-      a-dropdown
-        a.ant-dropdown-link
-          b.gg.arrow-down
-        template(#overlay)
-          a-menu.nav
-            a-menu-item
-              a(href="/state") 同步状态
-            a-menu-item
-              a(href="/config") 系统设置
-  main(ref="main")
-    slot
+        a-dropdown
+          a.ant-dropdown-link
+            b.gg.arrow-down
+          template(#overlay)
+            a-menu.nav
+              a-menu-item
+                a(href="/state") 同步状态
+              a-menu-item
+                a(href="/config") 系统设置
+    main(ref="main")
+      slot
 </template>
 
 <script lang="coffee">
+import throttle from 'lodash/throttle'
 import ADropdown from "@/lib/antd/dropdown"
 import {ConfigProvider} from 'ant-design-vue'
 import AMenu from "@/lib/antd/menu"
@@ -140,29 +149,42 @@ setup:=>
   }
   pwd = shallowRef(location.pathname[1..])
   main = shallowRef()
+  page = shallowRef()
   unbind = undefined
   onMounted =>
-    pre = 0
+    pv = page.value
     mv = main.value
     {offsetTop} = mv
-    top = offsetTop
+    pren = 0
+    prediff = 0
+    pre = 0
     unbind = [
       $on(
         mv
-        scroll:->
-          {scrollTop} = mv
-          if scrollTop > pre
-            if top > 0
-              mv.style.top = (--top)+"px"
-          else
-            if top < offsetTop
-              od = offsetTop - scrollTop
-              if od > 0
-                top = od
-              mv.style.top = (top++)+"px"
+        scroll:throttle(
+          ->
+            {scrollTop} = mv
+            diff = scrollTop - pre
+            if diff > 0
+              if prediff <= 0
+                pren = scrollTop
+              else if pv.offsetTop == 0
+                if scrollTop - pren > 99
+                    pv.style.top = -offsetTop+"px"
+            else
+              s99 = scrollTop > 99
+              if prediff >= 0 and s99
+                pren = scrollTop
+              else if pv.offsetTop < 0
+                if (not s99) or pren - offsetTop > 99
+                  pv.style.top = 0
 
-          pre = scrollTop
-          return
+            pre = scrollTop
+            prediff = diff
+            return
+          300
+        )
+
       )
       $state =>
         pwd.value = location.pathname[1..]
@@ -178,6 +200,7 @@ setup:=>
 
   {
     menu
+    page
     main
     pwd
     tab
