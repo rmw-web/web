@@ -1,4 +1,4 @@
-import {$on} from '@/coffee/$'
+import $on from '@/coffee/$/on'
 import split_n from 'split_n'
 import throttle from 'lodash/throttle'
 

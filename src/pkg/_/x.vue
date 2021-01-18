@@ -36,7 +36,7 @@ main
   slot
 </template>
 <script lang="coffee">
-import {$on} from '@/coffee/$'
+import $on from '@/coffee/$/on'
 import {onUnmounted} from 'vue'
 export default {
   setup : =>

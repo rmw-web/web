@@ -1,5 +1,5 @@
 import {onUnmounted, ref} from 'vue'
-import {$on} from '@/coffee/$'
+import $on from '@/coffee/$/on'
 
 export default (base="/") =>
   pathname = ref()

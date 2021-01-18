@@ -212,7 +212,7 @@ X
 
 <script lang="coffee">
 import {shallowRef,reactive,onMounted,onUnmounted} from 'vue'
-import {$on} from '@/coffee/$'
+import $on from '@/coffee/$/on'
 import X from "@/pkg/_/x"
 
 export default {

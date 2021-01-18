@@ -1,4 +1,4 @@
-export $on = (elem, dict)=>
+export default (elem, dict)=>
   for event,func of dict
     elem.addEventListener(event, func)
   =>

@@ -1,4 +1,4 @@
-import {$on} from '@/coffee/$'
+import $on from '@/coffee/$/on'
 import {isFunction} from 'lodash'
 
 tip = (i, text)=>

@@ -1,7 +1,7 @@
 import {Spin} from "@/coffee/Spin"
 import {createApp} from 'vue'
 import {camelCase} from "lodash"
-import {$on} from '@/coffee/$'
+import $on from '@/coffee/$/on'
 import HttpSpin from '@/pkg/_/http/spin'
 import "./index.styl"
 spin = new Spin()

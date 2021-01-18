@@ -6,7 +6,7 @@ require "@/coffee/a"
 
 import {TITLE} from "@/coffee/title"
 import {Spin} from "@/coffee/Spin"
-import {$on} from '@/coffee/$'
+import $state from '@/coffee/$/state'
 import HttpSpin from '@/pkg/_/http/spin'
 import {onBeforeMount} from 'vue'
 
@@ -54,11 +54,13 @@ export default (prefix, page)=>
   #     page.i.value = HttpSpin
   #     goto()
   # )
-  $on window, {
-    pushState:goto
-    popstate:=>
-      for i in document.querySelectorAll('.X')
-        i.click()
-      goto()
-  }
+  $state goto
+    # pushState:goto
+    # popstate:goto
+    # popstate:=>
+    # popstate:=>
+    #   for i in document.querySelectorAll('.X')
+    #     i.click()
+    #   goto()
+  # }
   page

@@ -103,7 +103,7 @@ config-provider
 import ADropdown from "@/lib/antd/dropdown"
 import {ConfigProvider} from 'ant-design-vue'
 import AMenu from "@/lib/antd/menu"
-import {$on} from '@/coffee/$'
+import $on from '@/coffee/$/on'
 import goto from "@/coffee/goto"
 import {shallowRef, ref, onUnmounted} from 'vue'
 import tab from './tab/tab'
@@ -126,7 +126,9 @@ setup:=>
   pwd = shallowRef(location.pathname[1..])
   unbind = $on window,{
     pushState:=>
+      console.log "!!!",location.pathname
       pwd.value = location.pathname[1..]
+      return
   }
   onUnmounted =>
     unbind()
