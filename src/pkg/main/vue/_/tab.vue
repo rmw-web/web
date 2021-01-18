@@ -82,7 +82,7 @@ config-provider
       menu
         a(v-for="(url,ico) in menu" :class="{now:url==pwd}" :href="`/${url}`")
           b.gg(:class="ico")
-      b(v-for="[title,url] in tab" :class="{now:url==pwd}" @click="goto(url)" :title="url")
+      b(v-for="[title,url] in li" :class="{now:url==pwd}" @click="goto(url)" :title="url")
         | {{title}}
         b
           a.gg.close
@@ -104,7 +104,7 @@ import AMenu from "@/lib/antd/menu"
 import {$on} from '@/coffee/$'
 import goto from "@/coffee/goto"
 import {shallowRef, ref, onUnmounted} from 'vue'
-import tab from './_tab.coffee'
+import li from './tab/li'
 #import {onUnmounted, shallowRef, onBeforeMount, ref} from 'vue'
 
 export default {
@@ -131,7 +131,7 @@ setup:=>
   {
     menu
     pwd
-    tab
+    li
     goto
   }
 }
