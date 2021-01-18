@@ -95,7 +95,7 @@ config-provider
             a-menu-item
               a(href="/state") 同步状态
             a-menu-item
-              a(href="/state") 系统设置
+              a(href="/config") 系统设置
   slot
 </template>
 
