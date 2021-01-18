@@ -97,6 +97,8 @@ setup:=>
   {
     main
     i
+    #TODO 拖拽 mousemove
+    #TODO 自动隐藏
     click:(e)=>
       mv = main.value
       {clientHeight,scrollHeight} = mv
