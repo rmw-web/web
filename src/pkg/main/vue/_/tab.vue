@@ -84,12 +84,6 @@ config-provider
       menu
         b(v-for="(url,ico) in menu")
           a.gg(:href="`/${url}`" :class="ico")
-        b
-          a.gg.ghost
-        b
-          a.gg.im
-        b
-          a.gg.plus
       b.now 人民网络
         b
           a.gg.close
@@ -131,8 +125,14 @@ setup:=>
     plus:"add"
     "msg"
   }
+  tab = [
+    ["人民网络","rmw"]
+    ["十万个冷笑话","10000"]
+    ["桌游唐人街（Chinatown）规则介绍","chinatown"]
+  ]
   {
-    menu: shallowRef menu
+    menu
+    tab:shallowRef tab
   }
 }
 </script>
