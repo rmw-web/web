@@ -18,7 +18,7 @@ components:{
   AButton
 }
 setup:=>
-  tab "同步状态"
+  tab "系统配置"
   return
 }
 </script>
