@@ -83,13 +83,13 @@ config-provider
     main
       menu
         b
-          a.gg.plus
+          a.gg.bookmark(href="/")
+        b
+          a.gg.ghost
         b
           a.gg.im
         b
-          a.gg.bookmark
-        b
-          a.gg.ghost
+          a.gg.plus
       b.now 人民网络
         b
           a.gg.close
