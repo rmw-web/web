@@ -104,6 +104,7 @@ import AMenu from "@/lib/antd/menu"
 import {$on} from '@/coffee/$'
 import goto from "@/coffee/goto"
 import {shallowRef, ref, onUnmounted} from 'vue'
+import tab from './_tab.coffee'
 #import {onUnmounted, shallowRef, onBeforeMount, ref} from 'vue'
 
 export default {
@@ -127,16 +128,10 @@ setup:=>
   }
   onUnmounted =>
     unbind()
-  tab = [
-    ["人民网络","rmw"]
-    ["十万个冷笑话","10000"]
-    ["桌游唐人街（Chinatown）规则介绍","chinatown"]
-    ["同步状态","state"]
-  ]
   {
     menu
     pwd
-    tab:shallowRef tab
+    tab
     goto
   }
 }
