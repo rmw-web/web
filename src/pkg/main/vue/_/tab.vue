@@ -119,9 +119,9 @@ components:{
 }
 setup:=>
   menu = {
-    bookmark:""
-    ghost:"blog"
     "msg"
+    ghost:"blog"
+    bookmark:""
     plus:"add"
   }
   pwd = shallowRef(location.pathname[1..])
