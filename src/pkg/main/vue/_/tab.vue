@@ -13,6 +13,9 @@ main, header
   position absolute
 main
   background #fff
+  display flex
+  align-items center
+  justify-content center
   top headerHeight
   left 0
   right 0
@@ -106,7 +109,7 @@ config-provider
               a(href="/state") 同步状态
             a-menu-item
               a(href="/config") 系统设置
-  main
+  main(ref="main")
     slot
 </template>
 
@@ -115,8 +118,9 @@ import ADropdown from "@/lib/antd/dropdown"
 import {ConfigProvider} from 'ant-design-vue'
 import AMenu from "@/lib/antd/menu"
 import $state from '@/coffee/$/state'
+import $on from '@/coffee/$/on'
 import goto from "@/coffee/goto"
-import {shallowRef, ref, onUnmounted} from 'vue'
+import {shallowRef, onMounted, ref, onUnmounted} from 'vue'
 import tab from './tab/tab'
 #import {onUnmounted, shallowRef, onBeforeMount, ref} from 'vue'
 
@@ -135,15 +139,46 @@ setup:=>
     plus:"add"
   }
   pwd = shallowRef(location.pathname[1..])
-  unbind = $state =>
-    pwd.value = location.pathname[1..]
-    return
+  main = shallowRef()
+  unbind = undefined
+  onMounted =>
+    pre = 0
+    mv = main.value
+    {offsetTop} = mv
+    top = offsetTop
+    unbind = [
+      $on(
+        mv
+        scroll:->
+          {scrollTop} = mv
+          if scrollTop > pre
+            if top > 0
+              mv.style.top = (--top)+"px"
+          else
+            if top < offsetTop
+              od = offsetTop - scrollTop
+              if od > 0
+                top = od
+              mv.style.top = (top++)+"px"
 
+          pre = scrollTop
+          return
+      )
+      $state =>
+        pwd.value = location.pathname[1..]
+        return
+    ]
+    # $on main, {
+    #
+    # }
   onUnmounted =>
-    unbind()
+    for i from unbind
+      i()
+    return
 
   {
     menu
+    main
     pwd
     tab
     goto
