@@ -20,10 +20,10 @@ headerHeight = 2.3rem
   right 0
   transition top 0.3s
 
-simplebar, header
+body>main>.page>main, body>main>.page>header
   position absolute
 
-simplebar
+body>main>.page>main
   background #fff
   display flex
   align-items center
@@ -31,11 +31,11 @@ simplebar
   top headerHeight
   left 0
   right 0
-  height 100%
+  bottom 0
   z-index 1
   overflow hidden
 
-header
+body>main>.page>header
   background #F9F9F9
   border-bottom 1px solid #eee
   display flex
@@ -143,7 +143,7 @@ config-provider
 
 <script lang="coffee">
 import throttle from 'lodash/throttle'
-import simplebar from '@/lib/simplebar'
+import SimpleBar from '@/lib/simplebar'
 import ADropdown from "@/lib/antd/dropdown"
 import {ConfigProvider} from 'ant-design-vue'
 import AMenu from "@/lib/antd/menu"
@@ -157,7 +157,6 @@ import tab from './tab/tab'
 export default {
 components:{
   ConfigProvider
-  simplebar
   ADropdown
   AMenu
   AMenuItem:AMenu.Item
@@ -172,11 +171,11 @@ setup:=>
   pwd = shallowRef(location.pathname[1..])
   main = shallowRef()
   page = shallowRef()
-  unbind = scrollbar = undefined
+  unbind =  undefined
   onMounted =>
     pv = page.value
     mv = main.value
-    Scrollbar(mv)
+    # simplebar = new SimpleBar(mv)
     {offsetTop} = mv
     pren = 0
     prediff = 0
@@ -219,8 +218,6 @@ setup:=>
   onUnmounted =>
     for i from unbind
       i()
-    scrollbar.destroy()
-    scrollbar = undefined
     return
 
   {

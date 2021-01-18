@@ -1,4 +1,4 @@
 import 'simplebar/dist/simplebar.min.css'
-import simplebar from 'simplebar-vue'
+import simplebar from 'simplebar'
 export default simplebar
 
