@@ -82,10 +82,10 @@ config-provider
       menu
         a(v-for="(url,ico) in menu" :class="{now:url==pwd}" :href="`/${url}`")
           b.gg(:class="ico")
-      b(v-for="[title,url] in li" :class="{now:url==pwd}" @click="goto(url)" :title="url")
+      b(v-for="[title,url],n in tab.li" :class="{now:url==pwd}" @click="goto(url)" :title="url")
         | {{title}}
         b
-          a.gg.close
+          a.gg.close(@click.stop="tab.x(n)")
     menu
       a-dropdown
         a.ant-dropdown-link
@@ -94,6 +94,8 @@ config-provider
           a-menu.nav
             a-menu-item
               a(href="/state") 同步状态
+            a-menu-item
+              a(href="/state") 系统设置
   slot
 </template>
 
@@ -104,7 +106,7 @@ import AMenu from "@/lib/antd/menu"
 import {$on} from '@/coffee/$'
 import goto from "@/coffee/goto"
 import {shallowRef, ref, onUnmounted} from 'vue'
-import li from './tab/li'
+import tab from './tab/tab'
 #import {onUnmounted, shallowRef, onBeforeMount, ref} from 'vue'
 
 export default {
@@ -131,7 +133,7 @@ setup:=>
   {
     menu
     pwd
-    li
+    tab
     goto
   }
 }
