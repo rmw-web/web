@@ -8,15 +8,23 @@
 @import '@/pkg/main/styl/ico/gg/msg'
 @import '@/pkg/main/styl/ico/gg/arrow-down'
 fontSize = 0.75rem
+headerHeight = 2.3rem
+main, header
+  position absolute
+main
+  top headerHeight
+  left 0
+  right 0
+  bottom 0
+  overflow auto
 header
   background #F9F9F9
   border-bottom 1px solid #eee
   display flex
   font-size fontSize
+  height headerHeight
   justify-content space-between
-  height 2.3rem
   line-height @height
-  position absolute
   top 0
   user-select none
   width 100%

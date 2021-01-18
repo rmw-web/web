@@ -28,6 +28,19 @@
 .page
   main
     h1 我问问 h1
+    h1 我问问 h1
+    h1 我问问 h1
+    h1 我问问 h1
+    h1 我问问 h1
+    h1 我问问 h1
+    h1 我问问 h1
+    h1 我问问 h1
+    h1 我问问 h1
+    h1 我问问 h1
+    h1 我问问 h1
+    h1 我问问 h1
+    h1 我问问 h1
+    h1 我问问 h1
     form(@submit.prevent="submit")
       p
         input(placeholder="节点网址" type=text v-model="form.addr")
