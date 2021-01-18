@@ -1,57 +1,5 @@
 <style lang="stylus" scoped>
-@import '@/pkg/main/styl/ico/gg/add'
 .page
-  &>aside, &>main
-    display flex
-    position absolute
-    top 2.3rem
-    bottom 0
-  &>aside
-    width 50%
-    right 0
-    &>footer
-      display flex
-      width 100%
-      flex-direction column
-      align-self flex-end
-      &>nav, &>nav>menu, &>input
-        height 2.3rem
-        line-height @height
-        display flex
-      &>input
-        padding 0 0.8rem
-        border 0
-        border 1px solid #eee
-        border-width 1px 0
-      &>nav
-        background #F9F9F9
-        display flex
-        justify-content space-between
-        &>a
-          transform scale(0.7)
-          color #777
-          height 2.3rem
-          line-height 2.3rem
-          display flex
-          align-items center
-          justify-content center
-          width 2.3rem
-          &:hover
-            color #f40
-        &>menu
-          &>a
-            font-weight 500
-            color #777
-            padding 0 0.8rem
-            font-size 0.75rem
-            &:first-child
-              padding-left 0.8rem
-            &.now
-              background #fff
-              box-shadow 0 1px 4px inset #ddd
-              color #555
-            &:hover
-              color #f40
   &>main
     border-right 1px solid #eee
     left 0
@@ -105,16 +53,6 @@
       |    pass
     footer
       a(href="/404") 404
-  aside
-    footer
-      input(placeholder="想说什么 ···")
-      nav
-        a
-          b.gg.add
-        menu
-          a.now 聊天室
-          a 他关注
-          a 订阅者
 </template>
 
 

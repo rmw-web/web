@@ -16,7 +16,7 @@
       align-self flex-end
       &>nav, &>nav>menu, &>input
         height 2.3rem
-        line-height @height
+        line-height 2.5rem
         display flex
       &>input
         padding 0 0.8rem
