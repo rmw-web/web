@@ -77,6 +77,9 @@ Scroll = (elem) =>
     runing = requestAnimationFrame step
     return
 
+i_height = (clientHeight, scrollHeight) =>
+  Math.max(parseInt(clientHeight*clientHeight/scrollHeight)-4,48)
+
 export default {
 components:{
 
@@ -105,7 +108,7 @@ setup:=>
       if not turn.value
         return
       {clientHeight,scrollHeight,scrollTop} = mv
-      height = Math.max(parseInt(clientHeight*clientHeight/scrollHeight)-4,48)
+      height = i_height(clientHeight, scrollHeight)
       iv = i.value
       Object.assign(
         iv.style
@@ -171,7 +174,7 @@ setup:=>
           {scrollHeight,clientHeight} = mv
           diff = offsetY - Y
           #TODO 系数，到了顶部是顶部，到了底部是底部
-          mv.scrollTop += diff*2
+          mv.scrollTop += diff/(clientHeight-i_height(clientHeight,scrollHeight))*(scrollHeight-clientHeight)
           Y = offsetY
           return
 
