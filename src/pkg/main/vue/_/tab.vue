@@ -12,6 +12,7 @@ headerHeight = 2.3rem
 main, header
   position absolute
 main
+  background #fff
   top headerHeight
   left 0
   right 0
