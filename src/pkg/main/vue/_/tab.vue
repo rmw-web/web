@@ -28,10 +28,7 @@ body>main>.page>main
   right 0
   bottom 0
   z-index 1
-  overflow hidden
-  &:deep(>.scroll-content)
-    width 100%
-    align-self flex-start
+  overflow auto
 body>main>.page>header
   background #F9F9F9
   border-bottom 1px solid #eee
@@ -120,7 +117,7 @@ config-provider
                 a(href="/state") 同步状态
               a-menu-item
                 a(href="/config") 系统设置
-    main(ref="main")
+    scrollbar(ref="main")
       slot
 </template>
 
@@ -143,6 +140,7 @@ components:{
   ADropdown
   AMenu
   AMenuItem:AMenu.Item
+  Scrollbar
 }
 setup:=>
   menu = {
@@ -157,8 +155,7 @@ setup:=>
   unbind = undefined
   onMounted =>
     pv = page.value
-    mv = main.value
-    Scrollbar(mv)
+    mv = main.value.$el
     {offsetTop} = mv
     pren = 0
     prediff = 0

@@ -71,7 +71,6 @@
     "pouchdb-adapter-http": "^7.2.2",
     "pouchdb-adapter-idb": "^7.2.2",
     "rxdb": "^9.12.0",
-    "smooth-scrollbar": "^8.5.3",
     "split_n": "^1.0.5",
     "stream-browserify": "^3.0.0",
     "uuidv4": "^6.2.6",
