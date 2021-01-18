@@ -1,14 +1,17 @@
 <style lang="stylus" scoped>
 .nav.ant-dropdown-menu
   margin-top -5px
+
 @import '@/pkg/main/styl/ico/gg/plus'
 @import '@/pkg/main/styl/ico/gg/close'
 @import '@/pkg/main/styl/ico/gg/bookmark'
 @import '@/pkg/main/styl/ico/gg/ghost'
 @import '@/pkg/main/styl/ico/gg/msg'
 @import '@/pkg/main/styl/ico/gg/arrow-down'
+
 fontSize = 0.75rem
 headerHeight = 2.3rem
+
 .page
   position absolute
   top 0
@@ -16,9 +19,11 @@ headerHeight = 2.3rem
   left 0
   right 0
   transition top 0.3s
-main, header
+
+simplebar, header
   position absolute
-main
+
+simplebar
   background #fff
   display flex
   align-items center
@@ -26,9 +31,10 @@ main
   top headerHeight
   left 0
   right 0
-  bottom 0
+  height 100%
   z-index 1
   overflow hidden
+
 header
   background #F9F9F9
   border-bottom 1px solid #eee
@@ -40,10 +46,13 @@ header
   top 0
   user-select none
   width 100%
+
   &>nav
     display flex
+
   b, menu a
     vertical-align bottom
+
   &>nav>b, menu>a
     display inline-flex
     height calc(2.3rem - 1px)
@@ -52,26 +61,32 @@ header
     font-weight 500
     align-items center
     position relative
+
     &:hover
       background #f0f0f0
       font-weight 500
       color #333
+
     &.now
       height 2.3rem
       color #000
       background #fff
       margin-bottom -1px
       padding-bottom 1px
+
 menu
   display flex
+
   &>a
     padding 0
     width 2.3rem
     align-items center
     justify-content center
     color #777
+
 nav>b
   padding 0.15rem 0.75rem 0
+
   &>b
     height 2.3rem
     position relative
@@ -81,17 +96,22 @@ nav>b
     align-items center
     padding 0
     justify-content center
+
     &:hover
       background transparent
+
     &>.gg.close
       margin-top -0.1rem
+
       &:hover
         color #fff
         background #777
+
 nav>b>b>a, menu>a>b
   color #777
   height 100%
   transform scale(0.65)
+
 nav>b>b:hover>a, menu>a:hover>b
   color #333
 </style>
@@ -123,7 +143,7 @@ config-provider
 
 <script lang="coffee">
 import throttle from 'lodash/throttle'
-import PerfectScrollbar from 'perfect-scrollbar'
+import simplebar from '@/lib/simplebar'
 import ADropdown from "@/lib/antd/dropdown"
 import {ConfigProvider} from 'ant-design-vue'
 import AMenu from "@/lib/antd/menu"
@@ -137,6 +157,7 @@ import tab from './tab/tab'
 export default {
 components:{
   ConfigProvider
+  simplebar
   ADropdown
   AMenu
   AMenuItem:AMenu.Item
@@ -151,10 +172,11 @@ setup:=>
   pwd = shallowRef(location.pathname[1..])
   main = shallowRef()
   page = shallowRef()
-  unbind = undefined
+  unbind = scrollbar = undefined
   onMounted =>
     pv = page.value
     mv = main.value
+    Scrollbar(mv)
     {offsetTop} = mv
     pren = 0
     prediff = 0
@@ -197,6 +219,8 @@ setup:=>
   onUnmounted =>
     for i from unbind
       i()
+    scrollbar.destroy()
+    scrollbar = undefined
     return
 
   {

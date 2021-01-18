@@ -1,284 +1,29 @@
 // html *, html *:before, html *:after
-//   box-sizing border-box
+// box-sizing border-box
 // 
 // ::selection
-//   background #fd2
-//   
+// background #fd2
+// 
 input:focus
   outline none
+
+html
+  scroll-behavior smooth
+
 html, body
   min-height 100%
   display flex
   background #fff
   justify-content center
-  
-body>main
   overflow hidden
+
+body>main
   display flex
   width 100%
+  height 100%
   align-items center
   justify-content center
-  
+
 body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, menu, nav, section
   margin 0
   padding 0
-// 
-// body
-//   text-rendering optimizelegibility
-//   width 100%
-//   font-size 1em
-//   word-spacing 0.02em
-//   letter-spacing 0.04em
-// 
-// menu, header a
-//   user-select none
-// 
-// /* 内外边距通常让各个浏览器样式的表现位置不同 */
-// 
-// /* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
-// article, aside, details, figcaption, figure, footer, header, menu, nav, section
-//   display block
-// 
-// /* HTML5 媒体文件跟 img 保持一致 */
-// audio, canvas, video
-//   display inline-block
-// 
-// /* 去掉各Table cell 的边距并让其边重合 */
-// table
-//   border-collapse collapse
-//   border-spacing 0
-// 
-// /* 去除默认边框 */
-// fieldset, img
-//   border 0
-// 
-// /* 块/段落引用 */
-// blockquote
-//   position relative
-//   padding-left 1em
-//   margin 1.5em 0 0 0
-//   padding-left 2em
-//   padding-top 0.35em
-// 
-//   &:after
-//     content ''
-//     border-left 0.1em dashed #ddd
-//     position absolute
-//     left 0
-//     top 0.81em
-//     bottom 0.5em
-// 
-//   &:before
-//     content '“'
-//     font-family code
-//     font-size 1.3em
-//     color #ddd
-//     position absolute
-//     top -0.6em
-//     left -0.25em
-// 
-// @media only screen and (max-width: 640px)
-//   blockquote
-//     margin 1em 0
-// 
-// /* Firefox 以外，元素没有下划线，需添加 */
-// acronym, abbr
-//   border-bottom 1px dotted
-//   font-variant normal
-//   text-decoration none
-// 
-// /* 添加鼠标问号，进一步确保应用的语义是正确的（要知道，交互他们也有洁癖，如果你不去掉，那得多花点口舌） */
-// abbr
-//   cursor help
-// 
-// /* 一致的 del 样式 */
-// del
-//   text-decoration line-through
-// 
-// address, caption, cite, code, dfn, em, th, var
-//   font-style normal
-//   font-weight 400
-// 
-// /* 去掉列表前的标识, li 会继承，大部分网站通常用列表来很多内容，所以应该当去 */
-// ul, ol
-//   list-style none
-// 
-// /* 对齐是排版最重要的因素, 别让什么都居中 */
-// caption, th
-//   text-align left
-// 
-// q:before, q:after
-//   content ''
-// 
-// /* 统一上标和下标 */
-// sub, sup
-//   font-size 75%
-//   line-height 0
-//   position relative
-// 
-// :root sub, :root sup
-//   vertical-align baseline /* for ie9 and other modern browsers */
-// 
-// sup
-//   top -0.5em
-// 
-// sub
-//   bottom -0.25em
-// 
-// /* 让链接在 hover 状态下显示下划线 */
-// a
-//   color #000
-//   outline 0
-//   cursor pointer
-// 
-// a:hover, a:focus
-//   color #f40
-//   text-decoration none
-// 
-// /* 默认不显示下划线，保持页面简洁 */
-// ins, a
-//   text-decoration none
-// 
-// /* 专名号：虽然 u 已经重回 html5 Draft，但在所有浏览器中都是可以使用的，
-//  * 要做到更好，向后兼容的话，添加 class="typo-u" 来显示专名号
-//  * 关于 <u> 标签：http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-u-element
-//  * 被放弃的是 4，之前一直搞错 http://www.w3.org/TR/html401/appendix/changes.html#idx-deprecated
-//  * 一篇关于 <u> 标签的很好文章：http://html5doctor.com/u-element/
-//  */
-// u
-//   text-decoration underline
-// 
-// /* 标记，类似于手写的荧光笔的作用 */
-// mark
-//   background #fffdd1
-//   border-bottom 1px solid #ffedce
-//   padding 2px
-//   margin 0 5px
-// 
-// /* 一致化 horizontal rule */
-// hr
-//   border none
-//   border-top 1px dashed #ddd
-//   margin-top 1.6em
-//   padding-bottom 0.6em
-// 
-// /* 底部印刷体、版本等标记 */
-// small, figcaption
-//   font-size 0.9em
-//   color #888
-// 
-// strong, b
-//   font-weight bold
-// 
-// /* 保证块/段落之间的空白隔行 */
-// p, pre, ul, ol, dl, form, hr, table, blockquote
-//   margin-bottom 1em
-//   line-height 1.8
-// 
-// /* 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优化 */
-// h1, h2, h3, h4, h5, h6
-//   margin-top 0.58em
-//   margin-bottom 0.5em
-//   line-height 1.35
-// 
-// h1
-//   font-size 1.992em
-// 
-// h2
-//   font-size 1.8em
-// 
-// h3
-//   font-size 1.62em
-// 
-// h4
-//   font-size 1.458em
-// 
-// h5
-//   font-size 1.3122em
-// 
-// h6
-//   font-size 1.18098em
-// 
-// /* 在文章中，应该还原 ul 和 ol 的样式 */
-// ul
-//   margin-left 1.3em
-//   list-style disc
-// 
-// ol
-//   list-style decimal
-// 
-// li ul, li ol
-//   margin-bottom 0.8em
-//   margin-left 2em
-// 
-// li ul
-//   list-style circle
-// 
-// /* 同 ul/ol，在文章中应用 table 基本格式 */
-// table th, table td, table caption
-//   border 1px solid #ddd
-//   padding 0.5em 1em
-//   color #666
-// 
-// table th
-//   background #fbfbfb
-// 
-// table thead th
-//   background #f1f1f1
-// 
-// table caption
-//   border-bottom none
-// 
-// /* 去除 webkit 中 input 和 textarea 的默认样式 */
-// input, textarea
-//   -webkit-appearance none
-//   border-radius 0
-// 
-// em, legend, caption
-//   font-weight inherit
-// 
-// /* Responsive images */
-// img
-//   max-width 100%
-// 
-// // Avoid 300ms click delay on touch devices that support the `touch-action` CSS property.
-// // 
-// // In particular, unlike most other browsers, IE11+Edge on Windows 10 on touch devices and IE Mobile 10-11
-// // DON'T remove the click delay when `<meta name="viewport" content="width=device-width">` is present.
-// // However, they DO support emoving the click delay via `touch-action: manipulation`.
-// // See:
-// // * https://getbootstrap.com/docs/4.0/content/reboot/#click-delay-optimization-for-touch
-// // * http://caniuse.com/#feat=css-touch-action
-// // * https://patrickhlauke.github.io/touch/test/results/#suppressing-300ms-delay
-// a, area, button, [role='button'], input:not([type='range']), label, select, summary, textarea
-//   touch-action manipulation
-// 
-// // 
-// // Forms
-// // 
-// input, button, select, optgroup, textarea
-//   font-family inherit
-//   font-size inherit
-// 
-// p code
-//   padding 0.3em 0.3em 0.2em
-//   margin 0 0.3em
-//   vertical-align 0.05em
-// 
-// pre
-//   padding 1em 1.5em
-//   display block
-//   white-space pre-wrap
-//   -webkit-overflow-scrolling touch
-// 
-// p code, pre
-//   background #f9fff0
-//   border 1px dashed #9c0
-// 
-// input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, textarea:-webkit-autofill, textarea:-webkit-autofill:hover, textarea:-webkit-autofill:focus, select:-webkit-autofill, select:-webkit-autofill:hover, select:-webkit-autofill:focus
-//   -webkit-text-fill-color #666
-//   -webkit-box-shadow 0 0 0 9999px #fff inset
-//   transition background-color 9999s ease-in-out 0s
-// 
-// header, menu
-//   background url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1px'><line x1='0' y1='0' x2='100%' y2='0' stroke='rgb(187,187,187)'></line></svg>") 0 100% no-repeat
