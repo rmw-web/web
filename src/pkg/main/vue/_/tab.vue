@@ -8,7 +8,7 @@
 @import '@/pkg/main/styl/ico/gg/msg'
 @import '@/pkg/main/styl/ico/gg/arrow-down'
 fontSize = 0.75rem
-nav
+header
   background #F9F9F9
   border-bottom 1px solid #eee
   display flex
@@ -20,11 +20,11 @@ nav
   top 0
   user-select none
   width 100%
-  &>main
+  &>nav
     display flex
   b, menu a
     vertical-align bottom
-  &>main>b, menu>a
+  &>nav>b, menu>a
     display inline-flex
     height calc(2.3rem - 1px)
     border-right 1px solid #eee
@@ -50,7 +50,7 @@ menu
     align-items center
     justify-content center
     color #777
-main>b
+nav>b
   padding 0.15rem 0.75rem 0
   &>b
     height 2.3rem
@@ -68,17 +68,17 @@ main>b
       &:hover
         color #fff
         background #777
-main>b>b>a, menu>a>b
+nav>b>b>a, menu>a>b
   color #777
   height 100%
   transform scale(0.65)
-main>b>b:hover>a, menu>a:hover>b
+nav>b>b:hover>a, menu>a:hover>b
   color #333
 </style>
 <template lang="pug">
 config-provider
-  nav
-    main
+  header
+    nav
       menu
         a(v-for="(url,ico) in menu" :class="{now:url==pwd}" :href="`/${url}`")
           b.gg(:class="ico")
@@ -96,7 +96,8 @@ config-provider
               a(href="/state") 同步状态
             a-menu-item
               a(href="/config") 系统设置
-  slot
+  main
+    slot
 </template>
 
 <script lang="coffee">
