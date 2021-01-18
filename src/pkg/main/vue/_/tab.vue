@@ -9,25 +9,23 @@
 @import '@/pkg/main/styl/ico/gg/arrow-down'
 fontSize = 0.75rem
 headerHeight = 2.3rem
-.page
+body>main>.page
   position absolute
   top 0
   bottom 0
   left 0
   right 0
   transition top 0.3s
-body>main>.page>main, body>main>.page>header
+body>main>.page>.scrollbar, body>main>.page>header
   position absolute
-body>main>.page>main
+body>main>.page>.scrollbar
   background #fff
   top headerHeight
-  display flex
-  align-items center
-  justify-content center
   left 0
   right 0
   bottom 0
   z-index 1
+  display flex
 body>main>.page>header
   background #F9F9F9
   border-bottom 1px solid #eee

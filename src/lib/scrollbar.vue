@@ -1,12 +1,18 @@
 <style lang="stylus" scoped>
-main
+.scrollbar
   overflow auto
   -ms-overflow-style none
   scrollbar-width none
   position relative
-main::-webkit-scrollbar
+.scrollbar::-webkit-scrollbar
   width 0
-aside
+.scrollbar>div
+  min-height 100%
+  display flex
+  width 100%
+  align-items center
+  justify-content center
+.scrollbar>aside
   user-select none
   position sticky
   width 1rem
@@ -32,9 +38,10 @@ aside
 </style>
 
 <template lang="pug">
-main(ref="main")
-  slot
-  aside(@click="click")
+.scrollbar(ref="main")
+  div(ref="wrap")
+    slot
+  aside(@click="click" ref="aside")
     i(ref="i")
 </template>
 
@@ -51,6 +58,7 @@ Scroll = (elem) =>
     duration=300
     scrollCount = 0
     cosParameter = (elem.scrollTop - to) / 2
+    toCos = to+cosParameter
     oldTimestamp = 0
     step = (newTimestamp) ->
       if oldTimestamp
@@ -59,7 +67,7 @@ Scroll = (elem) =>
         if scrollCount >= Math.PI
           elem.scrollTop = to
           return
-        elem.scrollTop = to + cosParameter + cosParameter * Math.cos(scrollCount)
+        elem.scrollTop = toCos + cosParameter * Math.cos(scrollCount)
       oldTimestamp = newTimestamp
       runing = requestAnimationFrame step
       return
@@ -75,28 +83,44 @@ components:{
 }
 setup:=>
   main = shallowRef()
+  wrap = shallowRef()
   i = shallowRef()
+  aside = shallowRef()
   scrollTo = undefined
   onMounted =>
     iv = i.value
     mv = main.value
+    wv = wrap.value
+    av = aside.value
     scrollTo = Scroll mv
     scroll = =>
       {clientHeight,scrollHeight,scrollTop} = mv
+      if scrollHeight <= clientHeight
+        av.style.display = "none"
+      else
+        av.style.display = ""
       height = Math.max(parseInt(clientHeight*clientHeight/scrollHeight)-4,48)
       iv.style.height = height+"px"
       iv.style.top = parseInt(scrollTop/(scrollHeight-clientHeight)*(clientHeight-4-height))+"px"
       return
-    setTimeout(scroll,1000)
+    ro = new ResizeObserver =>
+      scroll()
+    ro.observe wv
     unbind = $on(
       mv
-      {scroll}
+      {
+        scroll
+      }
     )
-    onUnmounted unbind
+    onUnmounted =>
+      unbind()
+      ro.disconnect()
     return
   {
     main
     i
+    aside
+    wrap
     #TODO 拖拽 mousemove
     #TODO 自动隐藏
     click:(e)=>
