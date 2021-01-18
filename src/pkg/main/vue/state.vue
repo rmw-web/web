@@ -72,7 +72,7 @@
 <script lang="coffee">
 import {add} from "@/ws/task"
 import DB from '@/db/rxdb'
-import {onUnmounted, shallowRef, onBeforeMount, ref} from 'vue'
+import {onMounted, onUnmounted, shallowRef, onBeforeMount, ref} from 'vue'
 import AButton from '@/lib/antd/button'
 import {tab} from './_/tab/tab'
 export default {
@@ -83,6 +83,7 @@ setup:=>
   tab "同步状态"
   {task} = DB
 
+  # onMounted =>
   onUnmounted =>
     console.log "cancel task"
     task$?.cancel()

@@ -28,7 +28,6 @@ body>main>.page>main
   right 0
   bottom 0
   z-index 1
-  overflow auto
 body>main>.page>header
   background #F9F9F9
   border-bottom 1px solid #eee
@@ -152,7 +151,6 @@ setup:=>
   pwd = shallowRef(location.pathname[1..])
   main = shallowRef()
   page = shallowRef()
-  unbind = undefined
   onMounted =>
     pv = page.value
     mv = main.value.$el
@@ -195,10 +193,10 @@ setup:=>
     # $on main, {
     #
     # }
-  onUnmounted =>
-    for i from unbind
-      i()
-    return
+    onUnmounted =>
+      for i from unbind
+        i()
+      return
 
   {
     menu
