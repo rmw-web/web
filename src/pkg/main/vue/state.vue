@@ -1,10 +1,7 @@
 <style lang="stylus" scoped>
 .page
+  align-self flex-start
   &>main
-    border-right 1px solid #eee
-    left 0
-    right 50%
-    position absolute
     padding 2.3rem
     display flex
     flex-direction column

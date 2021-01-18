@@ -7,9 +7,11 @@
 .scrollbar::-webkit-scrollbar
   width 0
 .scrollbar>div
+  margin auto
+.scrollbar>div>div
   min-height 100%
-  display flex
   width 100%
+  display flex
   align-items center
   justify-content center
 .scrollbar>aside
@@ -39,15 +41,16 @@
 
 <template lang="pug">
 .scrollbar(ref="main")
-  div(ref="wrap")
-    slot
-  aside(@click="click" ref="aside")
+  div
+    div(ref="wrap")
+      slot
+  aside(@click="click" ref="aside" v-if="turn")
     i(ref="i")
 </template>
 
 
 <script lang="coffee">
-import {shallowRef, onMounted, onUnmounted} from 'vue'
+import {nextTick, ref, shallowRef, onMounted, onUnmounted} from 'vue'
 import $on from '@/coffee/$/on'
 
 Scroll = (elem) =>
@@ -87,8 +90,8 @@ setup:=>
   i = shallowRef()
   aside = shallowRef()
   scrollTo = undefined
+  turn = ref 0
   onMounted =>
-    iv = i.value
     mv = main.value
     wv = wrap.value
     av = aside.value
@@ -96,12 +99,15 @@ setup:=>
     scroll = =>
       {clientHeight,scrollHeight,scrollTop} = mv
       if scrollHeight <= clientHeight
-        av.style.display = "none"
+        turn.value = 0
+        return
       else
-        av.style.display = ""
+        turn.value = 1
       height = Math.max(parseInt(clientHeight*clientHeight/scrollHeight)-4,48)
-      iv.style.height = height+"px"
-      iv.style.top = parseInt(scrollTop/(scrollHeight-clientHeight)*(clientHeight-4-height))+"px"
+      nextTick =>
+        iv = i.value
+        iv.style.height = height+"px"
+        iv.style.top = parseInt(scrollTop/(scrollHeight-clientHeight)*(clientHeight-4-height))+"px"
       return
     ro = new ResizeObserver =>
       scroll()
@@ -117,6 +123,7 @@ setup:=>
       ro.disconnect()
     return
   {
+    turn
     main
     i
     aside

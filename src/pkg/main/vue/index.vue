@@ -4,7 +4,7 @@
   &>aside, &>main
     display flex
     position absolute
-    top 2.3rem
+    top 0
     bottom 0
   &>aside
     width 50%
