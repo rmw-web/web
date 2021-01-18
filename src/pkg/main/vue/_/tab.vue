@@ -3,7 +3,7 @@
 @import '@/pkg/main/styl/ico/gg/close'
 @import '@/pkg/main/styl/ico/gg/bookmark'
 @import '@/pkg/main/styl/ico/gg/ghost'
-@import '@/pkg/main/styl/ico/gg/im'
+@import '@/pkg/main/styl/ico/gg/msg'
 @import '@/pkg/main/styl/ico/gg/arrow-down'
 fontSize = 0.75rem
 nav
@@ -82,8 +82,8 @@ config-provider
   nav
     main
       menu
-        b
-          a.gg.bookmark(href="/")
+        b(v-for="(url,ico) in menu")
+          a.gg(:href="`/${url}`" :class="ico")
         b
           a.gg.ghost
         b
@@ -114,6 +114,9 @@ config-provider
 import ADropdown from "@/lib/antd/dropdown"
 import {ConfigProvider} from 'ant-design-vue'
 import AMenu from "@/lib/antd/menu"
+import {shallowRef, ref} from 'vue'
+#import {onUnmounted, shallowRef, onBeforeMount, ref} from 'vue'
+
 export default {
 components:{
   ConfigProvider
@@ -122,7 +125,15 @@ components:{
   AMenuItem:AMenu.Item
 }
 setup:=>
-
+  menu = {
+    bookmark:""
+    ghost:"blog"
+    plus:"add"
+    "msg"
+  }
+  {
+    menu: shallowRef menu
+  }
 }
 </script>
 
