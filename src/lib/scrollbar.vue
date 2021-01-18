@@ -7,31 +7,34 @@ main
 main::-webkit-scrollbar
   width 0
 aside
+  user-select none
   position sticky
   width 1rem
   height 100%
   top 0
   left 100%
   &>i
-    height 200px
+    position absolute
     display block
     width 40%
+    margin-top 2px
+    margin-bottom 2px
     border-radius 0.3rem
     margin-left 45%
-    transition all 0.3s
+    transition width 0.3s, margin 0.3s, background 0.3s
     background rgba(0, 0, 0, 0.15)
   &:hover
     background rgba(200, 200, 200, 0.3)
     &>i
       background rgba(0, 0, 0, 0.3)
-      width 60%
-      margin-left 20%
+      width 50%
+      margin-left 30%
 </style>
 
 <template lang="pug">
 main(ref="main")
   slot
-  aside
+  aside(@click="click")
     i(ref="i")
 </template>
 
@@ -40,6 +43,32 @@ main(ref="main")
 import {shallowRef, onMounted, onUnmounted} from 'vue'
 import $on from '@/coffee/$/on'
 
+Scroll = (elem) =>
+  runing = 0
+  {requestAnimationFrame, cancelAnimationFrame} = window
+  (to)=>
+    cancelAnimationFrame runing
+    duration=300
+    scrollCount = 0
+    cosParameter = (elem.scrollTop - to) / 2
+    oldTimestamp = 0
+    step = (newTimestamp) ->
+      if oldTimestamp
+        # if duration is 0 scrollCount will be Infinity
+        scrollCount += Math.PI * (newTimestamp - oldTimestamp) / duration
+        if scrollCount >= Math.PI
+          elem.scrollTop = to
+          return
+        elem.scrollTop = to + cosParameter + cosParameter * Math.cos(scrollCount)
+      oldTimestamp = newTimestamp
+      runing = requestAnimationFrame step
+      return
+
+    if elem.scrollTop == to
+      return
+    runing = requestAnimationFrame step
+    return
+
 export default {
 components:{
 
@@ -47,19 +76,33 @@ components:{
 setup:=>
   main = shallowRef()
   i = shallowRef()
+  scrollTo = undefined
   onMounted =>
+    iv = i.value
     mv = main.value
+    scrollTo = Scroll mv
+    scroll = =>
+      {clientHeight,scrollHeight,scrollTop} = mv
+      height = Math.max(parseInt(clientHeight*clientHeight/scrollHeight)-4,48)
+      iv.style.height = height+"px"
+      iv.style.top = parseInt(scrollTop/(scrollHeight-clientHeight)*(clientHeight-4-height))+"px"
+      return
+    setTimeout(scroll,1000)
     unbind = $on(
       mv
-      scroll:=>
-        console.log "top", mv.scrollTop, "height", mv.clientHeight
-
+      {scroll}
     )
-    onUnmounted =>
-      unbind()
+    onUnmounted unbind
+    return
   {
     main
     i
+    click:(e)=>
+      mv = main.value
+      {clientHeight,scrollHeight} = mv
+      scrollTo parseInt(e.offsetY/clientHeight * (scrollHeight-clientHeight))
+      return
+
   }
 }
 </script>
