@@ -68,6 +68,7 @@
     "markdown-it-footnote-6du": "^3.0.2",
     "markdown-it-imsize": "^2.0.1",
     "markdown-it-toc-and-anchor": "^4.2.0",
+    "perfect-scrollbar": "^1.5.0",
     "pouchdb-adapter-http": "^7.2.2",
     "pouchdb-adapter-idb": "^7.2.2",
     "rxdb": "^9.12.0",

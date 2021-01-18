@@ -28,7 +28,7 @@ main
   right 0
   bottom 0
   z-index 1
-  overflow auto
+  overflow hidden
 header
   background #F9F9F9
   border-bottom 1px solid #eee
@@ -123,6 +123,7 @@ config-provider
 
 <script lang="coffee">
 import throttle from 'lodash/throttle'
+import PerfectScrollbar from 'perfect-scrollbar'
 import ADropdown from "@/lib/antd/dropdown"
 import {ConfigProvider} from 'ant-design-vue'
 import AMenu from "@/lib/antd/menu"
