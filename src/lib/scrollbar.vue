@@ -17,25 +17,23 @@
 .scrollbar>aside
   user-select none
   position sticky
-  width 1rem
   height 100%
   top 0
+  width 0.9rem
   left 100%
   &>i
     position absolute
     display block
-    width 40%
-    margin-top 2px
-    margin-bottom 2px
+    width 0.45rem
+    right 4px
+    margin 2px 0
     border-radius 0.3rem
-    margin-left 45%
-    transition width 0.3s, margin 0.3s, opacity 1s
-    background rgba(0, 0, 0, 0.15)
+    transition width 0.3s, opacity 1s
+    background rgba(0, 0, 0, 0.3)
   &:hover
     &>i
       opacity 1 !important
-      width 50%
-      margin-left 30%
+      width 0.8rem
 </style>
 
 <template lang="pug">
@@ -121,7 +119,7 @@ setup:=>
       timer = setTimeout(
         =>
           iv.style.opacity = 0
-        3000
+        1000
       )
       return
     ro = new ResizeObserver =>
@@ -173,7 +171,7 @@ setup:=>
           {scrollHeight,clientHeight} = mv
           diff = offsetY - Y
           #TODO 系数，到了顶部是顶部，到了底部是底部
-          mv.scrollTop += diff
+          mv.scrollTop += diff*2
           Y = offsetY
           return
 
