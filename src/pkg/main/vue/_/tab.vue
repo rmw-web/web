@@ -82,15 +82,10 @@ config-provider
   nav
     main
       menu
-        b(v-for="(url,ico) in menu")
+        b(v-for="(url,ico) in menu" :class="{now:url==pwd}")
           a.gg(:href="`/${url}`" :class="ico")
-      b.now 人民网络
-        b
-          a.gg.close
-      b 十万个冷笑话
-        b
-          a.gg.close
-      b Stack OverOverflow
+      b(v-for="[title,url] in tab" :class="{now:url==pwd}" @click="goto(url)" :title="'/'+url")
+        | {{title}}
         b
           a.gg.close
     menu
@@ -108,6 +103,7 @@ config-provider
 import ADropdown from "@/lib/antd/dropdown"
 import {ConfigProvider} from 'ant-design-vue'
 import AMenu from "@/lib/antd/menu"
+import goto from "@/coffee/goto"
 import {shallowRef, ref} from 'vue'
 #import {onUnmounted, shallowRef, onBeforeMount, ref} from 'vue'
 
@@ -125,14 +121,18 @@ setup:=>
     plus:"add"
     "msg"
   }
+  pwd = shallowRef(location.pathname[1..])
   tab = [
     ["人民网络","rmw"]
     ["十万个冷笑话","10000"]
     ["桌游唐人街（Chinatown）规则介绍","chinatown"]
+    ["同步状态","state"]
   ]
   {
     menu
+    pwd
     tab:shallowRef tab
+    goto
   }
 }
 </script>
