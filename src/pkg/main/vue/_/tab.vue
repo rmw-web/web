@@ -120,8 +120,8 @@ setup:=>
   menu = {
     bookmark:""
     ghost:"blog"
-    plus:"add"
     "msg"
+    plus:"add"
   }
   pwd = shallowRef(location.pathname[1..])
   unbind = $state =>
