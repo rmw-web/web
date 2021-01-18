@@ -1,6 +1,6 @@
 import Pop from "@/coffee/Pop"
-# import URL from './url.txt'
-# pkg_template = new Set(URL.split("\n"))
+import {URL as _URL} from '../url.txt'
+URL = new Set(_URL.split("\n"))
 
 INDEX = 'index'
 HTTP404 = '/_/http/404'
@@ -9,6 +9,8 @@ HTTP404 = '/_/http/404'
 export default (pathname)=>
   if pathname == ""
     return INDEX
+  if URL.has pathname
+    return pathname
   return HTTP404
   # if pathname.startsWith '-'
   #   pathname = pathname.slice(1)

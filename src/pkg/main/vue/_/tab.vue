@@ -106,7 +106,7 @@ config-provider
         template(#overlay)
           a-menu.nav
             a-menu-item
-              a 同步状态
+              a(href="/state") 同步状态
   slot
 </template>
 
