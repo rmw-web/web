@@ -139,6 +139,9 @@ setup:=>
     #TODO 拖拽 mousemove
     #TODO 自动隐藏
     click:(e)=>
+      if _mouseunbind
+        console.log _mouseunbind
+        return
       mv = main.value
       {clientHeight,scrollHeight} = mv
       scrollTo parseInt(e.offsetY/clientHeight * (scrollHeight-clientHeight))
@@ -149,19 +152,15 @@ setup:=>
       iv = i.value
       top = iv.offsetTop
       Y = e.offsetY
-      max = av.clientHeight-iv.clientHeight
       _mouseunbind = $on document,{
         mouseup:mouseunbind
         mousemove:({offsetY})=>
-          pos = top + offsetY - Y
-          if pos < 0
-            top = pos = 0
-            Y = offsetY
-          else if pos > max
-            top = pos = max
-            Y = offsetY
           mv = main.value
-          mv.scrollTop = pos/max*(mv.scrollHeight-mv.clientHeight)
+          {scrollHeight,clientHeight} = mv
+          diff = offsetY - Y
+          #TODO 系数，到了顶部是顶部，到了底部是底部
+          mv.scrollTop += diff
+          Y = offsetY
           return
 
       }
