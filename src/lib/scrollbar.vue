@@ -29,12 +29,11 @@
     margin-bottom 2px
     border-radius 0.3rem
     margin-left 45%
-    transition width 0.3s, margin 0.3s, background 0.3s
+    transition width 0.3s, margin 0.3s, opacity 1s
     background rgba(0, 0, 0, 0.15)
   &:hover
-    background rgba(200, 200, 200, 0.3)
     &>i
-      background rgba(0, 0, 0, 0.3)
+      opacity 1 !important
       width 50%
       margin-left 30%
 </style>
@@ -97,26 +96,41 @@ setup:=>
     _mouseunbind?()
     _mouseunbind = undefined
 
+  timer = undefined
+
   onMounted =>
     mv = main.value
     wv = wrap.value
     av = aside.value
     scrollTo = Scroll mv
     scroll = =>
-      {clientHeight,scrollHeight,scrollTop} = mv
-      if scrollHeight <= clientHeight
-        turn.value = 0
+      if not turn.value
         return
-      else
-        turn.value = 1
+      {clientHeight,scrollHeight,scrollTop} = mv
       height = Math.max(parseInt(clientHeight*clientHeight/scrollHeight)-4,48)
-      nextTick =>
-        iv = i.value
-        iv.style.height = height+"px"
-        iv.style.top = parseInt(scrollTop/(scrollHeight-clientHeight)*(clientHeight-4-height))+"px"
+      iv = i.value
+      Object.assign(
+        iv.style
+        {
+          opacity : 1
+          height : height+"px"
+          top : parseInt(scrollTop/(scrollHeight-clientHeight)*(clientHeight-4-height))+"px"
+        }
+      )
+      clearTimeout timer
+      timer = setTimeout(
+        =>
+          iv.style.opacity = 0
+        3000
+      )
       return
     ro = new ResizeObserver =>
-      scroll()
+      {clientHeight,scrollHeight} = mv
+      if scrollHeight <= clientHeight
+        turn.value = 0
+      else
+        turn.value = 1
+      nextTick scroll
     ro.observe wv
     unbind = $on(
       mv
