@@ -3,8 +3,8 @@ html.scroll
   cursor grab
   &>body
     pointer-events none
-  .scrollbar>aside>i
-    opacity 1 !important
+aside.scroll
+  opacity 1 !important
 </style>
 <style lang="stylus" scoped>
 .scrollbar
@@ -47,7 +47,7 @@ html.scroll
     &>i
       background rgba(0, 0, 0, 0.3)
       width 0.6rem
-      right 0.2rem
+      right 0.225rem
 </style>
 
 <template lang="pug">
@@ -56,7 +56,7 @@ html.scroll
     div(ref="wrap")
       slot
   aside(@click="click" ref="aside" v-if="turn")
-    i(ref="i" @mousedown="down")
+    i(ref="si" @mousedown="down")
 </template>
 
 
@@ -99,14 +99,15 @@ components:{
 setup:=>
   main = shallowRef()
   wrap = shallowRef()
-  i = shallowRef()
+  si = shallowRef()
   aside = shallowRef()
   scrollTo = undefined
   turn = ref 0
-  _mouseuntimer = _mouseunbind = undefined
+
+  _mouseunbind = undefined
   mouseunbind = =>
-    clearInterval _mouseuntimer
-    HTML.classList.remove(SCROLL_CLS)
+    for i from [HTML, aside.value]
+      i.classList.remove(SCROLL_CLS)
     _mouseunbind?()
     _mouseunbind = undefined
 
@@ -121,7 +122,7 @@ setup:=>
         return
       {clientHeight,scrollHeight,scrollTop} = mv
       height = Math.max(parseInt(clientHeight*clientHeight/scrollHeight)-4,48)
-      iv = i.value
+      iv = si.value
       av = aside.value
       av.style.opacity = 1
       Object.assign(
@@ -161,7 +162,7 @@ setup:=>
   {
     turn
     main
-    i
+    si
     aside
     wrap
     click:(e)=>
@@ -173,20 +174,12 @@ setup:=>
       return
     down:(e)=>
       _mouseunbind?()
-      HTML.classList.add(SCROLL_CLS)
-      Y = e.offsetY
-      _diff = 0
+      for i from [HTML, aside.value]
+        i.classList.add(SCROLL_CLS)
       mv = main.value
-      ivh = i.value.clientHeight/2
-      {clientHeight,scrollHeight,scrollTop} = mv
-      radio = (scrollHeight-clientHeight)/clientHeight
-      _mouseuntimer = setInterval(
-        =>
-          console.log "yes"
-        200
-      )
-
-
+      sv = si.value
+      _diff = 0
+      Y = e.offsetY
       _mouseunbind = $on document,{
         mouseup:mouseunbind
         mousemove:({offsetY})=>
@@ -196,14 +189,14 @@ setup:=>
             _diff = diff
             return
 
-          if diff > 10
-            diff = 10
-          else if diff < -10
-            diff = -10
-
-          diff *= (1+10*Math.abs(scrollTop/(scrollHeight-clientHeight) - (offsetY+ivh-mv.offsetTop)/clientHeight))
-
-          mv.scrollTop += diff*radio
+          ivh = sv.clientHeight
+          max = scrollHeight - clientHeight
+          st = (offsetY-mv.offsetTop-ivh/2)/(clientHeight-ivh) * max
+          if st < 0
+            st = 0
+          else if st > max
+            st = max
+          mv.scrollTop = st
           Y = offsetY
 
           return
