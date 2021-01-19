@@ -103,9 +103,9 @@ setup:=>
   aside = shallowRef()
   scrollTo = undefined
   turn = ref 0
-  _mouseunbind = undefined
-
+  _mouseuntimer = _mouseunbind = undefined
   mouseunbind = =>
+    clearInterval _mouseuntimer
     HTML.classList.remove(SCROLL_CLS)
     _mouseunbind?()
     _mouseunbind = undefined
@@ -174,59 +174,38 @@ setup:=>
     down:(e)=>
       _mouseunbind?()
       HTML.classList.add(SCROLL_CLS)
-      av = aside.value
-      iv = i.value
       Y = e.offsetY
       _diff = 0
-      iv = i.value
       mv = main.value
-      {clientHeight,scrollHeight} = mv
+      ivh = i.value.clientHeight/2
+      {clientHeight,scrollHeight,scrollTop} = mv
       radio = (scrollHeight-clientHeight)/clientHeight
+      _mouseuntimer = setInterval(
+        =>
+          console.log "yes"
+        200
+      )
+
+
       _mouseunbind = $on document,{
         mouseup:mouseunbind
         mousemove:({offsetY})=>
-          {offsetTop,clientHeight,scrollHeight} = mv
+          {scrollTop,clientHeight,scrollHeight} = mv
           diff = offsetY - Y
           if _diff * diff < 0 or diff == 0 # chrome 经常跳，防抖
             _diff = diff
             return
+
           if diff > 10
             diff = 10
           else if diff < -10
             diff = -10
-          ivh = iv.clientHeight
-          console.log diff, radio
+
+          diff *= (1+10*Math.abs(scrollTop/(scrollHeight-clientHeight) - (offsetY+ivh-mv.offsetTop)/clientHeight))
+
           mv.scrollTop += diff*radio
           Y = offsetY
 
-          # console.log offsetY-iv.offsetTop-offsetTop
-          # iv.clientHeight
-          # scrollHeight = i_height(clientHeight,scrollHeight)/2
-          #
-          # maxb = scrollHeight + offsetTop - clientHeight
-          # sb = scrollHeight - clientHeight
-          # if offsetY < mint
-          #   top = 0
-          # else if offsetY > maxb
-          #   top = sb
-          # else
-          #   top = (offsetY - mint) / (maxb-mint) * sb
-          #
-          # console.log top, offsetY, mint, maxb
-          # mv.offsetTop mv.clientHeight
-
-          # diff = offsetY - Y
-          # max = scrollHeight-clientHeight
-          # # console.log mv.offsetTop,"offsetTop", mv.clientHeight
-          # #TODO 系数，到了顶部是顶部，到了底部是底部 offsetY < mv.offsetY
-          # n = diff/(clientHeight-i_height(clientHeight,scrollHeight))*max
-          # absn = Math.abs(n)
-          # scrollTop += n
-          # if scrollTop < 0
-          #   scrollTop = 0
-          # else if scrollTop > max
-          #   scrollTop = max
-          # mv.scrollTop = top
           return
 
       }
