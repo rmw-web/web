@@ -9,6 +9,7 @@
 @import '@/pkg/main/styl/ico/gg/arrow-down'
 fontSize = 0.75rem
 headerHeight = 2.3rem
+headerBg = #F9F9F9
 body>main>.page
   position absolute
   top 0
@@ -27,7 +28,7 @@ body>main>.page>.scrollbar
   z-index 1
   display flex
 body>main>.page>header
-  background #F9F9F9
+  background headerBg
   border-bottom 1px solid #eee
   display flex
   font-size fontSize
@@ -69,10 +70,17 @@ menu
     color #777
 nav>b
   padding 0.15rem 0.75rem 0
+  &>span
+    display inline-block
+    overflow hidden
+    white-space nowrap
+    max-width 10rem
+    text-overflow ellipsis
   &>b
     height 2.3rem
     position relative
     right -0.5rem
+    margin-left -0.3rem
     border none
     display inline-flex
     align-items center
@@ -100,8 +108,12 @@ config-provider
         menu
           a(v-for="(url,ico) in menu" :class="{now:url==pwd}" :href="`/${url}`")
             b.gg(:class="ico")
+        b
+          span 在微软（Microsoft）工作是怎样一番体验？
+          b
+            a.gg.close(@click.stop="tab.x(n)")
         b(v-for="[title,url],n in tab.li" :class="{now:url==pwd}" @click="goto(url)" :title="url")
-          | {{title}}
+          span {{title}}
           b
             a.gg.close(@click.stop="tab.x(n)")
       menu
