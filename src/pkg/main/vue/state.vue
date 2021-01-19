@@ -24,7 +24,6 @@
 <template lang="pug">
 .page
   main
-    h1(v-for="i in test") {{i}}
     form(@submit.prevent="submit")
       p
         input(placeholder="节点网址" type=text v-model="form.addr")
@@ -101,12 +100,8 @@ setup:=>
     key:"p4bHzAquvx_5h_tK5j-WpQokOhv7JteHbPfADIIP2bQ"
     url:"xaa"
   }
-  test = []
   n = 0
-  while ++n < 1000
-    test.push n
   return {
-    test
     form: ref form
     li:li
     # rm:(key)=>
