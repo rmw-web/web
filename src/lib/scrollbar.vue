@@ -27,21 +27,27 @@ html.scroll
   position sticky
   height 100%
   top 0
-  width 0.9rem
   left 100%
+  width 0.65rem
+  &, &>i
+    transition width 0.3s, opacity 1s, top 0.5s, background 0.3s, box-shadow 1s
   &>i
     position absolute
     display block
     width 0.45rem
-    right 4px
+    right 0.1rem
     margin 2px 0
     border-radius 0.3rem
-    transition width 0.3s, opacity 1s, top 0.5s
-    background rgba(0, 0, 0, 0.3)
+    background rgba(0, 0, 0, 0.2)
   &:hover
+    background rgba(125, 125, 125, 0.15)
+    opacity 1 !important
+    box-shadow inset 0.2rem 0 0.2rem -0.2rem rgba(0, 0, 0, 0.3), inset -0.2rem 0 0.2rem -0.2rem rgba(0, 0, 0, 0.3)
+    width 1.05rem
     &>i
-      opacity 1 !important
-      width 0.8rem
+      background rgba(0, 0, 0, 0.3)
+      width 0.6rem
+      right 0.2rem
 </style>
 
 <template lang="pug">
@@ -109,7 +115,6 @@ setup:=>
   onMounted =>
     mv = main.value
     wv = wrap.value
-    av = aside.value
     scrollTo = Scroll mv
     scroll = =>
       if not turn.value
@@ -117,10 +122,11 @@ setup:=>
       {clientHeight,scrollHeight,scrollTop} = mv
       height = Math.max(parseInt(clientHeight*clientHeight/scrollHeight)-4,48)
       iv = i.value
+      av = aside.value
+      av.style.opacity = 1
       Object.assign(
         iv.style
         {
-          opacity : 1
           height : height+"px"
           top : parseInt(scrollTop/(scrollHeight-clientHeight)*(clientHeight-4-height))+"px"
         }
@@ -128,7 +134,7 @@ setup:=>
       clearTimeout timer
       timer = setTimeout(
         =>
-          iv.style.opacity = 0
+          av.style.opacity = 0
         1000
       )
       return
@@ -170,29 +176,28 @@ setup:=>
       HTML.classList.add(SCROLL_CLS)
       av = aside.value
       iv = i.value
-      top = iv.offsetTop
       Y = e.offsetY
-      diff = 0
+      _diff = 0
       iv = i.value
+      mv = main.value
+      {clientHeight,scrollHeight} = mv
+      radio = (scrollHeight-clientHeight)/clientHeight
       _mouseunbind = $on document,{
         mouseup:mouseunbind
         mousemove:({offsetY})=>
-          mv = main.value
-          {offsetTop,clientHeight} = mv
+          {offsetTop,clientHeight,scrollHeight} = mv
           diff = offsetY - Y
-          if diff
-            ivh = iv.clientHeight
-            if diff < 0
-              maxt = offsetTop+ivh
-              if offsetY < maxt
-                diff *= 2
-            else
-              maxb = offsetTop + clientHeight - ivh
-              if offsetY > maxb
-                diff *= 2
-
-            mv.scrollTop += diff
-            Y = offsetY
+          if _diff * diff < 0 or diff == 0 # chrome 经常跳，防抖
+            _diff = diff
+            return
+          if diff > 10
+            diff = 10
+          else if diff < -10
+            diff = -10
+          ivh = iv.clientHeight
+          console.log diff, radio
+          mv.scrollTop += diff*radio
+          Y = offsetY
 
           # console.log offsetY-iv.offsetTop-offsetTop
           # iv.clientHeight
@@ -200,14 +205,14 @@ setup:=>
           #
           # maxb = scrollHeight + offsetTop - clientHeight
           # sb = scrollHeight - clientHeight
-          # if offsetY < maxt
+          # if offsetY < mint
           #   top = 0
           # else if offsetY > maxb
           #   top = sb
           # else
-          #   top = (offsetY - maxt) / (maxb-maxt) * sb
+          #   top = (offsetY - mint) / (maxb-mint) * sb
           #
-          # console.log top, offsetY, maxt, maxb
+          # console.log top, offsetY, mint, maxb
           # mv.offsetTop mv.clientHeight
 
           # diff = offsetY - Y
