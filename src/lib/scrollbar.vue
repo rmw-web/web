@@ -1,12 +1,4 @@
 <style lang="stylus">
-html.scroll
-  cursor grab
-  &>body
-    pointer-events none
-aside.scroll
-  opacity 1 !important
-</style>
-<style lang="stylus" scoped>
 .scrollbar
   overflow auto
   -ms-overflow-style none
@@ -28,7 +20,7 @@ aside.scroll
   height 100%
   top 0
   left 100%
-  width 0.65rem
+  width 1.05rem
   &, &>i
     transition width 0.3s, opacity 1s, top 0.5s, background 0.3s, box-shadow 1s
   &>i
@@ -39,15 +31,21 @@ aside.scroll
     margin 2px 0
     border-radius 0.3rem
     background rgba(0, 0, 0, 0.2)
-  &:hover
-    background rgba(125, 125, 125, 0.15)
-    opacity 1 !important
-    box-shadow inset 0.2rem 0 0.2rem -0.2rem rgba(0, 0, 0, 0.3), inset -0.2rem 0 0.2rem -0.2rem rgba(0, 0, 0, 0.3)
-    width 1.05rem
-    &>i
-      background rgba(0, 0, 0, 0.3)
-      width 0.6rem
-      right 0.225rem
+.scrollbar > div
+  margin-right -1.05rem
+  width 100%
+html.scroll
+  cursor grab
+  &>body
+    pointer-events none
+.scrollbar>aside:hover, aside.scroll
+  background rgba(125, 125, 125, 0.15)
+  opacity 1 !important
+  box-shadow inset 0.2rem 0 0.2rem -0.2rem rgba(0, 0, 0, 0.3), inset -0.2rem 0 0.2rem -0.2rem rgba(0, 0, 0, 0.3)
+  &>i
+    background rgba(0, 0, 0, 0.3)
+    width 0.6rem
+    right 0.225rem
 </style>
 
 <template lang="pug">
@@ -189,7 +187,7 @@ setup:=>
             _diff = diff
             return
 
-          ivh = sv.clientHeight
+          ivh = sv.clientHeight + 4
           max = scrollHeight - clientHeight
           st = (offsetY-mv.offsetTop-ivh/2)/(clientHeight-ivh) * max
           if st < 0
