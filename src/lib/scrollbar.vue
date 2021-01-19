@@ -1,3 +1,11 @@
+<style lang="stylus">
+html.scroll
+  cursor grab
+  &>body
+    pointer-events none
+  .scrollbar>aside>i
+    opacity 1 !important
+</style>
 <style lang="stylus" scoped>
 .scrollbar
   overflow auto
@@ -28,7 +36,7 @@
     right 4px
     margin 2px 0
     border-radius 0.3rem
-    transition width 0.3s, opacity 1s
+    transition width 0.3s, opacity 1s, top 0.5s
     background rgba(0, 0, 0, 0.3)
   &:hover
     &>i
@@ -41,8 +49,8 @@
   div
     div(ref="wrap")
       slot
-  aside(@click="click" ref="aside" v-if="turn" @mousedown="down")
-    i(ref="i")
+  aside(@click="click" ref="aside" v-if="turn")
+    i(ref="i" @mousedown="down")
 </template>
 
 
@@ -53,9 +61,8 @@ import $on from '@/coffee/$/on'
 Scroll = (elem) =>
   runing = 0
   {requestAnimationFrame, cancelAnimationFrame} = window
-  (to)=>
+  (to, duration=300)=>
     cancelAnimationFrame runing
-    duration=300
     scrollCount = 0
     cosParameter = (elem.scrollTop - to) / 2
     toCos = to+cosParameter
@@ -77,9 +84,8 @@ Scroll = (elem) =>
     runing = requestAnimationFrame step
     return
 
-i_height = (clientHeight, scrollHeight) =>
-  Math.max(parseInt(clientHeight*clientHeight/scrollHeight)-4,48)
-
+SCROLL_CLS = "scroll"
+HTML = document.documentElement
 export default {
 components:{
 
@@ -94,6 +100,7 @@ setup:=>
   _mouseunbind = undefined
 
   mouseunbind = =>
+    HTML.classList.remove(SCROLL_CLS)
     _mouseunbind?()
     _mouseunbind = undefined
 
@@ -108,7 +115,7 @@ setup:=>
       if not turn.value
         return
       {clientHeight,scrollHeight,scrollTop} = mv
-      height = i_height(clientHeight, scrollHeight)
+      height = Math.max(parseInt(clientHeight*clientHeight/scrollHeight)-4,48)
       iv = i.value
       Object.assign(
         iv.style
@@ -151,31 +158,70 @@ setup:=>
     i
     aside
     wrap
-    #TODO 拖拽 mousemove
-    #TODO 自动隐藏
     click:(e)=>
       if _mouseunbind
-        console.log _mouseunbind
         return
       mv = main.value
       {clientHeight,scrollHeight} = mv
       scrollTo parseInt(e.offsetY/clientHeight * (scrollHeight-clientHeight))
       return
     down:(e)=>
-      mouseunbind()
+      _mouseunbind?()
+      HTML.classList.add(SCROLL_CLS)
       av = aside.value
       iv = i.value
       top = iv.offsetTop
       Y = e.offsetY
+      diff = 0
+      iv = i.value
       _mouseunbind = $on document,{
         mouseup:mouseunbind
         mousemove:({offsetY})=>
           mv = main.value
-          {scrollHeight,clientHeight} = mv
+          {offsetTop,clientHeight} = mv
           diff = offsetY - Y
-          #TODO 系数，到了顶部是顶部，到了底部是底部
-          mv.scrollTop += diff/(clientHeight-i_height(clientHeight,scrollHeight))*(scrollHeight-clientHeight)
-          Y = offsetY
+          if diff
+            ivh = iv.clientHeight
+            if diff < 0
+              maxt = offsetTop+ivh
+              if offsetY < maxt
+                diff *= 2
+            else
+              maxb = offsetTop + clientHeight - ivh
+              if offsetY > maxb
+                diff *= 2
+
+            mv.scrollTop += diff
+            Y = offsetY
+
+          # console.log offsetY-iv.offsetTop-offsetTop
+          # iv.clientHeight
+          # scrollHeight = i_height(clientHeight,scrollHeight)/2
+          #
+          # maxb = scrollHeight + offsetTop - clientHeight
+          # sb = scrollHeight - clientHeight
+          # if offsetY < maxt
+          #   top = 0
+          # else if offsetY > maxb
+          #   top = sb
+          # else
+          #   top = (offsetY - maxt) / (maxb-maxt) * sb
+          #
+          # console.log top, offsetY, maxt, maxb
+          # mv.offsetTop mv.clientHeight
+
+          # diff = offsetY - Y
+          # max = scrollHeight-clientHeight
+          # # console.log mv.offsetTop,"offsetTop", mv.clientHeight
+          # #TODO 系数，到了顶部是顶部，到了底部是底部 offsetY < mv.offsetY
+          # n = diff/(clientHeight-i_height(clientHeight,scrollHeight))*max
+          # absn = Math.abs(n)
+          # scrollTop += n
+          # if scrollTop < 0
+          #   scrollTop = 0
+          # else if scrollTop > max
+          #   scrollTop = max
+          # mv.scrollTop = top
           return
 
       }
