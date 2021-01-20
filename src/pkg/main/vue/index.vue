@@ -112,7 +112,7 @@
     a(href="/404") 404
   aside
     div
-      a-textarea(required placeholder="写点什么 ？人民网络 ，畅所欲言 ···" :autosize="true")
+      a-textarea(required placeholder="写点什么 ？人民网络 ，畅所欲言 ···" :autoSize="true")
       a.I.send(title="快捷键 Ctrl+Enter")
     nav
       a

@@ -50,6 +50,7 @@ body>main>.page>header
     font-weight 500
     align-items center
     position relative
+    font-weight 300
     &:hover
       background #f0f0f0
       font-weight 500
