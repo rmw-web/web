@@ -22,16 +22,19 @@
         border none
         outline 0
         resize none
-        padding 1rem
         height 3.4rem
         font-size 1rem
+        box-shadow none
+        line-height 1.8
+        padding 1rem 1.8rem 0.8rem 1rem
+        color #000
       sendWidth = 1.4rem
       &>.send
         position absolute
         bottom 1.4rem
         width sendWidth
         height sendWidth
-        right 1.4rem
+        right 0.6rem
         z-index 1
         &:after
           color #999
@@ -62,6 +65,7 @@
         justify-content space-between
         &>a
           transform scale(0.7)
+          margin-left 0.35rem
           color #777
           height 2.3rem
           line-height 2.3rem
@@ -113,7 +117,7 @@
     a(href="/404") 404
   aside
     div
-      textarea(placeholder="写点什么 ？人民网络 ，畅所欲言 ···")
+      a-textarea(placeholder="写点什么 ？人民网络 ，畅所欲言 ···" :autosize="true")
       a.I.send
     main
       nav
@@ -132,10 +136,11 @@ import {add} from "@/ws/task"
 import DB from '@/db/rxdb'
 import {onUnmounted, shallowRef, onBeforeMount, ref} from 'vue'
 import AButton from '@/lib/antd/button'
-
+import AInput from '@/lib/antd/input'
 export default {
 components:{
   AButton
+  ATextarea:AInput.TextArea
 }
 setup:=>
   {task} = DB
