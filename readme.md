@@ -1,22 +1,31 @@
-# @rmw/xxx
+# @rmw/web
 
-##  安装
+后端服务器
 
-```
-yarn add @rmw/xxx
-```
+* redis
+* miniio
+* rxdb
+* web server
 
-或者
 
-```
-npm install @rmw/xxx
-```
 
-## 使用
+const pm2 = require('pm2');
 
-```coffee
-#include ./test/index.coffee
-```
+pm2.connect(() => {
+  pm2.list(function(err, processes) {
+    const fooProcess = processes.find(p => p.name == 'foo');
+
+    pm2.launchBus((err, bus) => {
+      bus.on('process:msg', packet => {
+        if (packet.startBar === true) {
+          pm.start({ script: 'bar.js' }, (err, apps) => { ... })
+        }
+      });
+      bus.on('error', console.error);
+    });
+  });
+});
+
 
 ## 关于
 
