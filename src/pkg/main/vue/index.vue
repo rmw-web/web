@@ -57,7 +57,6 @@
               color #f40
   &>main
     border-right 1px solid #eee
-    padding 2.3rem
     display flex
     flex-direction column
     input
@@ -79,6 +78,7 @@
 <template lang="pug">
 .page
   main
+    a(background:="safari-pinned-tab.svg")
     h1 我问问 h1
     a(href="/404") 404
   aside
