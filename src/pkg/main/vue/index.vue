@@ -9,14 +9,23 @@
   position absolute
   overflow hidden
   &>aside, &>main
+    box-sizing border-box
     display flex
     flex 1
   &>aside
+    flex-direction column
+    &>textarea
+      border none
+      font-family h
+      outline 0
+      resize none
+      padding 1rem
+      height 3.6rem
+      font-size 1.2rem
     &>footer
       display flex
       width 100%
       flex-direction column
-      align-self flex-end
       &>nav, &>nav>menu, &>input
         height 2.3rem
         line-height 2.5rem
@@ -82,15 +91,16 @@
     h1 我问问 h1
     a(href="/404") 404
   aside
+    textarea(placeholder="写点什么 ？ 随心所欲 ，畅所欲言 ···")
     footer
-      input(placeholder="想说什么 ···")
       nav
         a
           b.gg.add
         menu
-          a.now 聊天室
-          a 他关注
-          a 订阅者
+          a.now 更新提醒
+          a 我的发言
+          a 访客留言
+          //- a 统计信息
 </template>
 
 
