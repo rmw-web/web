@@ -49,50 +49,41 @@
           &:after
             color #f40
             content '\e605'
-    &>main
+    &>nav, &>nav>menu
+      height 2.3rem
+      line-height 2.5rem
       display flex
-      width 100%
-      flex-direction column
-      &>nav, &>nav>menu
+    &>nav
+      user-select none
+      background #F9F9F9
+      display flex
+      justify-content space-between
+      &>a
+        transform scale(0.7)
+        margin-left 0.35rem
+        color #777
         height 2.3rem
-        line-height 2.5rem
+        line-height 2.3rem
         display flex
-      &>input
-        padding 0 0.8rem
-        border 0
-        border 1px solid #eee
-        border-width 1px 0
-      &>nav
-        user-select none
-        background #F9F9F9
-        display flex
-        justify-content space-between
+        align-items center
+        justify-content center
+        width 2.3rem
+        &:hover
+          color #f40
+      &>menu
         &>a
-          transform scale(0.7)
-          margin-left 0.35rem
+          font-weight 500
           color #777
-          height 2.3rem
-          line-height 2.3rem
-          display flex
-          align-items center
-          justify-content center
-          width 2.3rem
+          padding 0 0.8rem
+          font-size 0.75rem
+          &:first-child
+            padding-left 0.8rem
+          &.now
+            background #fff
+            box-shadow 0 1px 4px inset #ddd
+            color #555
           &:hover
             color #f40
-        &>menu
-          &>a
-            font-weight 500
-            color #777
-            padding 0 0.8rem
-            font-size 0.75rem
-            &:first-child
-              padding-left 0.8rem
-            &.now
-              background #fff
-              box-shadow 0 1px 4px inset #ddd
-              color #555
-            &:hover
-              color #f40
   &>main
     border-right 1px solid #eee
     display flex
@@ -123,15 +114,15 @@
     div
       a-textarea(required placeholder="写点什么 ？人民网络 ，畅所欲言 ···" :autosize="true")
       a.I.send
+    nav
+      a
+        b.gg.add
+      menu
+        a.now 更新
+        a 我的
+        a 留言
+        //- a 统计信息
     main
-      nav
-        a
-          b.gg.add
-        menu
-          a.now 更新
-          a 我的
-          a 留言
-          //- a 统计信息
 </template>
 
 
