@@ -16,17 +16,16 @@
     flex-direction column
     &>textarea
       border none
-      font-family h
       outline 0
       resize none
       padding 1rem
-      height 3.6rem
-      font-size 1.2rem
-    &>footer
+      height 3.4rem
+      font-size 1rem
+    &>main
       display flex
       width 100%
       flex-direction column
-      &>nav, &>nav>menu, &>input
+      &>nav, &>nav>menu
         height 2.3rem
         line-height 2.5rem
         display flex
@@ -36,6 +35,7 @@
         border 1px solid #eee
         border-width 1px 0
       &>nav
+        user-select none
         background #F9F9F9
         display flex
         justify-content space-between
@@ -91,15 +91,15 @@
     h1 我问问 h1
     a(href="/404") 404
   aside
-    textarea(placeholder="写点什么 ？ 随心所欲 ，畅所欲言 ···")
-    footer
+    textarea(placeholder="写点什么 ？人民网络 ，畅所欲言 ···")
+    main
       nav
         a
           b.gg.add
         menu
-          a.now 更新提醒
-          a 我的发言
-          a 访客留言
+          a.now 更新
+          a 我的
+          a 留言
           //- a 统计信息
 </template>
 

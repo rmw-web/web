@@ -2,10 +2,11 @@
   box-sizing border-box
   position relative
   display block
-  width 22px
-  height 22px
+  width 23px
+  height @width
+  border-radius @width
   border 1px solid
-  border-radius 22px
+
 .gg.add::after, .gg.add::before
   content ''
   display block
@@ -17,6 +18,7 @@
   border-radius 5px
   top 10px
   left 5px
+
 .gg.add::after
   width 1px
   height 11px
