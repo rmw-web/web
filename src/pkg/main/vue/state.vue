@@ -32,15 +32,12 @@
       p
         input(placeholder="文件路径" v-model="form.url")
       p
-        a-button(type="primary") 参数
-      p
         button(type="submit") 添加下载
     ol
       li(v-for="i in li")
         | {{i.time}}
         span {{i.url}}
         a(@click="rm(i.key)") X
-        button(@click="update(i.key)") 更新
     pre
       | def test
       |    pass
