@@ -47,7 +47,7 @@ body>main>.page>header
     height calc(2.3rem - 1px)
     border-right 1px solid #eee
     cursor pointer
-    font-weight 300
+    font-weight 400
     align-items center
     position relative
     &:hover

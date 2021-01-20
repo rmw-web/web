@@ -72,7 +72,7 @@
           color #f40
       &>menu
         &>a
-          font-weight 300
+          font-weight 400
           color #777
           padding 0 0.8rem
           font-size 0.75rem
