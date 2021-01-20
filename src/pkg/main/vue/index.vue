@@ -14,13 +14,34 @@
     flex 1
   &>aside
     flex-direction column
-    &>textarea
-      border none
-      outline 0
-      resize none
-      padding 1rem
-      height 3.4rem
-      font-size 1rem
+    &>div
+      position relative
+      display flex
+      &>textarea
+        width 100%
+        border none
+        outline 0
+        resize none
+        padding 1rem
+        height 3.4rem
+        font-size 1rem
+      sendWidth = 1.4rem
+      &>.send
+        position absolute
+        bottom 1.4rem
+        width sendWidth
+        height sendWidth
+        right 1.4rem
+        z-index 1
+        &:after
+          color #999
+          font-size sendWidth
+          content '\e601'
+          font-family I
+        &:hover
+          &:after
+            color #f40
+            content '\e605'
     &>main
       display flex
       width 100%
@@ -91,7 +112,9 @@
     h1 我问问 h1
     a(href="/404") 404
   aside
-    textarea(placeholder="写点什么 ？人民网络 ，畅所欲言 ···")
+    div
+      textarea(placeholder="写点什么 ？人民网络 ，畅所欲言 ···")
+      a.I.send
     main
       nav
         a
