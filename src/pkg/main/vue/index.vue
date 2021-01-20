@@ -28,10 +28,14 @@
         line-height 1.8
         padding 1rem 1.8rem 0.8rem 1rem
         color #000
+        /*
+        &:invalid+.send
+          display none
+        */
       sendWidth = 1.4rem
       &>.send
         position absolute
-        bottom 1.4rem
+        bottom 1.42rem
         width sendWidth
         height sendWidth
         right 0.6rem
@@ -117,7 +121,7 @@
     a(href="/404") 404
   aside
     div
-      a-textarea(placeholder="写点什么 ？人民网络 ，畅所欲言 ···" :autosize="true")
+      a-textarea(required placeholder="写点什么 ？人民网络 ，畅所欲言 ···" :autosize="true")
       a.I.send
     main
       nav
