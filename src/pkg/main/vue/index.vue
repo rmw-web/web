@@ -113,7 +113,7 @@
   aside
     div
       a-textarea(required placeholder="写点什么 ？人民网络 ，畅所欲言 ···" :autosize="true")
-      a.I.send
+      a.I.send(title="快捷键 Ctrl+Enter")
     nav
       a
         b.gg.add
