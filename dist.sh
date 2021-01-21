@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-. `dirname $0`/src/sh/pre.sh
+. `dirname $0`/src/sh/init.sh
 
 git pull origin master
 
@@ -19,6 +19,6 @@ echo $DIST
 
 mkdir -p $DIST
 
-rsync -av dist/ $DIST
+#rsync -av dist/ $DIST
 
-npx coffee $_DIR/src/sh/upyun/upyun.coffee
+#npx coffee $_DIR/src/sh/upyun/upyun.coffee
