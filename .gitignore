@@ -6,7 +6,7 @@ nohup.out
 
 node_modules/
 dist/
-
+*.lock
 src/config
 src/config.*
 file/font
