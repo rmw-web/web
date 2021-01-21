@@ -10,8 +10,8 @@ echo "yes"|NODE_ENV=production npx webpack
 
 npx coffee ./src/sh/dist.coffee
 
-mv dist/index.html dist/index.html.bak
-mv dist/index.htm dist/index.html
+#mv dist/index.html dist/index.html.bak
+#mv dist/index.htm dist/index.html
 
 DIST=/var/www/`coffee -e 'console.log require("./src/config/host")'`/
 

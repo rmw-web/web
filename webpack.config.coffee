@@ -283,7 +283,6 @@ else
             extractComments:false
             terserOptions:
               sourceMap: false
-              cache: true
               compress:
                 # warnings:false,
                 drop_debugger:true
