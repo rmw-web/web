@@ -3,6 +3,8 @@
   overflow auto
   -ms-overflow-style none
   scrollbar-width none
+  display flex
+  flex-direction row-reverse
   position relative
 .scrollbar::-webkit-scrollbar
   width 0
@@ -25,6 +27,7 @@
     transition width 0.3s, opacity 1s, top 0.5s, background 0.3s, box-shadow 1s
   &>i
     position absolute
+    transition height 0.3s
     display block
     width 0.45rem
     right 0.1rem
@@ -32,8 +35,9 @@
     border-radius 0.3rem
     background rgba(0, 0, 0, 0.2)
 .scrollbar > div
-  margin-right -1.05rem
   width 100%
+.scrollbar > aside+div
+  margin-right -1.05rem
 html.scroll
   cursor grab
   &>body
@@ -50,11 +54,11 @@ html.scroll
 
 <template lang="pug">
 .scrollbar(ref="main")
+  aside(@click="click" ref="aside" v-if="turn")
+    i(ref="si" @mousedown="down")
   div
     div(ref="wrap")
       slot
-  aside(@click="click" ref="aside" v-if="turn")
-    i(ref="si" @mousedown="down")
 </template>
 
 
