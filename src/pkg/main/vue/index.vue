@@ -1,5 +1,4 @@
 <style lang="stylus" scoped>
-@import '@/pkg/main/styl/ico/gg/add'
 .page
   display flex
   top 0
@@ -14,42 +13,31 @@
     border-right 1px solid #eee
     display flex
     flex-direction column
-    input
-      width 100%
-      padding 1rem
-      border 2px solid #000
-      &:focus
-        border-color #06f
-    form
-      margin-top 2rem
-  ol
-    li
-      a
-        cursor pointer
-      span, a
-        margin-left 1rem
 </style>
 
 <template lang="pug">
 .page
   main
-    a(background:="safari-pinned-tab.svg")
-    h1 我问问 h1
-    a(href="/404") 404
+    scrollbar
+      feed
   me
 </template>
 
 
 <script lang="coffee">
 import {add} from "@/ws/task"
+import Scrollbar from '@/lib/scrollbar'
 import DB from '@/db/rxdb'
 import {onUnmounted, shallowRef, onBeforeMount, ref} from 'vue'
 import AButton from '@/lib/antd/button'
 import Me from './_com/me'
+import Feed from './_com/feed'
 export default {
 components:{
   AButton
   Me
+  Scrollbar
+  Feed
 }
 setup:=>
   {task} = DB

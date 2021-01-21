@@ -173,7 +173,8 @@ setup:=>
     down:(e)=>
       _mouseunbind?()
       for i from [HTML, aside.value]
-        i.classList.add(SCROLL_CLS)
+        if i
+          i.classList.add(SCROLL_CLS)
       mv = main.value
       sv = si.value
       _diff = 0

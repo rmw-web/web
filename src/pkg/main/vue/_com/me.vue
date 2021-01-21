@@ -1,4 +1,5 @@
 <style lang="stylus" scoped>
+@import '@/pkg/main/styl/ico/gg/add'
 main
   &>header
     position relative
