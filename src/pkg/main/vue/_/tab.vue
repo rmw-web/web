@@ -161,7 +161,8 @@ setup:=>
   pwd = shallowRef(location.pathname[1..])
   main = shallowRef()
   page = shallowRef()
-  autohide = (mv)=>
+  autohide = (m)=>
+    mv = m.value.$el
     pv = page.value
     {offsetTop} = mv
     pren = 0
@@ -196,7 +197,7 @@ setup:=>
       )
 
   onMounted =>
-    autohide main.value.$el
+    autohide main
 
   $state =>
     pwd.value = location.pathname[1..]

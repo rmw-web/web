@@ -9,17 +9,17 @@
   overflow hidden
   &>main
     box-sizing border-box
-    flex 1
-    border-right 1px solid #eee
+    border-left 1px solid #eee
     display flex
     flex-direction column
+  &>.scrollbar, &>main
+    flex 1
 </style>
 
 <template lang="pug">
 .page
-  main
-    scrollbar
-      feed
+  scrollbar
+    feed
   me
 </template>
 
