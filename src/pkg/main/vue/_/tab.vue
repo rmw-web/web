@@ -162,7 +162,7 @@ setup:=>
   main = shallowRef()
   page = shallowRef()
   autohide = (m)=>
-    mv = m.value.$el
+    mv = m.$el
     pv = page.value
     {offsetTop} = mv
     pren = 0
@@ -197,7 +197,7 @@ setup:=>
       )
 
   onMounted =>
-    autohide main
+    autohide main.value
 
   $state =>
     pwd.value = location.pathname[1..]
@@ -207,6 +207,7 @@ setup:=>
     menu
     page
     main
+    autohide
     pwd
     tab
     goto
