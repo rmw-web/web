@@ -280,10 +280,10 @@ else
           new OptimizeCSSAssetsPlugin({})
           new TerserPlugin(
             parallel: true
-            cache: true
-            sourceMap: false
             extractComments:false
             terserOptions:
+              sourceMap: false
+              cache: true
               compress:
                 # warnings:false,
                 drop_debugger:true
