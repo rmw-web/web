@@ -10,10 +10,6 @@ do =>
   document.title = TITLE
   div = document.createElement 'main'
   document.body.appendChild div
-  await Db.$init(
-    RXDB_URL
-    await schema()
-  )
   createApp(url).mount(div)
 
 
