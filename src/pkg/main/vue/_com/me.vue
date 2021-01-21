@@ -85,7 +85,7 @@ main
       a 我的
       a 留言
       //- a 统计信息
-  scrollbar(ref="scrollbar")
+  scrollbar(ref="scroll")
     h1 1
     h1 1
     h1 1
@@ -136,16 +136,16 @@ main
 <script lang="coffee">
 import AInput from '@/lib/antd/input'
 import Scrollbar from '@/lib/scrollbar'
-import {ref} from 'vue'
+import {shallowRef} from 'vue'
 export default {
 components:{
   ATextarea:AInput.TextArea
   Scrollbar
 }
 setup:=>
-  scrollbar = ref()
+  scroll = shallowRef()
   {
-    scrollbar
+    scroll
   }
 }
 </script>

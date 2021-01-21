@@ -11,7 +11,7 @@ HttpSpin(v-else)
 <script lang="coffee">
 import HttpSpin from '@/pkg/_/http/spin'
 import md from "@/coffee/md"
-import {onMounted, ref} from 'vue'
+import {onMounted, shallowRef} from 'vue'
 import {get} from '@/coffee/api'
 
 export default {
@@ -21,7 +21,7 @@ components:{
 props:
   href : String
 setup:=>
-  htm = ref()
+  htm = shallowRef()
   onMounted ->
     txt = await (await fetch(@href)).text()
     htm.value = md txt

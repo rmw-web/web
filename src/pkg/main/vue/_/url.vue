@@ -29,6 +29,7 @@ setup : =>
       {autohide} = tab.value
       for s from li
         autohide s
+      return
     i : shallowRef HttpSpin
   }
 }

@@ -103,7 +103,7 @@ nav>b>b:hover>a, menu>a:hover>b
 <template lang="pug">
 config-provider
   .page(ref="page")
-    header
+    header(ref="header")
       nav
         menu
           a(v-for="(url,ico) in menu" :class="{now:url==pwd}" :href="`/${url}`")
@@ -160,7 +160,12 @@ setup:=>
   }
   pwd = shallowRef(location.pathname[1..])
   main = shallowRef()
+  header = shallowRef()
   page = shallowRef()
+
+
+  isHide = false
+
   autohide = (m)=>
     mv = m.$el
     pv = page.value
@@ -168,31 +173,34 @@ setup:=>
     pren = 0
     prediff = 0
     pre = 0
-    onMounted $on(
-        mv
-        scroll:throttle(
-          ->
-            {scrollTop} = mv
-            diff = scrollTop - pre
-            if diff > 0
+    $on(
+      mv
+      scroll:throttle(
+        ->
+          {scrollTop} = mv
+          diff = scrollTop - pre
+          if diff > 0
+            if not isHide
               if prediff <= 0
                 pren = scrollTop
               else if pv.offsetTop == 0
                 if scrollTop - pren > 99
-                    pv.style.top = -offsetTop+"px"
-            else
-              s99 = scrollTop > 99
-              if prediff >= 0 and s99
-                pren = scrollTop
-              else if pv.offsetTop < 0
-                if (not s99) or pren - offsetTop > 99
-                  pv.style.top = 0
+                  pv.style.top = -header.value.clientHeight+"px"
+                  isHide = true
+          else if isHide
+            s99 = scrollTop > 99
+            if prediff >= 0 and s99
+              pren = scrollTop
+            else if pv.offsetTop < 0
+              if (not s99) or pren - offsetTop > 99
+                isHide = false
+                pv.style.top = 0
 
-            pre = scrollTop
-            prediff = diff
-            return
-          300
-        )
+          pre = scrollTop
+          prediff = diff
+          return
+        300
+      )
 
       )
 
@@ -210,6 +218,7 @@ setup:=>
     autohide
     pwd
     tab
+    header
     goto
   }
 }

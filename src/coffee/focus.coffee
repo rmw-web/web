@@ -1,5 +1,5 @@
 
-import {onMounted,ref} from 'vue'
+import {onMounted,shallowRef} from 'vue'
 
 export default (self)->
   focus = ->
@@ -20,7 +20,7 @@ export default (self)->
 
   {
     focus
-    form : ref(null)
+    form : shallowRef(null)
   }
 
 

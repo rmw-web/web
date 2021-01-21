@@ -18,7 +18,7 @@
 
 <template lang="pug">
 .page
-  scrollbar
+  scrollbar(ref="scrollbar")
     feed
   me(ref="me")
 </template>
@@ -36,14 +36,16 @@ components:{
   Feed
 }
 setup:(props,{emit})=>
-  me = ref()
+  me = shallowRef()
+  scrollbar = shallowRef()
 
   onMounted =>
-    emit 'scrollbar', [me.value.scrollbar]
+    emit 'scrollbar', [me.value.scroll, scrollbar.value]
     return
 
   return {
     me
+    scrollbar
   }
 
 }
