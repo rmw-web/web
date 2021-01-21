@@ -161,15 +161,15 @@ setup:=>
   pwd = shallowRef(location.pathname[1..])
   main = shallowRef()
   page = shallowRef()
-  onMounted =>
+
+  autohide = =>
     pv = page.value
     mv = main.value.$el
     {offsetTop} = mv
     pren = 0
     prediff = 0
     pre = 0
-    unbind = [
-      $on(
+    onMounted $on(
         mv
         scroll:throttle(
           ->
@@ -196,17 +196,10 @@ setup:=>
         )
 
       )
-      $state =>
-        pwd.value = location.pathname[1..]
-        return
-    ]
-    # $on main, {
-    #
-    # }
-    onUnmounted =>
-      for i from unbind
-        i()
-      return
+
+  onMounted $state =>
+    pwd.value = location.pathname[1..]
+    return
 
   {
     menu
