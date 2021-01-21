@@ -3,9 +3,6 @@ import TITLE from '../config/title.txt'
 import Ws from '@/coffee/ws'
 import {createApp} from 'vue'
 import url from '../vue/_/url'
-import Db from '@/db/rxdb'
-import {schema} from "@/ws/rxdb"
-import RXDB_URL from "@/config/rxdb.txt"
 
 do =>
   ws = Ws()

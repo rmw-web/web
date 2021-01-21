@@ -51,7 +51,6 @@
 
 <script lang="coffee">
 import {add} from "@/ws/task"
-import DB from '@/db/rxdb'
 import {onMounted, onUnmounted, shallowRef, onBeforeMount, ref} from 'vue'
 import AButton from '@/lib/antd/button'
 import {tab} from './_/tab/tab'
@@ -61,26 +60,25 @@ components:{
 }
 setup:=>
   tab "同步状态"
-  {task} = DB
 
   # onMounted =>
   onUnmounted =>
     console.log "cancel task"
-    task$?.cancel()
-
+    return
+  li = shallowRef []
   # setInterval(
   #   =>
   #     console.log DB
   #     console.log (await DB.task.find().exec()),"<<"
   #   3000
-  li = shallowRef await DB.task.find().exec()
-
-  task$ = await DB.task$()
-  task.find(limit:4).sort('-id').$.subscribe (_li)=>
-    console.log "subscribe", _li
-    for i from _li
-      console.log i._rev, i
-    li.value = _li
+  # li = shallowRef await DB.task.find().exec()
+  #
+  # task$ = await DB.task$()
+  # task.find(limit:4).sort('-id').$.subscribe (_li)=>
+  #   console.log "subscribe", _li
+  #   for i from _li
+  #     console.log i._rev, i
+  #   li.value = _li
   # state.active$.subscribe (active)=>
   #   console.log "active", active
   #
