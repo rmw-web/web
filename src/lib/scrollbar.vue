@@ -142,22 +142,32 @@ setup:=>
         1000
       )
       return
-    ro = new ResizeObserver =>
+    resize = =>
       {clientHeight,scrollHeight} = mv
       if scrollHeight <= clientHeight
         turn.value = 0
       else
         turn.value = 1
       nextTick scroll
+    ro = new ResizeObserver resize
     ro.observe wv
-    unbind = $on(
-      mv
-      {
-        scroll
-      }
-    )
+    unbind = [
+      $on(
+        mv
+        {
+          scroll
+        }
+      )
+      $on(
+        window
+        {
+          resize
+        }
+      )
+    ]
     onUnmounted =>
-      unbind()
+      for i in unbind
+        i()
       ro.disconnect()
       mouseunbind()
     return
