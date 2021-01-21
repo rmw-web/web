@@ -31,14 +31,14 @@ class Ws
     _new.call @
     @_next = throttle(_new.bind(@), 1000)
     @_id = 0
-    @_todo = {}
+    @_todo = new Map()
 
   send: (msg)->
     @_send = new Date() - 0
     id = (++@_id).toString(36)
     _send @ws, id+" "+msg
     new Promise (resolve, reject)=>
-      @_todo[id] = [msg, resolve, reject]
+      @_todo.set id, [msg, resolve, reject]
 
 _send = (ws, msg)=>
   if ws and ws.readyState == WebSocket.OPEN
@@ -83,12 +83,13 @@ _new = ->
               when "@"
               else
                 [id, reply] = split_n(txt, " ", 2)
-                task = @_todo[id]
+                {_todo} = @
+                task = _todo.get id
                 if task
-                  delete @_todo[id]
+                  _todo.delete id
                   if reply != undefined
                     if reply.charAt(0) == "X"
-                      task[2] @uri+" > "+JSON.parse(reply[1..]).toString()
+                      task[2] @uri+" ❌ "+JSON.parse(reply[1..]).toString()
                     else
                       task[1] JSON.parse(reply)
                   else
@@ -117,7 +118,7 @@ _new = ->
 
         setTimeout checker, interval
 
-        for id, [msg] of @_todo
+        for [id, [msg]] from @_todo
           ws.send id+" "+msg
     }
   )
