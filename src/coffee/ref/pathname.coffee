@@ -1,4 +1,4 @@
-import {onUnmounted, ref} from 'vue'
+import {ref} from 'vue'
 import $on from '@/coffee/$/on'
 
 export default (base="/") =>
@@ -7,7 +7,7 @@ export default (base="/") =>
   pushState = =>
     pathname.value = location.pathname.slice(base)
   pushState()
-  onUnmounted $on window, {
+  $on window, {
     pushState
   }
   pathname

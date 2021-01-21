@@ -37,10 +37,9 @@ main
 </template>
 <script lang="coffee">
 import $on from '@/coffee/$/on'
-import {onUnmounted} from 'vue'
 export default {
   setup : =>
-    onUnmounted $on document,{
+    $on document,{
         keyup:(e)=>
           if ['INPUT','TEXTAREA'].indexOf(e.target.tagName)+1
             return

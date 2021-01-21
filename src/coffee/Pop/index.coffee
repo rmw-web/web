@@ -1,7 +1,7 @@
 import {Spin} from "@/coffee/Spin"
 import {createApp} from 'vue'
 import {camelCase} from "lodash"
-import $on from '@/coffee/$/on'
+import _on from '@/coffee/$/_on'
 import HttpSpin from '@/pkg/_/http/spin'
 import "./index.styl"
 spin = new Spin()
@@ -18,12 +18,12 @@ export default (src)=>
       div = doc.createElement 'dialog'
       div.className = "Pop #{camelCase src}"
       div.innerHTML = "<div><i class=X></i><main></main></div>"
-      $on(
+      _on(
         div.querySelector('.X')
         click: =>
           div.close()
       )
-      $on(
+      _on(
         div
         close: =>
           div.remove()

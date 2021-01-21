@@ -1,4 +1,4 @@
-import $on from '@/coffee/$/on'
+import _on from '@/coffee/$/_on'
 import split_n from 'split_n'
 import throttle from 'lodash/throttle'
 
@@ -64,7 +64,7 @@ _new = ->
     )
   _timer = setTimeout _wait, 500
 
-  unbind = $on(
+  unbind = _on(
     ws
     {
       close:=>
@@ -72,7 +72,7 @@ _new = ->
       message:(e)=>
         clearTimeout(_timer)
         unbind()
-        $on(
+        _on(
           ws
           close: =>
             @_next()

@@ -64,7 +64,8 @@ html.scroll
 
 
 <script lang="coffee">
-import {nextTick, ref, shallowRef, onMounted, onUnmounted} from 'vue'
+import {onUnmounted, nextTick, ref, shallowRef, onMounted} from 'vue'
+import _on from '@/coffee/$/_on'
 import $on from '@/coffee/$/on'
 
 Scroll = (elem) =>
@@ -151,23 +152,19 @@ setup:=>
       nextTick scroll
     ro = new ResizeObserver resize
     ro.observe wv
-    unbind = [
-      $on(
-        mv
-        {
-          scroll
-        }
-      )
-      $on(
-        window
-        {
-          resize
-        }
-      )
-    ]
+    $on(
+      mv
+      {
+        scroll
+      }
+    )
+    $on(
+      window
+      {
+        resize
+      }
+    )
     onUnmounted =>
-      for i in unbind
-        i()
       ro.disconnect()
       mouseunbind()
     return
@@ -193,7 +190,7 @@ setup:=>
       sv = si.value
       _diff = 0
       Y = e.offsetY
-      _mouseunbind = $on document,{
+      _mouseunbind = _on document,{
         mouseup:mouseunbind
         mousemove:({offsetY})=>
           {scrollTop,clientHeight,scrollHeight} = mv
