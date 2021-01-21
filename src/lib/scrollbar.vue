@@ -105,7 +105,7 @@ setup:=>
   _mouseunbind = undefined
   mouseunbind = =>
     for i from [HTML, aside.value]
-      i.classList.remove(SCROLL_CLS)
+      i?.classList.remove(SCROLL_CLS)
     _mouseunbind?()
     _mouseunbind = undefined
 
@@ -173,8 +173,7 @@ setup:=>
     down:(e)=>
       _mouseunbind?()
       for i from [HTML, aside.value]
-        if i
-          i.classList.add(SCROLL_CLS)
+        i?.classList.add(SCROLL_CLS)
       mv = main.value
       sv = si.value
       _diff = 0
