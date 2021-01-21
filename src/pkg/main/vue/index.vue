@@ -8,83 +8,9 @@
   right 0
   position absolute
   overflow hidden
-  &>aside, &>main
-    box-sizing border-box
-    display flex
-    flex 1
-  &>aside
-    flex-direction column
-    &>div
-      position relative
-      display flex
-      &>textarea
-        width 100%
-        border none
-        outline 0
-        resize none
-        height 3.4rem
-        font-size 1rem
-        box-shadow none
-        line-height 1.8
-        padding 1rem 1.8rem 0.8rem 1rem
-        color #000
-        /*
-        &:invalid+.send
-          display none
-        */
-      sendWidth = 1.4rem
-      &>.send
-        position absolute
-        bottom 1.42rem
-        width sendWidth
-        height sendWidth
-        right 0.6rem
-        z-index 1
-        &:after
-          color #999
-          font-size sendWidth
-          content '\e601'
-          font-family I
-        &:hover
-          &:after
-            color #f40
-            content '\e605'
-    &>nav, &>nav>menu
-      height 2.3rem
-      line-height 2.5rem
-      display flex
-    &>nav
-      user-select none
-      background #F9F9F9
-      display flex
-      justify-content space-between
-      &>a
-        transform scale(0.7)
-        margin-left 0.35rem
-        color #777
-        height 2.3rem
-        line-height 2.3rem
-        display flex
-        align-items center
-        justify-content center
-        width 2.3rem
-        &:hover
-          color #f40
-      &>menu
-        &>a
-          font-weight 400
-          color #777
-          padding 0 0.8rem
-          font-size 0.75rem
-          &:first-child
-            padding-left 0.8rem
-          &.now
-            background #fff
-            box-shadow 0 1px 4px inset #ddd
-            color #555
-          &:hover
-            color #f40
   &>main
+    box-sizing border-box
+    flex 1
     border-right 1px solid #eee
     display flex
     flex-direction column
@@ -110,19 +36,7 @@
     a(background:="safari-pinned-tab.svg")
     h1 我问问 h1
     a(href="/404") 404
-  aside
-    div
-      a-textarea(required placeholder="写点什么 ？人民网络 ，畅所欲言 ···" :autoSize="true")
-      a.I.send(title="快捷键 Ctrl+Enter")
-    nav
-      a
-        b.gg.add
-      menu
-        a.now 更新
-        a 我的
-        a 留言
-        //- a 统计信息
-    main
+  me
 </template>
 
 
@@ -131,11 +45,11 @@ import {add} from "@/ws/task"
 import DB from '@/db/rxdb'
 import {onUnmounted, shallowRef, onBeforeMount, ref} from 'vue'
 import AButton from '@/lib/antd/button'
-import AInput from '@/lib/antd/input'
+import Me from './_com/me'
 export default {
 components:{
   AButton
-  ATextarea:AInput.TextArea
+  Me
 }
 setup:=>
   {task} = DB
