@@ -85,16 +85,62 @@ main
       a 我的
       a 留言
       //- a 统计信息
-  div
+  scrollbar
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
+    h1 1
 </template>
 
 
 <script lang="coffee">
 import AInput from '@/lib/antd/input'
+import Scrollbar from '@/lib/scrollbar'
 
 export default {
 components:{
   ATextarea:AInput.TextArea
+  Scrollbar
 }
 setup:=>
 
