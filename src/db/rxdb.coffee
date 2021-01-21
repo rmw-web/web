@@ -21,8 +21,6 @@ addRxPlugin(PouchHttpPlugin)
 import AdapterDb from 'pouchdb-adapter-idb'
 addRxPlugin AdapterDb
 
-import {onUnmounted} from 'vue'
-
 class Db
   constructor:->
   $init:(@$url, schema)->
