@@ -1,4 +1,5 @@
 <style lang="stylus" scoped>
+@import '@/pkg/main/styl/ico/gg/msg'
 main
   display flex
   flex-direction row
@@ -10,39 +11,49 @@ main
     color #000
     &>li
       padding 1.15rem
-      background url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1px'><line x1='0' y1='0' x2='100%' y2='0' stroke-dasharray='3,3' stroke='rgb(187,187,187)'></line></svg>") 0 100% no-repeat
+      background url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1px'><line x1='0' y1='0' x2='100%' y2='0' stroke-dasharray='3,3' stroke='rgb(210,210,210)'></line></svg>") 0 100% no-repeat
       &>main
         &>header
           margin-bottom -0.2rem
-          margin-top 0
-          &:first-child
-            margin-top -0.28rem
-          background url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1px'><line x1='0' y1='0' x2='100%' y2='0' stroke-dasharray='3,3' stroke='rgb(187,187,187)'></line></svg>") 0 58% no-repeat
+          margin-top -0.28rem
           display flex
-          align-items flex-end
-          justify-content space-between
-          flex-direction row-reverse
           width 100%
           &>a
             font-weight 600
+        &>.txt
+          overflow hidden
+        &>.txt>p, &>footer
+          padding 0
+          margin 0.575rem 0 0
+        &>footer, &>header
+          &>a
             font-family html
-            padding-right 0.4rem
             color #000
             &:hover
               color #f40
-          &>a, &>.meta
+        &>footer
+          background url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1px'><line x1='0' y1='0' x2='100%' y2='0' stroke-dasharray='3,3' stroke='rgb(210,210,210)'></line></svg>") 0 62% no-repeat
+          display flex
+          font-size 0.8rem
+          font-weight 300
+          justify-content space-between
+          width 100%
+          a
             background #fff
-          &>.meta
+          &>a
             padding-left 0.4rem
-            display flex
-            align-self flex-end
-            color #ccc
-            font-size 0.8rem
-        &>.txt
-          overflow hidden
-        &>.txt>p
-          padding 0
-          margin 0.575rem 0 0
+          &>.meta
+            &>a
+              margin-left -0.2rem
+              transform scale(0.9)
+              color #000
+              width 1.2rem
+              height @width
+              display flex
+              align-content center
+              justify-content center
+              &:hover
+                color #f40
       &>.ico
         margin-right 1.15rem
         background 50% 50% / 6rem
@@ -61,34 +72,36 @@ main
         b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+2000}.jpg')`")
         main
           header
-            .meta
-              | 20:26
             a 依然范特稀西
           .txt
             p Android Studio启用新代号，新版本Arctic Fox（白狐）重点新特性一览！
             p
               | 目前Android Studio的最新稳定版本为4.1，4.2版本也已经发布到Beta渠道。但是4.2版本将会是Android Studio数字命名的最后一个版本了，此后，Google将采用新的命名规则来为Android Studio命名。更改第一个版本命名为Android Studio Arctic Fox(2020.3.1) ，目前，Android Studio Artic Fox已经登陆Canary频道，迭代至Canary3版本。
-          header
+          footer
             .meta
-              | 20:23
+              a
+                b.gg.msg
+            a 10:30
           .txt
             p 针对美国媒体有关中方推动中美高层会晤的报道，中国驻美使馆发言人指出该报道与事实不符，同时强调，好的中美关系，不仅符合两国人民根本利益，而且是国际社会的共同期待。
+          footer
+            .meta
+              | 10:30
       li
         b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+1000}.jpg')`")
         main
           header
-            .meta
-              | 10:30
             a Hugo Lowell
           .txt
             p
               | Breaking via NY Times: Jeffrey Clark, the acting head of the civil division at the Justice Department, schemed with Trump to oust AG Rosen and wield dept power to force Georgia to overturn election results.
+          footer
+            .meta
+              | 10:30
       li
         b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i}.jpg')`")
         main
           header
-            .meta
-              | 2021-01-11 22:32
             a 阮一峰
           .txt
             p
@@ -99,6 +112,9 @@ main
               | 因为疫情，这套系统销量增加30倍。
             p
               | 上次说要简化盖章的时候，一大帮印章协会的出来拉着几个议员反对啊，大家不用章了他们就没饭吃了还说什么传统啦巴拉巴拉的，最后也就不了了之了
+          footer
+            .meta
+              | 2021-01-11 22:32
 
 </template>
 

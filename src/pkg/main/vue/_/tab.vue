@@ -5,7 +5,6 @@
 @import '@/pkg/main/styl/ico/gg/close'
 @import '@/pkg/main/styl/ico/gg/bookmark'
 @import '@/pkg/main/styl/ico/gg/ghost'
-@import '@/pkg/main/styl/ico/gg/msg'
 @import '@/pkg/main/styl/ico/gg/arrow-down'
 fontSize = 0.75rem
 headerHeight = 2.3rem
@@ -153,7 +152,6 @@ components:{
 }
 setup:=>
   menu = {
-    "msg"
     ghost:"blog"
     bookmark:""
     plus:"add"
