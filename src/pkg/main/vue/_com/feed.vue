@@ -1,5 +1,4 @@
 <style lang="stylus" scoped>
-@import '@/pkg/main/styl/ico/gg/msg'
 main
   display flex
   flex-direction row
@@ -43,11 +42,11 @@ main
           &>a
             padding-left 0.4rem
           &>.meta
+            display flex
             &>a
               margin-left -0.2rem
-              transform scale(0.9)
               color #000
-              width 1.2rem
+              width 1.5rem
               height @width
               display flex
               align-content center
@@ -79,6 +78,10 @@ main
               | 目前Android Studio的最新稳定版本为4.1，4.2版本也已经发布到Beta渠道。但是4.2版本将会是Android Studio数字命名的最后一个版本了，此后，Google将采用新的命名规则来为Android Studio命名。更改第一个版本命名为Android Studio Arctic Fox(2020.3.1) ，目前，Android Studio Artic Fox已经登陆Canary频道，迭代至Canary3版本。
           footer
             .meta
+              a
+                b.I.like
+              a
+                b.I.rt
               a
                 b.gg.msg
             a 10:30

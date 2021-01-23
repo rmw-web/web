@@ -1,6 +1,7 @@
 <style lang="stylus" scoped>
 .nav.ant-dropdown-menu
   margin-top -5px
+@import '@/pkg/main/styl/ico/gg/msg'
 @import '@/pkg/main/styl/ico/gg/plus'
 @import '@/pkg/main/styl/ico/gg/close'
 @import '@/pkg/main/styl/ico/gg/bookmark'
@@ -152,6 +153,7 @@ components:{
 }
 setup:=>
   menu = {
+    "msg"
     ghost:"blog"
     bookmark:""
     plus:"add"
