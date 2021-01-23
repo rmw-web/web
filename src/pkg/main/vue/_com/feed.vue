@@ -17,11 +17,33 @@ main
         overflow hidden
         &>header
           margin-bottom -0.775rem
-          margin-top -0.25rem
+          margin-top -0.27rem
           display flex
           width 100%
+          align-items baseline
           &>a
             font-weight 600
+          &>.rt, &>.rt b
+            font-weight 300
+          &>.rt
+            user-select none
+            line-height 1
+            margin-left 0.7rem
+            color #999
+            font-size 0.8rem
+            &>b
+              margin-left 0.2rem
+              &>b
+                margin 0 0.1rem
+              &>.I
+                margin-left 0.1rem
+                transform scale(0.8)
+                display inline-block
+                transform-origin 100% 70%
+            &>a
+              color #999
+              &:hover
+                color #f40
         &>.txt
           margin-top 0.575rem
         &>.txt>p, &>footer
@@ -126,6 +148,14 @@ main
         main
           header
             a 依然范特稀西
+            b.rt
+              a 王旭
+              | 、
+              a 张春燕
+              b 等
+                b 3
+                | 人
+                b.I.rt
           .txt
             p Android Studio启用新代号，新版本Arctic Fox（白狐）重点新特性一览！
             p
