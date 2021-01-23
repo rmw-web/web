@@ -21,14 +21,23 @@ main
           display flex
           width 100%
           align-items baseline
-          &>a
+          &>i
+            font-style normal
             font-weight 600
+            &>i
+              font-size 0.8rem
+              font-style normal
+              margin-right -0.3rem
+              &>a
+                margin 0 0.3rem
+                &:first-child
+                  margin-left 0.6rem
           &>.rt, &>.rt b
             font-weight 300
           &>.rt
             user-select none
             line-height 1
-            margin-left 0.7rem
+            margin-left 0.6rem
             color #999
             font-size 0.8rem
             &>b
@@ -50,8 +59,7 @@ main
           padding 0
           margin 0.575rem 0 0
         &>footer, &>header
-          &>a
-            font-family html
+          a
             color #000
             &:hover
               color #f40
@@ -147,7 +155,14 @@ main
         b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+1000}.jpg')`")
         main
           header
-            a 依然范特稀西
+            i
+              a 雷君
+              i
+                a 北京
+                | ·
+                a 铜山软件
+                | ·
+                a 产品架构师
             b.rt
               a 王旭
               | 、
