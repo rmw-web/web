@@ -31,28 +31,56 @@ main
             &:hover
               color #f40
         &>footer
-          background url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1px'><line x1='0' y1='0' x2='100%' y2='0' stroke-dasharray='3,3' stroke='rgb(210,210,210)'></line></svg>") 0 62% no-repeat
+          align-items center
+          background url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1px'><line x1='0' y1='0' x2='100%' y2='0' stroke-dasharray='3,3' stroke='rgb(210,210,210)'></line></svg>") 0 53% no-repeat
           display flex
           font-size 0.8rem
           font-weight 300
           justify-content space-between
           width 100%
-          a
-            background #fff
+          a, i
+            color #999
           &>a
-            padding-left 0.4rem
-          &>.meta
+            padding-left 0.3rem
+            font-family 'code'
+          &>a, &>menu
+            background #fff
+          &>menu
+            user-select none
             display flex
+            &>i
+              font-style normal
+              border 1px solid #999
+              font-size 1rem
+              padding 0.3rem 0.5rem 0.25rem
+              border-radius 1rem
+              transform scale(0.5)
+              transform-origin 50% 17%
+              margin-bottom -0.6rem
+              margin-left -0.8rem
+              margin-right -0.2rem
+              font-family 'code'
+              letter-spacing 0.05rem
+              cursor pointer
+              transition all 0.3s
+              font-weight bolder
+              &:hover
+                color #fff
+                background #f40
+                transform scale(0.6)
+                border-color @background
+                font-weight bold
             &>a
-              margin-left -0.2rem
-              color #000
               width 1.5rem
               height @width
               display flex
+              padding 0 1rem
               align-content center
               justify-content center
               &:hover
                 color #f40
+            &>a:first-child
+              margin-left -0.2rem
       &>.ico
         margin-right 1.15rem
         background 50% 50% / 6rem
@@ -77,18 +105,26 @@ main
             p
               | 目前Android Studio的最新稳定版本为4.1，4.2版本也已经发布到Beta渠道。但是4.2版本将会是Android Studio数字命名的最后一个版本了，此后，Google将采用新的命名规则来为Android Studio命名。更改第一个版本命名为Android Studio Arctic Fox(2020.3.1) ，目前，Android Studio Artic Fox已经登陆Canary频道，迭代至Canary3版本。
           footer
-            .meta
+            menu
               a
-                b.I.like
+                b.I.reply
+              i 32
               a
                 b.I.rt
               a
-                b.I.reply
+                b.I.like
             a 10:30
           .txt
             p 针对美国媒体有关中方推动中美高层会晤的报道，中国驻美使馆发言人指出该报道与事实不符，同时强调，好的中美关系，不仅符合两国人民根本利益，而且是国际社会的共同期待。
           footer
-            .meta
+            menu
+              a
+                b.I.reply
+              a
+                b.I.rt
+              a
+                b.I.like
+            a
               | 10:30
       li
         b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+1000}.jpg')`")
@@ -99,7 +135,14 @@ main
             p
               | Breaking via NY Times: Jeffrey Clark, the acting head of the civil division at the Justice Department, schemed with Trump to oust AG Rosen and wield dept power to force Georgia to overturn election results.
           footer
-            .meta
+            menu
+              a
+                b.I.reply
+              a
+                b.I.rt
+              a
+                b.I.like
+            a
               | 10:30
       li
         b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i}.jpg')`")
@@ -116,9 +159,15 @@ main
             p
               | 上次说要简化盖章的时候，一大帮印章协会的出来拉着几个议员反对啊，大家不用章了他们就没饭吃了还说什么传统啦巴拉巴拉的，最后也就不了了之了
           footer
-            .meta
-              | 2021-01-11 22:32
-
+            menu
+              a
+                b.I.reply
+              a
+                b.I.rt
+              a
+                b.I.like
+            a
+              | 10:30
 </template>
 
 
@@ -129,7 +178,12 @@ components:{
 
 }
 setup:=>
-  li = [800..900]
+  li = []
+  begin = parseInt Math.random() * (100000-101)
+  n = begin - 100
+  while ++n < begin
+    li.push n
+
   {
     li
   }
