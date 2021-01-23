@@ -52,11 +52,11 @@ main
               font-style normal
               border 1px solid #999
               font-size 1rem
-              padding 0.3rem 0.5rem 0.25rem
+              padding 0.25rem 0.5rem 0.2rem
               border-radius 1rem
               transform scale(0.5)
-              transform-origin 50% 17%
-              margin-bottom -0.6rem
+              transform-origin 50% 21%
+              margin-bottom -0.7rem
               margin-left -0.8rem
               margin-right -0.2rem
               font-family 'code'
