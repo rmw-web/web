@@ -84,7 +84,7 @@ main
       a.now 汇总
       a 我的发言
       a 访客评论
-      a 点赞历史
+      a 点赞评论
       //- a 统计报表
   scrollbar(ref="scroll")
     h1 1
