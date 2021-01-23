@@ -13,16 +13,16 @@ main
       background url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1px'><line x1='0' y1='0' x2='100%' y2='0' stroke-dasharray='3,3' stroke='rgb(187,187,187)'></line></svg>") 0 100% no-repeat
       &>main
         &>header
-          margin-top 1.15rem
+          margin-bottom -0.2rem
+          margin-top 0
           &:first-child
-            margin-top 0
-          background url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1px'><line x1='0' y1='0' x2='100%' y2='0' stroke-dasharray='3,3' stroke='rgb(187,187,187)'></line></svg>") 0 62% no-repeat
+            margin-top -0.28rem
+          background url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1px'><line x1='0' y1='0' x2='100%' y2='0' stroke-dasharray='3,3' stroke='rgb(187,187,187)'></line></svg>") 0 58% no-repeat
           display flex
           align-items flex-end
           justify-content space-between
           flex-direction row-reverse
           width 100%
-          margin -0.28rem 0 -0.2rem
           &>a
             font-weight 600
             font-family html
