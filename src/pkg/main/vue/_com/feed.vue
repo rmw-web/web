@@ -3,22 +3,102 @@ main
   display flex
   flex-direction row
   flex-wrap wrap
-  .ico
-    background 50% 50% / 8rem
-    margin 1rem
-    width 6rem
-    float left
-    box-shadow 0 0 0.3rem inset rgba(0, 0, 0, 0.5)
-    height @width
-    display inline-block
-  form
-    margin-top 2rem
+  &>ul
+    display flex
+    flex-direction column
+    list-style none
+    color #000
+    &>li
+      padding 1.15rem
+      background url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1px'><line x1='0' y1='0' x2='100%' y2='0' stroke-dasharray='3,3' stroke='rgb(187,187,187)'></line></svg>") 0 100% no-repeat
+      &>main
+        &>header
+          margin-top 1.15rem
+          &:first-child
+            margin-top 0
+          background url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1px'><line x1='0' y1='0' x2='100%' y2='0' stroke-dasharray='3,3' stroke='rgb(187,187,187)'></line></svg>") 0 62% no-repeat
+          display flex
+          align-items flex-end
+          justify-content space-between
+          flex-direction row-reverse
+          width 100%
+          margin -0.28rem 0 -0.2rem
+          &>a
+            font-weight 600
+            font-family html
+            padding-right 0.4rem
+            color #000
+            &:hover
+              color #f40
+          &>a, &>.meta
+            background #fff
+          &>.meta
+            padding-left 0.4rem
+            display flex
+            align-self flex-end
+            color #ccc
+            font-size 0.8rem
+        &>.txt
+          overflow hidden
+        &>.txt>p
+          padding 0
+          margin 0.575rem 0 0
+      &>.ico
+        margin-right 1.15rem
+        background 50% 50% / 6rem
+        width 4.6rem
+        float left
+        box-shadow 0 0 0.3rem inset rgba(0, 0, 0, 0.5)
+        height @width
+        display inline-block
 </style>
 
 <template lang="pug">
 main
-  .bk(v-for="i in li")
-    b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i}.jpg')`")
+  ul
+    template(v-for="i in li")
+      li
+        b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+2000}.jpg')`")
+        main
+          header
+            .meta
+              | 20:26
+            a 依然范特稀西
+          .txt
+            p Android Studio启用新代号，新版本Arctic Fox（白狐）重点新特性一览！
+            p
+              | 目前Android Studio的最新稳定版本为4.1，4.2版本也已经发布到Beta渠道。但是4.2版本将会是Android Studio数字命名的最后一个版本了，此后，Google将采用新的命名规则来为Android Studio命名。更改第一个版本命名为Android Studio Arctic Fox(2020.3.1) ，目前，Android Studio Artic Fox已经登陆Canary频道，迭代至Canary3版本。
+          header
+            .meta
+              | 20:23
+          .txt
+            p 针对美国媒体有关中方推动中美高层会晤的报道，中国驻美使馆发言人指出该报道与事实不符，同时强调，好的中美关系，不仅符合两国人民根本利益，而且是国际社会的共同期待。
+      li
+        b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+1000}.jpg')`")
+        main
+          header
+            .meta
+              | 10:30
+            a Hugo Lowell
+          .txt
+            p
+              | Breaking via NY Times: Jeffrey Clark, the acting head of the civil division at the Justice Department, schemed with Trump to oust AG Rosen and wield dept power to force Georgia to overturn election results.
+      li
+        b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i}.jpg')`")
+        main
+          header
+            .meta
+              | 2021-01-11 22:32
+            a 阮一峰
+          .txt
+            p
+              | 再说日本。
+              | 日本仍用印章（包括个人），等级又森严，于是有公司推出电子印章和会议系统。卖点是：
+              | 社长盖的章是正的，常务斜一点表示位置稍低，部长再斜一点表示更低，后面课长系长依次倾斜……
+              | 开会时，系统会自动按照职位安排屏幕上的大小和位置
+              | 因为疫情，这套系统销量增加30倍。
+            p
+              | 上次说要简化盖章的时候，一大帮印章协会的出来拉着几个议员反对啊，大家不用章了他们就没饭吃了还说什么传统啦巴拉巴拉的，最后也就不了了之了
 
 </template>
 
@@ -30,7 +110,7 @@ components:{
 
 }
 setup:=>
-  li = [1..100000]
+  li = [800..900]
   {
     li
   }
