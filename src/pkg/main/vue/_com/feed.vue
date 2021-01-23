@@ -39,7 +39,7 @@ main
                 margin-left 0.1rem
                 transform scale(0.8)
                 display inline-block
-                transform-origin 100% 70%
+                transform-origin 100% 83%
             &>a
               color #999
               &:hover
