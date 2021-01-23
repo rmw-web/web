@@ -8,19 +8,22 @@ main
     flex-direction column
     list-style none
     color #000
-    &>li
-      padding 1.15rem
+    &>li, &>main
       background url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1px'><line x1='0' y1='0' x2='100%' y2='0' stroke-dasharray='3,3' stroke='rgb(185,185,185)'></line></svg>") 0 100% no-repeat
+    li
+      width 100%
+      padding 1.15rem
       &>main
+        overflow hidden
         &>header
-          margin-bottom -0.2rem
+          margin-bottom -0.775rem
           margin-top -0.28rem
           display flex
           width 100%
           &>a
             font-weight 600
         &>.txt
-          overflow hidden
+          margin-top 0.575rem
         &>.txt>p, &>footer
           padding 0
           margin 0.575rem 0 0
@@ -80,7 +83,30 @@ main
               &:hover
                 color #f40
             &>a:first-child
-              margin-left -0.2rem
+              margin-left -0.4rem
+    &>main
+      &>a
+        margin-left 10.1rem
+        margin-bottom 1.65rem
+        position relative
+        &:after
+          position absolute
+          content '··· ···'
+          right -2.1rem
+        &:hover
+          color #f40
+      &>li
+        padding-top 0
+        padding-left 6.9rem
+        &>.ico
+          width 2.3rem
+          height @width
+          background-size 3rem
+          margin-right 0.9rem
+      &>li:first-child
+        padding-top 1.15rem
+        padding-left 1.15rem
+    &>main>li:first-child, li
       &>.ico
         margin-right 1.15rem
         background 50% 50% / 6rem
@@ -96,7 +122,7 @@ main
   ul
     template(v-for="i in li")
       li
-        b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+2000}.jpg')`")
+        b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+1000}.jpg')`")
         main
           header
             a 依然范特稀西
@@ -108,7 +134,7 @@ main
             menu
               a
                 b.I.reply
-              i 32
+              i 13
               a
                 b.I.rt
               a
@@ -126,8 +152,66 @@ main
                 b.I.like
             a
               | 10:30
+      main
+        li
+          b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+400}.jpg')`")
+          main
+            header
+              a Timjintan
+            .txt
+              p
+                | 和SnowFlake的类似功能的产品还是不少的，除了Amazon Redshift，还有Google BigQuery，Azure Synapse Analytics（Azure SQL数据仓库），Teradata Vantage和Oracle数据库以及TimeXtender的Discovery Hub等
+            footer
+              menu
+                a
+                  b.I.reply
+                a
+                  b.I.rt
+                a
+                  b.I.like
+              a
+                | 10:30
+        li
+          b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i}.jpg')`")
+          main
+            header
+              a 张小丰
+            .txt
+              p
+                | 请问竞争对手都有谁呢？谢谢
+            footer
+              menu
+                a
+                  b.I.reply
+                a
+                  b.I.rt
+                a
+                  b.I.like
+              a
+                | 20:79
+        a
+          | 等 32 条
+        li
+          b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+400}.jpg')`")
+          main
+            header
+              a Timjintan
+            .txt
+              p
+                | Snowflake的收费模式不是订阅费加专业服务费。这家公司是对客户的数据保存收费，数据可以是数据湖和经过一定处理的数据；另外就是对数据的传输收费；还有就是对数据的处理收费，处理就是萃取、转换并转换成有洞察力的数据；最后就是对数据的展示收费。所有的这些都是基于现在三个最大的基础服务提供商，包括aws、azure和google cloud。也就是说他赚的每一分钱，有一部分都要交给这三家公司的。
+            footer
+              menu
+                a
+                  b.I.reply
+                i 915
+                a
+                  b.I.rt
+                a
+                  b.I.like
+              a
+                | 23:52
       li
-        b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+1000}.jpg')`")
+        b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+100}.jpg')`")
         main
           header
             a Hugo Lowell
@@ -145,7 +229,7 @@ main
             a
               | 10:30
       li
-        b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i}.jpg')`")
+        b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+200}.jpg')`")
         main
           header
             a 阮一峰
@@ -179,7 +263,7 @@ components:{
 }
 setup:=>
   li = []
-  begin = parseInt Math.random() * (100000-101)
+  begin = 1352 # parseInt Math.random() * (100000-101)
   n = begin - 100
   while ++n < begin
     li.push n
