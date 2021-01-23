@@ -17,7 +17,7 @@ main
         overflow hidden
         &>header
           margin-bottom -0.775rem
-          margin-top -0.28rem
+          margin-top -0.25rem
           display flex
           width 100%
           &>a
