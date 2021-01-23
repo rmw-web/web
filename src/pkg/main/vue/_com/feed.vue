@@ -41,14 +41,17 @@ main
             color #999
             font-size 0.8rem
             &>b
+              cursor pointer
               margin-left 0.2rem
+              &:hover
+                color #f40
               &>b
                 margin 0 0.1rem
-              &>.I
-                margin-left 0.1rem
-                transform scale(0.8)
-                display inline-block
-                transform-origin 100% 83%
+            &>.I
+              margin-left 0.1rem
+              transform scale(0.8)
+              display inline-block
+              transform-origin 100% 83%
             &>a
               color #999
               &:hover
@@ -170,7 +173,7 @@ main
               b 等
                 b 3
                 | 人
-                b.I.rt
+              i.I.rt
           .txt
             p Android Studio启用新代号，新版本Arctic Fox（白狐）重点新特性一览！
             p
@@ -215,7 +218,7 @@ main
                 a
                   b.I.like
               a
-                | 10:30
+                | 2019-10-21 10:30
         li
           b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i}.jpg')`")
           main
