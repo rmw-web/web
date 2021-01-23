@@ -134,7 +134,6 @@ main
         &>.ico
           width 2.3rem
           height @width
-          background-size 3rem
           margin-right 0.9rem
       &>li:first-child
         padding-top 1.15rem
@@ -142,7 +141,7 @@ main
     &>main>li:first-child, li
       &>.ico
         margin-right 1.15rem
-        background 50% 50% / 6rem no-repeat
+        background 50% 50% / 127% no-repeat
         width 4.6rem
         float left
         box-shadow 0 0 0.3rem inset rgba(0, 0, 0, 0.5)
@@ -311,7 +310,7 @@ components:{
 }
 setup:=>
   li = []
-  begin = 1352 # parseInt Math.random() * (100000-101)
+  begin = 4352 # parseInt Math.random() * (100000-101)
   n = begin - 100
   while ++n < begin
     li.push n
