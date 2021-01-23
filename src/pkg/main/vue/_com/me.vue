@@ -83,9 +83,9 @@ main
     menu
       a.now 汇总
       a 我的发言
-      a 访客留言
+      a 访客评论
       a 点赞历史
-      //- a 统计信息
+      //- a 统计报表
   scrollbar(ref="scroll")
     h1 1
     h1 1
