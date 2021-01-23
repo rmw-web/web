@@ -81,9 +81,10 @@ main
     a
       b.gg.add
     menu
-      a.now 更新
-      a 我的
-      a 留言
+      a.now 汇总
+      a 我的发言
+      a 访客留言
+      a 点赞历史
       //- a 统计信息
   scrollbar(ref="scroll")
     h1 1
