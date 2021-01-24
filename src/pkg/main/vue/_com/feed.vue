@@ -144,7 +144,7 @@ main
     &>main>li:first-child, li
       &>.ico
         margin-right 1.15rem
-        background 50% 50% / 127% no-repeat
+        background 50% 50% / 128% no-repeat
         width 4.6rem
         float left
         box-shadow 0 0 0.3rem inset rgba(0, 0, 0, 0.5)

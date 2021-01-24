@@ -86,12 +86,12 @@ main
       b.gg.add
     menu
       a.now 汇总
+      a 发言
       a
         i.at ＠
         | 我
-      a 发言
-      a 转发
       a 评论
+      a 转发
       a 点赞
       //- a 统计报表
   scrollbar(ref="scroll")
