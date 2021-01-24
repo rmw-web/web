@@ -14,7 +14,7 @@ main
       width 100%
       padding 1.15rem
       &>main
-        overflow hidden
+        overflow visible
         &>header
           margin-bottom -0.775rem
           margin-top -0.27rem
@@ -206,7 +206,8 @@ main
           b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+400}.jpg')`")
           main
             header
-              a Timjintan
+              i
+                a Timjintan
             .txt
               p
                 | 和SnowFlake的类似功能的产品还是不少的，除了Amazon Redshift，还有Google BigQuery，Azure Synapse Analytics（Azure SQL数据仓库），Teradata Vantage和Oracle数据库以及TimeXtender的Discovery Hub等
@@ -224,7 +225,8 @@ main
           b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i}.jpg')`")
           main
             header
-              a 张小丰
+              i
+                a 张小丰
             .txt
               p
                 | 请问竞争对手都有谁呢？谢谢
@@ -244,7 +246,8 @@ main
           b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+400}.jpg')`")
           main
             header
-              a Timjintan
+              i
+                a Timjintan
             .txt
               p
                 | Snowflake的收费模式不是订阅费加专业服务费。这家公司是对客户的数据保存收费，数据可以是数据湖和经过一定处理的数据；另外就是对数据的传输收费；还有就是对数据的处理收费，处理就是萃取、转换并转换成有洞察力的数据；最后就是对数据的展示收费。所有的这些都是基于现在三个最大的基础服务提供商，包括aws、azure和google cloud。也就是说他赚的每一分钱，有一部分都要交给这三家公司的。
@@ -263,7 +266,8 @@ main
         b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+100}.jpg')`")
         main
           header
-            a Hugo Lowell
+            i
+              a Hugo Lowell
           .txt
             p
               | Breaking via NY Times: Jeffrey Clark, the acting head of the civil division at the Justice Department, schemed with Trump to oust AG Rosen and wield dept power to force Georgia to overturn election results.
@@ -281,7 +285,8 @@ main
         b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+200}.jpg')`")
         main
           header
-            a 阮一峰
+            i
+              a 阮一峰
           .txt
             p
               | 再说日本。
