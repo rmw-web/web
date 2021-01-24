@@ -20,7 +20,7 @@
 .page
   me(ref="me")
   scrollbar(ref="scrollbar")
-    feed(:li="[5000,5001,5002,5003,5004,5005]")
+    trend
 </template>
 
 
@@ -28,12 +28,12 @@
 import Scrollbar from '@/lib/scrollbar'
 import {onMounted, onUnmounted, shallowRef, onBeforeMount, ref} from 'vue'
 import Me from './_com/me'
-import Feed from './_com/feed'
+import Trend from './_com/trend'
 export default {
 components:{
   Me
+  Trend
   Scrollbar
-  Feed
 }
 setup:(props,{emit})=>
   me = shallowRef()
