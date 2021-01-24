@@ -131,10 +131,8 @@ main
           color #f40
       &>li
         padding-top 0
-        padding-left 6.9rem
+        padding-left 5.5rem
         &>.ico
-          width 2.3rem
-          height @width
           margin-right 0.9rem
         &>main>footer>menu>a:first-child
           margin-left -0.5rem
@@ -144,11 +142,11 @@ main
     &>main>li:first-child, li
       &>.ico
         margin-right 1.15rem
-        background 50% 50% / 128% no-repeat
-        width 4.6rem
+        background 50% 50% / cover no-repeat
+        width 3.2rem
+        height @width * 1.454
         float left
         box-shadow 0 0 0.3rem inset rgba(0, 0, 0, 0.5)
-        height @width
         display inline-block
 </style>
 
@@ -318,7 +316,7 @@ components:{
 }
 setup:=>
   li = []
-  begin = 7352 # parseInt Math.random() * (100000-101)
+  begin = 8352 # parseInt Math.random() * (100000-101)
   n = begin - 100
   while ++n < begin
     li.push n
