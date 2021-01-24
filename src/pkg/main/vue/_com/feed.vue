@@ -316,7 +316,7 @@ components:{
 }
 setup:=>
   li = []
-  begin = 8352 # parseInt Math.random() * (100000-101)
+  begin = 10000 # parseInt Math.random() * (100000-101)
   n = begin - 100
   while ++n < begin
     li.push n
