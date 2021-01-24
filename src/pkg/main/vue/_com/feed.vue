@@ -155,7 +155,7 @@ main
   ul
     template(v-for="i in li")
       li
-        b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+1000}.jpg')`")
+        b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+500}.jpg')`")
         main
           header
             i
@@ -311,19 +311,11 @@ main
 <script lang="coffee">
 import {onUnmounted, shallowRef, onBeforeMount, ref} from 'vue'
 export default {
+props:["li"]
 components:{
 
 }
 setup:=>
-  li = []
-  begin = 10000 # parseInt Math.random() * (100000-101)
-  n = begin - 100
-  while ++n < begin
-    li.push n
-
-  {
-    li
-  }
 }
 </script>
 

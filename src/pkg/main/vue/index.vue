@@ -19,7 +19,7 @@
 <template lang="pug">
 .page
   scrollbar(ref="scrollbar")
-    feed
+    feed(:li="[5000,5001,5002,5003,5004,5005]")
   me(ref="me")
 </template>
 

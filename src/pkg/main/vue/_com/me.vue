@@ -95,50 +95,7 @@ main
       a 点赞
       //- a 统计报表
   scrollbar(ref="scroll")
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
-    h1 1
+    feed(:li="[9000,9001,9002,9003,9004,9009]")
 </template>
 
 
@@ -146,15 +103,32 @@ main
 import AInput from '@/lib/antd/input'
 import Scrollbar from '@/lib/scrollbar'
 import {shallowRef} from 'vue'
+import Feed from './feed'
+
 export default {
 components:{
   ATextarea:AInput.TextArea
   Scrollbar
+  Feed
 }
 setup:=>
   scroll = shallowRef()
   {
     scroll
+    li:[
+      [
+        9000
+        [
+          "雷君"
+          "北京"
+          "铜山软件"
+          "产品架构师"
+        ]
+        [
+          "现在好像文学艺术式微了。还有多少人会去看木偶剧、话剧、舞剧、魔术、杂技、篆刻、书法？"
+        ]
+      ]
+    ]
   }
 }
 </script>
