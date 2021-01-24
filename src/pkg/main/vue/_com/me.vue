@@ -70,6 +70,10 @@ main
           color #555
         &:hover
           color #f40
+main>nav>menu>a>i.at
+  font-size 0.9rem
+  font-style normal
+  vertical-align -0.05rem
 </style>
 
 <template lang="pug">
@@ -82,7 +86,9 @@ main
       b.gg.add
     menu
       a.now 汇总
-      a @我
+      a
+        i.at ＠
+        | 我
       a 发言
       a 转发
       a 评论
