@@ -21,6 +21,9 @@ main
           display flex
           width 100%
           align-items baseline
+          padding 1.15rem 0 1rem
+          &:first-child
+            padding 0
           &>i
             font-style normal
             font-weight 600
@@ -37,7 +40,7 @@ main
           &>.rt
             user-select none
             line-height 1
-            margin-left 0.6rem
+            margin-left auto
             color #999
             font-size 0.8rem
             &>b
@@ -154,6 +157,61 @@ main
 main
   ul
     template(v-for="i in li")
+      li
+        b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+500}.jpg')`")
+        main
+          header
+            i
+              a 雷君
+              i
+                a 北京
+                | ·
+                a 铜山软件
+                | ·
+                a 产品架构师
+            b.rt
+              a 王旭
+              | 、
+              a 张春燕
+              b 等
+                b 3
+                | 人
+              i.I.rt
+          .txt
+            p Android Studio启用新代号，新版本Arctic Fox（白狐）重点新特性一览！
+            p
+              | 目前Android Studio的最新稳定版本为4.1，4.2版本也已经发布到Beta渠道。但是4.2版本将会是Android Studio数字命名的最后一个版本了，此后，Google将采用新的命名规则来为Android Studio命名。更改第一个版本命名为Android Studio Arctic Fox(2020.3.1) ，目前，Android Studio Artic Fox已经登陆Canary频道，迭代至Canary3版本。
+          footer
+            menu
+              a
+                b.I.like
+              a
+                b.I.rt
+              a
+                b.I.reply
+              i 13
+            a 10:30
+          header
+            b.rt
+              a 王旭
+              | 、
+              a 张春燕
+              b 等
+                b 3
+                | 人
+              i.I.rt
+          .txt
+            p 针对美国媒体有关中方推动中美高层会晤的报道，中国驻美使馆发言人指出该报道与事实不符，同时强调，好的中美关系，不仅符合两国人民根本利益，而且是国际社会的共同期待。
+          footer
+            menu
+              a
+                b.I.like
+              a
+                b.I.rt
+              a
+                b.I.reply
+            a
+              | 10:30
       li
         b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+500}.jpg')`")
         main
