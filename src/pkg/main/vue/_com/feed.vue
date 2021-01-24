@@ -14,10 +14,10 @@ main
       width 100%
       padding 1.15rem
       &>main
-        overflow visible
+        overflow hidden
         &>header
           margin-bottom -0.775rem
-          margin-top -0.27rem
+          margin-top -0.24rem
           display flex
           width 100%
           align-items baseline
