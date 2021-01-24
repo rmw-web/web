@@ -122,6 +122,7 @@ main
         margin-left 10.1rem
         margin-bottom 1.65rem
         position relative
+        color #999
         &:after
           position absolute
           content '··· ···'
