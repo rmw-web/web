@@ -149,7 +149,7 @@ main
         width 3.2rem
         height @width * 1.454
         float left
-        box-shadow 0 0 0.3rem inset rgba(0, 0, 0, 0.5)
+        box-shadow 0 0 0.3rem inset rgba(0, 0, 0, 0.3)
         display inline-block
 </style>
 
