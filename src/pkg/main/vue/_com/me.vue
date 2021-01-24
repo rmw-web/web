@@ -85,12 +85,12 @@ main
     a
       b.gg.add
     menu
-      a.now 汇总
-      a 发言
+      a.now 动态
       a
         i.at ＠
         | 我
       a 评论
+      a 我的
       a 转发
       a 点赞
       //- a 统计报表

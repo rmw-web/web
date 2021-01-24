@@ -9,7 +9,7 @@
   overflow hidden
   &>main
     box-sizing border-box
-    border-left 1px solid #eee
+    border-right 1px solid #eee
     display flex
     flex-direction column
   &>.scrollbar, &>main
@@ -18,9 +18,9 @@
 
 <template lang="pug">
 .page
+  me(ref="me")
   scrollbar(ref="scrollbar")
     feed(:li="[5000,5001,5002,5003,5004,5005]")
-  me(ref="me")
 </template>
 
 
