@@ -116,7 +116,7 @@ main
               &:hover
                 color #f40
             &>a:first-child
-              margin-left -0.4rem
+              margin-left -0.55rem
     &>main
       &>a
         margin-left 10.1rem
@@ -135,6 +135,8 @@ main
           width 2.3rem
           height @width
           margin-right 0.9rem
+        &>main>footer>menu>a:first-child
+          margin-left -0.5rem
       &>li:first-child
         padding-top 1.15rem
         padding-left 1.15rem
@@ -180,23 +182,23 @@ main
           footer
             menu
               a
-                b.I.reply
-              i 13
+                b.I.like
               a
                 b.I.rt
               a
-                b.I.like
+                b.I.reply
+              i 13
             a 10:30
           .txt
             p 针对美国媒体有关中方推动中美高层会晤的报道，中国驻美使馆发言人指出该报道与事实不符，同时强调，好的中美关系，不仅符合两国人民根本利益，而且是国际社会的共同期待。
           footer
             menu
               a
-                b.I.reply
+                b.I.like
               a
                 b.I.rt
               a
-                b.I.like
+                b.I.reply
             a
               | 10:30
       main
@@ -211,11 +213,11 @@ main
             footer
               menu
                 a
-                  b.I.reply
+                  b.I.like
                 a
                   b.I.rt
                 a
-                  b.I.like
+                  b.I.reply
               a
                 | 2019-10-21 10:30
         li
@@ -229,11 +231,11 @@ main
             footer
               menu
                 a
-                  b.I.reply
+                  b.I.like
                 a
                   b.I.rt
                 a
-                  b.I.like
+                  b.I.reply
               a
                 | 20:79
         a
@@ -249,12 +251,12 @@ main
             footer
               menu
                 a
-                  b.I.reply
-                i 915
+                  b.I.like
                 a
                   b.I.rt
                 a
-                  b.I.like
+                  b.I.reply
+                i 915
               a
                 | 23:52
       li
@@ -268,11 +270,11 @@ main
           footer
             menu
               a
-                b.I.reply
+                b.I.like
               a
                 b.I.rt
               a
-                b.I.like
+                b.I.reply
             a
               | 10:30
       li
@@ -292,11 +294,11 @@ main
           footer
             menu
               a
-                b.I.reply
+                b.I.like
               a
                 b.I.rt
               a
-                b.I.like
+                b.I.reply
             a
               | 10:30
 </template>
