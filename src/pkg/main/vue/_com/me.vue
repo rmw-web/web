@@ -29,6 +29,16 @@
   &>header
     padding 2.3rem
     width 100%
+    &>footer
+      display flex
+      margin-top 1.15rem
+      color #666
+      &>marquee
+        &>a
+          color #666
+          margin-left 0.5rem
+          &:hover
+            color #f40
     &>main
       position relative
       display flex
@@ -72,11 +82,19 @@ scrollbar(ref="scroll")
       main
         a-textarea(required placeholder="写点什么 ？人民网络 ，畅所欲言 ···" :autoSize="true" ref="txt")
         a.I.send(title="快捷键 Ctrl+Enter")
+      footer
+        | 🔥
+        marquee(scrollamount=1)
+          a #网络犯罪以年均近40%速度攀升
+          a @许王(北京·远大·产品经理)
+          a #白云机场成2020年全球客流量最大机场
+          a #八小时工作制
+          a #拜登重整中美关系
+          a #荷兰实施全国宵禁
+          a #除了当事人大家都很快乐
     i.logo
     h1
       a 下一代互联网宣言
-    h1
-      a 使用指南
     footer
       a
         h1 加入我们
