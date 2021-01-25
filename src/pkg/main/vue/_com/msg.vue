@@ -106,7 +106,7 @@ main
               &:hover
                 color #fff
                 background #f40
-                transform scale(0.6)
+                transform scale(0.5)
                 border-color @background
                 font-weight bold
             &>a
