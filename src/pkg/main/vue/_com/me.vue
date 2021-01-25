@@ -77,8 +77,6 @@ scrollbar(ref="scroll")
       a 下一代互联网宣言
     h1
       a 使用指南
-    h1
-      a 技术架构
     footer
       a
         h1 加入我们
