@@ -113,7 +113,8 @@ setup:=>
       ]
     ]
   ]
-  li = [32000..32222]
+  begin = 60000
+  li = [begin..begin+300]
   {
     li
     scroll
