@@ -7,13 +7,11 @@
   right 0
   position absolute
   overflow hidden
-  &>div
+  &>main
     box-sizing border-box
-    border-left 1px solid #eee
+    border-right 1px solid #eee
     display flex
     flex-direction column
-  &>div:first-child
-    border 0
   &>.scrollbar, &>main
     flex 1
 </style>
