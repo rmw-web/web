@@ -96,7 +96,7 @@ main
               transform scale(0.5)
               transform-origin 50% 21%
               margin-bottom -0.7rem
-              margin-left -0.8rem
+              margin-left -0.7rem
               margin-right -0.2rem
               font-family 'code'
               letter-spacing 0.05rem
@@ -106,7 +106,7 @@ main
               &:hover
                 color #fff
                 background #f40
-                transform scale(0.5)
+                transform scale(0.6)
                 border-color @background
                 font-weight bold
             &>a
