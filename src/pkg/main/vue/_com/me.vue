@@ -52,12 +52,12 @@
           width 1rem
           background linear-gradient(to right, #fff, rgba(255, 255, 255, 0))
       &>.marquee
-        animation move 180s linear infinite normal
+        animation 180s move linear infinite normal
         display flex
         &>a
           white-space nowrap
           color #666
-          margin-left 0.5rem
+          padding-right 0.5rem
           &:hover
             color #f40
     &>main
