@@ -7,7 +7,7 @@
   align-items center
   &>footer
     font-family h
-    margin 0.8rem 2.3rem 2.3rem
+    margin 0.8rem 2.3rem 1rem
     display flex
     text-align center
     flex-direction column
