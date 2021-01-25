@@ -27,19 +27,21 @@ main
         color #f40
     &>menu
       &>a
-        font-weight 400
         color #777
         padding 0 0.8rem
         font-size 0.75rem
+        &>b
+          font-weight 400
         &:first-child
           padding-left 0.8rem
         &.now
           background #fff
-          box-shadow 0 1px 4px inset #ddd
-          color #555
+          color #333
+          &>b
+            font-weight 600
         &:hover
           color #f40
-main>nav>menu>a>i.at
+main>nav>menu>a>b>i.at
   font-size 0.9rem
   font-style normal
   vertical-align -0.05rem
@@ -49,14 +51,20 @@ main>nav>menu>a>i.at
 main
   nav
     menu
-      a.now 动态
+      a.now
+        b 动态
       a
-        i.at ＠
-        | 我
-      a 评论
-      a 我的
-      a 转发
-      a 点赞
+        b
+          i.at ＠
+          | 我
+      a
+        b 评论
+      a
+        b 我的
+      a
+        b 转发
+      a
+        b 点赞
       //- a 统计报表
     a
       b.gg.add
