@@ -95,7 +95,7 @@ main
       a 点赞
       //- a 统计报表
   scrollbar(ref="scroll")
-    feed(:li="[9000,9001,9002,9003,9004,9009]")
+    msg(:li="[9000,9001,9002,9003,9004,9009]")
 </template>
 
 
@@ -103,13 +103,13 @@ main
 import AInput from '@/lib/antd/input'
 import Scrollbar from '@/lib/scrollbar'
 import {shallowRef} from 'vue'
-import Feed from './feed'
+import Msg from './msg'
 
 export default {
 components:{
   ATextarea:AInput.TextArea
   Scrollbar
-  Feed
+  Msg
 }
 setup:=>
   scroll = shallowRef()

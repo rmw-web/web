@@ -9,7 +9,7 @@
   overflow hidden
   &>main
     box-sizing border-box
-    border-right 1px solid #eee
+    border-left 1px solid #eee
     display flex
     flex-direction column
   &>.scrollbar, &>main
@@ -18,9 +18,8 @@
 
 <template lang="pug">
 .page
+  feed(ref="feed")
   me(ref="me")
-  scrollbar(ref="scrollbar")
-    trend
 </template>
 
 
@@ -28,24 +27,24 @@
 import Scrollbar from '@/lib/scrollbar'
 import {onMounted, onUnmounted, shallowRef, onBeforeMount, ref} from 'vue'
 import Me from './_com/me'
-import Trend from './_com/trend'
+import Feed from './_com/feed'
 export default {
 components:{
   Me
-  Trend
+  Feed
   Scrollbar
 }
 setup:(props,{emit})=>
   me = shallowRef()
-  scrollbar = shallowRef()
+  feed = shallowRef()
 
   onMounted =>
-    emit 'scrollbar', [me.value.scroll, scrollbar.value]
+    emit 'scrollbar', [me.value.scroll, feed.value.scroll]
     return
 
   return {
     me
-    scrollbar
+    feed
   }
 
 }
