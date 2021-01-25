@@ -158,7 +158,7 @@ main
   ul
     template(v-for="i in li")
       li
-        b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+500}.jpg')`")
+        b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i}.jpg')`")
         main
           header
             i
@@ -213,7 +213,7 @@ main
             a
               | 10:30
       li
-        b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+500}.jpg')`")
+        b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+3000}.jpg')`")
         main
           header
             i
@@ -260,7 +260,7 @@ main
               | 10:30
       main
         li
-          b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+400}.jpg')`")
+          b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+4000}.jpg')`")
           main
             header
               i
@@ -279,7 +279,7 @@ main
               a
                 | 2019-10-21 10:30
         li
-          b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i}.jpg')`")
+          b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+5000}.jpg')`")
           main
             header
               i
@@ -300,7 +300,7 @@ main
         a
           | 等 32 条
         li
-          b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+400}.jpg')`")
+          b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+6000}.jpg')`")
           main
             header
               i
@@ -320,7 +320,7 @@ main
               a
                 | 23:52
       li
-        b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+100}.jpg')`")
+        b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+1000}.jpg')`")
         main
           header
             i
@@ -339,7 +339,7 @@ main
             a
               | 10:30
       li
-        b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+200}.jpg')`")
+        b.ico(:style="`background-image:url('//www.thiswaifudoesnotexist.net/example-${i+2000}.jpg')`")
         main
           header
             i
