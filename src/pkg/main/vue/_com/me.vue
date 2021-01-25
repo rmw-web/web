@@ -1,5 +1,10 @@
 <style lang="stylus" scoped>
 @import '@/pkg/main/styl/ico/gg/add'
+@keyframes move
+  0%
+    transform translateX(0px)
+  100%
+    transform translateX(-100%)
 .scrollbar>div>div>main
   display flex
   width 100%
@@ -33,8 +38,24 @@
       display flex
       margin-top 1.15rem
       color #666
-      &>marquee
+      overflow hidden
+      &>i
+        background #fff
+        z-index 1
+        margin-right 1rem
+        position relative
+        &:after
+          content ''
+          position absolute
+          height 100%
+          right -1rem
+          width 1rem
+          background linear-gradient(to right, #fff, rgba(255, 255, 255, 0))
+      &>.marquee
+        animation move 180s linear infinite normal
+        display flex
         &>a
+          white-space nowrap
           color #666
           margin-left 0.5rem
           &:hover
@@ -83,8 +104,8 @@ scrollbar(ref="scroll")
         a-textarea(required placeholder="写点什么 ？人民网络 ，畅所欲言 ···" :autoSize="true" ref="txt")
         a.I.send(title="快捷键 Ctrl+Enter")
       footer
-        | 🔥
-        marquee(scrollamount=1)
+        i 🔥
+        .marquee
           a #网络犯罪以年均近40%速度攀升
           a @许王(北京·远大·产品经理)
           a #白云机场成2020年全球客流量最大机场
