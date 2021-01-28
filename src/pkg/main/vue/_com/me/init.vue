@@ -41,11 +41,10 @@ form, footer
 scrollbar(ref="scroll")
   main
     i.logo
-    h1 欢迎加入下一代互联网
     h2 去中心化 · 无服务器
     h2 人人平等 · 畅所欲言
     form
-      h1 创建账户
+      h1 欢迎加入下一代互联网
       p
         input
         label 网名
@@ -68,7 +67,7 @@ scrollbar(ref="scroll")
         input
         label 头像图标
       p
-        button(type="submit") 开始使用
+        button(type="submit") 创建账户
     footer
       a
         h1 加入我们
