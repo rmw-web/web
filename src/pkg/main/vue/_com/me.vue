@@ -1,36 +1,12 @@
 <style lang="stylus" scoped>
 @import '@/pkg/main/styl/ico/gg/add'
+@import './me/me'
 @keyframes move
   0%
     transform translateX(0px)
   100%
     transform translateX(-100%)
 .scrollbar>div>div>main
-  display flex
-  width 100%
-  flex-direction column
-  align-items center
-  &>footer
-    font-family h
-    margin 0.8rem 2.3rem 1rem
-    display flex
-    text-align center
-    flex-direction column
-  h1 > a, &>footer>a
-    user-select none
-    color #000
-    margin-bottom 2.3rem
-    &:hover
-      color #f40
-  &>footer>a:hover
-    &>h1, &>h2
-      color #f40
-  &>i.logo
-    height 0
-    margin 0 2.3rem 2.3rem
-    width 100%
-    padding-bottom 38%
-    background url('~@/file/img/svg/logo.svg') 50% 50% / cover no-repeat
   &>header
     padding 2.3rem
     width 100%

@@ -44,7 +44,10 @@ setup:(props,{emit})=>
 
   onMounted =>
     emitS feed.value.scroll
-    mod = (await import("./_com/me")).default
+    page = "me"
+    if not ME.id
+      page += "/init"
+    mod = (await import("./_com/"+page)).default
     {setup} = mod
     mod.setup = =>
       r = setup()
