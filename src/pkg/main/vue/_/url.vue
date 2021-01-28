@@ -25,10 +25,9 @@ setup : =>
   tab = ref()
   route  "main", {
     tab
-    scrollbar:(li)=>
+    scrollbar:(s)=>
       {autohide} = tab.value
-      for s from li
-        autohide s
+      autohide s
       return
     i : shallowRef HttpSpin
   }

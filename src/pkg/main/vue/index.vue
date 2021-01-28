@@ -20,30 +20,39 @@
 .page
   feed(ref="feed")
   component(v-if="me" :is="me")
-  main(v-else)
+  HttpSpin(v-else)
 </template>
 
 
 <script lang="coffee">
 import Scrollbar from '@/lib/scrollbar'
-import {onMounted, onUnmounted, shallowRef, onBeforeMount, ref} from 'vue'
-# import Me from
+import {onMounted, onUnmounted, nextTick, shallowRef, onBeforeMount, ref} from 'vue'
+import HttpSpin from '@/pkg/_/http/spin'
 import Feed from './_com/feed'
 export default {
 components:{
   Feed
+  HttpSpin
   Scrollbar
 }
 setup:(props,{emit})=>
   me = shallowRef()
   feed = shallowRef()
 
-  scrollbar = []
+  emitS = (c)=>
+    emit 'scrollbar', c
+
   onMounted =>
-    scrollbar.push feed.value.scroll
-    emit 'scrollbar', scrollbar
-    me.value  = _me = (await import("./_com/me")).default
-    scrollbar.push _me.scrollbar
+    emitS feed.value.scroll
+    mod = (await import("./_com/me")).default
+    {setup} = mod
+    mod.setup = =>
+      r = setup()
+      nextTick =>
+        emitS r.scroll.value
+      r
+    me.value = mod
+
     return
 
   return {
