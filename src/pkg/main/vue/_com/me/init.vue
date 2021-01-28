@@ -4,9 +4,11 @@ main, footer
   margin-top 2.3rem
 form
   margin-top 1.6rem
+  &>h1
+    margin-bottom 2rem
 p
   display flex
-  width 60%
+  width 50%
   flex-direction row-reverse
   align-items center
   justify-content center
