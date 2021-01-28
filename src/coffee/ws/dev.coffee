@@ -13,6 +13,6 @@ task:{
   li : () -> console.log await _task.li.apply(_task, arguments)
 }
 user:{
-  login : (uid) -> console.log await _user.login.apply(_user, arguments)
+  me : (uid) -> console.log await _user.me.apply(_user, arguments)
 }
 }

@@ -1,7 +1,7 @@
 import _on from '@/coffee/$/_on'
 import split_n from 'split_n'
 import throttle from 'lodash/throttle'
-import user from './user'
+import me from './me'
 
 bind = (ws, method, li)=>
   ws.addEventListener method, (e)=>
@@ -97,7 +97,7 @@ _new = ->
                     task[1]()
 
         )
-        user()
+        me()
         [interval] = JSON.parse(e.data)
 
 
