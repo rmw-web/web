@@ -1,9 +1,10 @@
 import URI from "@/config/ws.txt"
-import Ws from './ws/ws'
+import {Ws,conn} from './ws/ws'
 
-WS = new Ws(
-  URI
-)
+WS = undefined
+export init = =>
+  WS = new Ws(URI)
+  conn.call WS
 
 export default (mod)=>
   new Proxy(

@@ -1,13 +1,12 @@
 import "../styl/init"
 import TITLE from '../config/title.txt'
-import Ws from '@/coffee/ws'
 import {createApp} from 'vue'
+import {init} from '@/coffee/ws'
 import url from '../vue/_/url'
 
 do =>
-  ws = Ws()
-
   document.title = TITLE
+  await init()
   div = document.createElement 'main'
   document.body.appendChild div
   createApp(url).mount(div)
