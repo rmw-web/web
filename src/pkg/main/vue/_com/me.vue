@@ -7,6 +7,8 @@
   100%
     transform translateX(-100%)
 .scrollbar>div>div>main
+  &>footer
+    margin-top 0.8rem
   &>header
     padding 2.3rem
     width 100%

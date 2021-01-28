@@ -1,7 +1,15 @@
 <style lang="stylus" scoped>
 @import './me'
-main
+main, form, footer
   margin-top 2.3rem
+form, footer
+  background url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1px'><line x1='0' y1='0' x2='100%' y2='0' stroke-dasharray='3,3' stroke='rgb(185,185,185)'></line></svg>") 0 0 no-repeat
+form, footer
+  padding-top 2.3rem
+  display flex
+  width 100%
+  flex-direction column
+  align-items center
 </style>
 
 <template lang="pug">
@@ -12,6 +20,7 @@ scrollbar(ref="scroll")
     h2 去中心化 · 无服务器
     h2 人人平等 · 畅所欲言
     form
+      h1 创建账户
       p
         input
         label 网名
@@ -33,7 +42,7 @@ scrollbar(ref="scroll")
       p
         input
         label 头像图标
-      button(type="submit") 创建账户
+      button(type="submit") 开始使用
     footer
       a
         h1 加入我们
