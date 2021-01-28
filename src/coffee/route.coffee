@@ -55,9 +55,6 @@ export default (prefix, page)=>
   #     goto()
   # )
   $state goto
-    # pushState:goto
-    # popstate:goto
-    # popstate:=>
     # popstate:=>
     #   for i in document.querySelectorAll('.X')
     #     i.click()
