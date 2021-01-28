@@ -1,10 +1,16 @@
 <style lang="stylus" scoped>
 @import './me'
+main
+  margin-top 2.3rem
 </style>
 
 <template lang="pug">
 scrollbar(ref="scroll")
   main
+    i.logo
+    h1 欢迎加入下一代互联网
+    h2 去中心化 · 无服务器
+    h2 人人平等 · 畅所欲言
     form
       p
         input
@@ -17,17 +23,17 @@ scrollbar(ref="scroll")
         label 公司
       p
         input
-        label 头衔
+        label 职衔
       p
         input
         label 发帖语言
       p
         input
         label 阅读语言
-      button(type="submit") 创建用户
-    i.logo
-    h1
-      a 下一代互联网宣言
+      p
+        input
+        label 头像图标
+      button(type="submit") 创建账户
     footer
       a
         h1 加入我们
