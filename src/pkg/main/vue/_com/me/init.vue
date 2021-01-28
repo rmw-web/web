@@ -4,21 +4,28 @@ main, form, footer
   margin-top 2.3rem
 p
   display flex
-  min-width 8rem
+  width 60%
   flex-direction row-reverse
   align-items center
   justify-content center
   position relative
   margin-bottom 1.5rem
+  &>button
+    justify-content center
+    background #36c
+    color #fff
+    border 1px solid #36f
   &>label
     position absolute
     left 0.5rem
-input
+input, button
+  width 100%
   padding 0.5rem
   display flex
-  border 1px solid #ccc
   font-size 1rem
   outline 0
+input
+  border 1px solid #ccc
   color #000
 form, footer
   background url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1px'><line x1='0' y1='0' x2='100%' y2='0' stroke-dasharray='3,3' stroke='rgb(185,185,185)'></line></svg>") 0 0 no-repeat
@@ -60,7 +67,8 @@ scrollbar(ref="scroll")
       p
         input
         label 头像图标
-      button(type="submit") 开始使用
+      p
+        button(type="submit") 开始使用
     footer
       a
         h1 加入我们
