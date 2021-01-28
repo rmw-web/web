@@ -2,6 +2,24 @@
 @import './me'
 main, form, footer
   margin-top 2.3rem
+p
+  display flex
+  min-width 8rem
+  flex-direction row-reverse
+  align-items center
+  justify-content center
+  position relative
+  margin-bottom 1.5rem
+  &>label
+    position absolute
+    left 0.5rem
+input
+  padding 0.5rem
+  display flex
+  border 1px solid #ccc
+  font-size 1rem
+  outline 0
+  color #000
 form, footer
   background url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1px'><line x1='0' y1='0' x2='100%' y2='0' stroke-dasharray='3,3' stroke='rgb(185,185,185)'></line></svg>") 0 0 no-repeat
 form, footer
