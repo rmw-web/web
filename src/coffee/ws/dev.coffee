@@ -1,6 +1,6 @@
 import Ws from '@/coffee/ws'
-_user = Ws('user')
 _task = Ws('task')
+_me = Ws('me')
 _env = Ws('env')
 export default {
 env:{
@@ -8,11 +8,11 @@ env:{
   xx : (a, b, c = 1) -> console.log await _env.xx.apply(_env, arguments)
   xxx : () -> console.log await _env.xxx.apply(_env, arguments)
 }
+me:{
+  default : (uid) -> console.log await _me.default.apply(_me, arguments)
+}
 task:{
   add : (addr, key, url) -> console.log await _task.add.apply(_task, arguments)
   li : () -> console.log await _task.li.apply(_task, arguments)
-}
-user:{
-  me : (uid) -> console.log await _user.me.apply(_user, arguments)
 }
 }
