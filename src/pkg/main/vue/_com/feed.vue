@@ -114,7 +114,7 @@ setup:=>
     ]
   ]
   begin = 90000
-  li = [begin..begin+300]
+  li = [begin..begin+10]
   {
     li
     scroll

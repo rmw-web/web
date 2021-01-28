@@ -19,18 +19,18 @@
 <template lang="pug">
 .page
   feed(ref="feed")
-  me(ref="me")
+  component(v-if="me" :is="me")
+  main(v-else)
 </template>
 
 
 <script lang="coffee">
 import Scrollbar from '@/lib/scrollbar'
 import {onMounted, onUnmounted, shallowRef, onBeforeMount, ref} from 'vue'
-import Me from './_com/me'
+# import Me from
 import Feed from './_com/feed'
 export default {
 components:{
-  Me
   Feed
   Scrollbar
 }
@@ -38,8 +38,12 @@ setup:(props,{emit})=>
   me = shallowRef()
   feed = shallowRef()
 
+  scrollbar = []
   onMounted =>
-    emit 'scrollbar', [me.value.scroll, feed.value.scroll]
+    scrollbar.push feed.value.scroll
+    emit 'scrollbar', scrollbar
+    me.value  = _me = (await import("./_com/me")).default
+    scrollbar.push _me.scrollbar
     return
 
   return {
