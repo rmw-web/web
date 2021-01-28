@@ -1,6 +1,7 @@
 import _on from '@/coffee/$/_on'
 import split_n from 'split_n'
 import throttle from 'lodash/throttle'
+import user from './user'
 
 bind = (ws, method, li)=>
   ws.addEventListener method, (e)=>
@@ -96,7 +97,10 @@ _new = ->
                     task[1]()
 
         )
+        user()
         [interval] = JSON.parse(e.data)
+
+
         interval = interval * 1000
 
         @_recv = @_send = new Date() - 0
@@ -107,8 +111,7 @@ _new = ->
           now = new Date() - 0
           diff = parseInt( interval + @_send - now )
           if diff <= 100
-            rdiff = @_send - @_recv
-            if rdiff > interval
+            if (@_send - @_recv) > interval
               @_next()
               return
             ws.send "@"
