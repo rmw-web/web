@@ -1,7 +1,9 @@
 <style lang="stylus" scoped>
 @import './me'
-main, form, footer
+main, footer
   margin-top 2.3rem
+form
+  margin-top 1.6rem
 p
   display flex
   width 60%
