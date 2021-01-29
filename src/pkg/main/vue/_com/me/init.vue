@@ -65,16 +65,17 @@ scrollbar(ref="scroll")
       p(:class="{s:data.zone}")
         a-select(v-model:value="data.zone" :getPopupContainer="body" :showSearch="true")
           a-select-option(v-for="[code,val] in C.ZONE" :value="val") {{val}}
-        label 国家 或 地区
+        label 国家 或 自治区
       p
         input(placeholder=" ")
         label 城市 或 城区
+      p(:class="{s:data.sex}")
+        a-select(v-model:value="data.sex" :getPopupContainer="body" :showSearch="true")
+          a-select-option(v-for="val in C.SEX" :value="val") {{val}}
+        label 性别 或 物种
       p
         input(placeholder=" ")
         label 公司
-      p
-        input(placeholder=" ")
-        label 性别
       p
         input(placeholder=" ")
         label 职衔
@@ -119,6 +120,7 @@ setup:=>
   data = ref {
     lang
     zone:""
+    sex:""
   }
   onMounted =>
     form.value.getElementsByTagName("input")[1].focus()
@@ -131,6 +133,7 @@ setup:=>
     C:{
       LANG
       ZONE
+      SEX:"男/女/机器人".split('/')
     }
     data
   }
