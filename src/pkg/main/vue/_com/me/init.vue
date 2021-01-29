@@ -29,13 +29,18 @@ form
       position absolute
       left 0.65rem
       padding 0 0.5rem
-      transition all 0.3s
+      transition all 0.2s
       color #999
     &>input:not(:placeholder-shown) + label
       font-size 0.5rem
       background #fff
-      color #333
       top 3.1rem
+    &>input:focus
+      border-color #06f
+      &+label
+        color #666
+      &:not(:placeholder-shown)+label
+        color #06f
 input, button
   width 100%
   padding 1rem
