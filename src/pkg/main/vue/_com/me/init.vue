@@ -59,11 +59,11 @@ scrollbar(ref="scroll")
     form(ref="form")
       h1 欢迎加入下一代互联网
       p(:class="{s:data.lang}")
-        a-select(v-model:value="data.lang" :getPopupContainer="body")
-          a-select-option(v-for="(val,code) in opt.lang" :value="code") {{val}}
+        a-select(v-model:value="data.lang" :getPopupContainer="body" showSearch="true")
+          a-select-option(v-for="[code,val] in opt.lang" :value="val") {{val}}
         label 语言
       p(:class="{s:data.zone}")
-        a-select(v-model:value="data.zone" :getPopupContainer="body")
+        a-select(v-model:value="data.zone" :getPopupContainer="body" showSearch="true")
           a-select-option(v-for="[code,val] in opt.zone" :value="val") {{val}}
         label 国家 或 地区
       p
