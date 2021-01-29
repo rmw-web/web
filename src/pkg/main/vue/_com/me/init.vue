@@ -74,6 +74,9 @@ scrollbar(ref="scroll")
         label 网名
       p
         input(placeholder=" ")
+        label 国家
+      p
+        input(placeholder=" ")
         label 城市
       p
         input(placeholder=" ")
