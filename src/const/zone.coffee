@@ -1,5 +1,6 @@
-export default ZONE
-li = """AD 安道尔
+import split_n from 'split_n'
+
+LI = """AD 安道尔
 AE 阿拉伯联合酋长国
 AF 阿富汗
 AG 安提瓜和巴布达
@@ -237,3 +238,10 @@ YT 马约特
 ZA 南非
 ZM 赞比亚
 ZW 津巴布韦"""
+
+ZONE = []
+
+do =>
+  for i in LI.split("\n")
+    ZONE.push split_n i," ",2
+export default ZONE

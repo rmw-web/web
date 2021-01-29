@@ -59,12 +59,13 @@ scrollbar(ref="scroll")
     form(ref="form")
       h1 欢迎加入下一代互联网
       p(:class="{s:data.lang}")
-        a-select(@change="lang" v-model:value="data.lang")
+        a-select(v-model:value="data.lang" :getPopupContainer="body")
           a-select-option(v-for="(val,code) in opt.lang" :value="code") {{val}}
         label 语言
-      p
-        a-select
-        label 国家
+      p(:class="{s:data.zone}")
+        a-select(v-model:value="data.zone" :getPopupContainer="body")
+          a-select-option(v-for="[code,val] in opt.zone" :value="val") {{val}}
+        label 国家 或 地区
       p
         input(placeholder=" ")
         label 城市
@@ -97,6 +98,7 @@ import Scrollbar from '@/lib/scrollbar'
 import {ref, shallowRef, onMounted} from 'vue'
 import ASelect from '@/lib/antd/select'
 import lang from '@/const/lang'
+import zone from '@/const/zone'
 
 export default {
 components:{
@@ -109,6 +111,7 @@ setup:=>
   form = shallowRef()
   data = ref(
     lang:""
+    zone:""
   )
   onMounted =>
     form.value.getElementsByTagName("input")[0].focus()
@@ -116,8 +119,11 @@ setup:=>
   {
     form
     scroll
+    body:=>
+      form.value
     opt:{
       lang
+      zone
     }
     data
     lang:(val)=>
