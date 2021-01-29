@@ -1,238 +1,239 @@
-AD 安道尔 (AD)
-AE 阿拉伯联合酋长国 (AE)
-AF 阿富汗 (AF)
-AG 安提瓜和巴布达 (AG)
-AI 安圭拉 (AI)
-AL 阿尔巴尼亚 (AL)
-AM 亚美尼亚 (AM)
-AN 库拉索 (AN)
-AO 安哥拉 (AO)
-AQ 南极洲 (AQ)
-AR 阿根廷 (AR)
-AS 美属萨摩亚 (AS)
-AT 奥地利 (AT)
-AU 澳大利亚 (AU)
-AW 阿鲁巴 (AW)
-AZ 阿塞拜疆 (AZ)
-BA 波斯尼亚和黑塞哥维那 (BA)
-BB 巴巴多斯 (BB)
-BD 孟加拉国 (BD)
-BE 比利时 (BE)
-BF 布基纳法索 (BF)
-BG 保加利亚 (BG)
-BH 巴林 (BH)
-BI 布隆迪 (BI)
-BJ 贝宁 (BJ)
-BL 圣巴泰勒米 (BL)
-BM 百慕大 (BM)
-BN 文莱 (BN)
-BO 玻利维亚 (BO)
-BR 巴西 (BR)
-BS 巴哈马 (BS)
-BT 不丹 (BT)
-BV 布韦岛 (BV)
-BW 博茨瓦纳 (BW)
-BY 白俄罗斯 (BY)
-BZ 伯利兹 (BZ)
-CA 加拿大 (CA)
-CC 科科斯（基林）群岛 (CC)
-CD 刚果（金） (CD)
-CF 中非共和国 (CF)
-CG 刚果（布） (CG)
-CH 瑞士 (CH)
-CI 科特迪瓦 (CI)
-CK 库克群岛 (CK)
-CL 智利 (CL)
-CM 喀麦隆 (CM)
-CN 中国 (CN)
-CO 哥伦比亚 (CO)
-CR 哥斯达黎加 (CR)
-CS 塞尔维亚 (CS)
-CV 佛得角 (CV)
-CX 圣诞岛 (CX)
-CY 塞浦路斯 (CY)
-CZ 捷克 (CZ)
-DE 德国 (DE)
-DJ 吉布提 (DJ)
-DK 丹麦 (DK)
-DM 多米尼克 (DM)
-DO 多米尼加共和国 (DO)
-DZ 阿尔及利亚 (DZ)
-EC 厄瓜多尔 (EC)
-EE 爱沙尼亚 (EE)
-EG 埃及 (EG)
-EH 西撒哈拉 (EH)
-ER 厄立特里亚 (ER)
-ES 西班牙 (ES)
-ET 埃塞俄比亚 (ET)
-FI 芬兰 (FI)
-FJ 斐济 (FJ)
-FK 福克兰群岛（马尔维纳斯群岛） (FK)
-FM 密克罗尼西亚 (FM)
-FO 法罗群岛 (FO)
-FR 法国 (FR)
-GA 加蓬 (GA)
-GB 英国 (GB)
-GD 格林纳达 (GD)
-GE 格鲁吉亚 (GE)
-GF 法属圭亚那 (GF)
-GH 加纳 (GH)
-GI 直布罗陀 (GI)
-GL 格陵兰 (GL)
-GM 冈比亚 (GM)
-GN 几内亚 (GN)
-GP 瓜德罗普 (GP)
-GQ 赤道几内亚 (GQ)
-GR 希腊 (GR)
-GS 南乔治亚和南桑威奇群岛 (GS)
-GT 危地马拉 (GT)
-GU 关岛 (GU)
-GW 几内亚比绍 (GW)
-GY 圭亚那 (GY)
-HK 香港 (HK)
-HM 赫德岛和麦克唐纳群岛 (HM)
-HN 洪都拉斯 (HN)
-HR 克罗地亚 (HR)
-HT 海地 (HT)
-HU 匈牙利 (HU)
-ID 印度尼西亚 (ID)
-IE 爱尔兰 (IE)
-IL 以色列 (IL)
-IM 马恩岛 (IM)
-IN 印度 (IN)
-IO 英属印度洋领地 (IO)
-IQ 伊拉克 (IQ)
-IS 冰岛 (IS)
-IT 意大利 (IT)
-JM 牙买加 (JM)
-JO 约旦 (JO)
-JP 日本 (JP)
-KE 肯尼亚 (KE)
-KG 吉尔吉斯斯坦 (KG)
-KH 柬埔寨 (KH)
-KI 基里巴斯 (KI)
-KM 科摩罗 (KM)
-KN 圣基茨和尼维斯 (KN)
-KR 韩国 (KR)
-KW 科威特 (KW)
-KY 开曼群岛 (KY)
-KZ 哈萨克斯坦 (KZ)
-LA 老挝 (LA)
-LB 黎巴嫩 (LB)
-LC 圣卢西亚 (LC)
-LI 列支敦士登 (LI)
-LK 斯里兰卡 (LK)
-LR 利比里亚 (LR)
-LS 莱索托 (LS)
-LT 立陶宛 (LT)
-LU 卢森堡 (LU)
-LV 拉脱维亚 (LV)
-LY 利比亚 (LY)
-MA 摩洛哥 (MA)
-MC 摩纳哥 (MC)
-MD 摩尔多瓦 (MD)
-ME 黑山 (ME)
-MG 马达加斯加 (MG)
-MH 马绍尔群岛 (MH)
-MK 北马其顿 (MK)
-ML 马里 (ML)
-MM 缅甸 (MM)
-MN 蒙古 (MN)
-MO 澳门 (MO)
-MP 北马里亚纳群岛 (MP)
-MQ 马提尼克 (MQ)
-MR 毛里塔尼亚 (MR)
-MS 蒙特塞拉特 (MS)
-MT 马耳他 (MT)
-MU 毛里求斯 (MU)
-MV 马尔代夫 (MV)
-MW 马拉维 (MW)
-MX 墨西哥 (MX)
-MY 马来西亚 (MY)
-MZ 莫桑比克 (MZ)
-NA 纳米比亚 (NA)
-NC 新喀里多尼亚 (NC)
-NE 尼日尔 (NE)
-NF 诺福克岛 (NF)
-NG 尼日利亚 (NG)
-NI 尼加拉瓜 (NI)
-NL 荷兰 (NL)
-NO 挪威 (NO)
-NP 尼泊尔 (NP)
-NR 瑙鲁 (NR)
-NU 纽埃 (NU)
-NZ 新西兰 (NZ)
-OM 阿曼 (OM)
-PA 巴拿马 (PA)
-PE 秘鲁 (PE)
-PF 法属波利尼西亚 (PF)
-PG 巴布亚新几内亚 (PG)
-PH 菲律宾 (PH)
-PK 巴基斯坦 (PK)
-PL 波兰 (PL)
-PM 圣皮埃尔和密克隆群岛 (PM)
-PN 皮特凯恩群岛 (PN)
-PR 波多黎各 (PR)
-PS 巴勒斯坦 (PS)
-PT 葡萄牙 (PT)
-PW 帕劳 (PW)
-PY 巴拉圭 (PY)
-QA 卡塔尔 (QA)
-RE 留尼汪 (RE)
-RO 罗马尼亚 (RO)
-RS 塞尔维亚 (RS)
-RU 俄罗斯 (RU)
-RW 卢旺达 (RW)
-SA 沙特阿拉伯 (SA)
-SB 所罗门群岛 (SB)
-SC 塞舌尔 (SC)
-SE 瑞典 (SE)
-SG 新加坡 (SG)
-SH 圣赫勒拿 (SH)
-SI 斯洛文尼亚 (SI)
-SJ 斯瓦尔巴和扬马延 (SJ)
-SK 斯洛伐克 (SK)
-SL 塞拉利昂 (SL)
-SM 圣马力诺 (SM)
-SN 塞内加尔 (SN)
-SO 索马里 (SO)
-SR 苏里南 (SR)
-ST 圣多美和普林西比 (ST)
-SV 萨尔瓦多 (SV)
-SZ 斯威士兰 (SZ)
-TC 特克斯和凯科斯群岛 (TC)
-TD 乍得 (TD)
-TF 法属南部领地 (TF)
-TG 多哥 (TG)
-TH 泰国 (TH)
-TJ 塔吉克斯坦 (TJ)
-TK 托克劳 (TK)
-TL 东帝汶 (TL)
-TM 土库曼斯坦 (TM)
-TN 突尼斯 (TN)
-TO 汤加 (TO)
-TR 土耳其 (TR)
-TT 特立尼达和多巴哥 (TT)
-TV 图瓦卢 (TV)
-TW 台湾 (TW)
-TZ 坦桑尼亚 (TZ)
-UA 乌克兰 (UA)
-UG 乌干达 (UG)
-UM 美国本土外小岛屿 (UM)
-US 美国 (US)
-UY 乌拉圭 (UY)
-UZ 乌兹别克斯坦 (UZ)
-VA 梵蒂冈 (VA)
-VC 圣文森特和格林纳丁斯 (VC)
-VE 委内瑞拉 (VE)
-VG 英属维尔京群岛 (VG)
-VI 美属维尔京群岛 (VI)
-VN 越南 (VN)
-VU 瓦努阿图 (VU)
-WF 瓦利斯和富图纳 (WF)
-WS 萨摩亚 (WS)
-YE 也门 (YE)
-YT 马约特 (YT)
-ZA 南非 (ZA)
-ZM 赞比亚 (ZM)
-ZW 津巴布韦 (ZW)
+export default ZONE
+li = """AD 安道尔
+AE 阿拉伯联合酋长国
+AF 阿富汗
+AG 安提瓜和巴布达
+AI 安圭拉
+AL 阿尔巴尼亚
+AM 亚美尼亚
+AN 库拉索
+AO 安哥拉
+AQ 南极洲
+AR 阿根廷
+AS 美属萨摩亚
+AT 奥地利
+AU 澳大利亚
+AW 阿鲁巴
+AZ 阿塞拜疆
+BA 波斯尼亚和黑塞哥维那
+BB 巴巴多斯
+BD 孟加拉国
+BE 比利时
+BF 布基纳法索
+BG 保加利亚
+BH 巴林
+BI 布隆迪
+BJ 贝宁
+BL 圣巴泰勒米
+BM 百慕大
+BN 文莱
+BO 玻利维亚
+BR 巴西
+BS 巴哈马
+BT 不丹
+BV 布韦岛
+BW 博茨瓦纳
+BY 白俄罗斯
+BZ 伯利兹
+CA 加拿大
+CC 科科斯（基林）群岛
+CD 刚果（金）
+CF 中非共和国
+CG 刚果（布）
+CH 瑞士
+CI 科特迪瓦
+CK 库克群岛
+CL 智利
+CM 喀麦隆
+CN 中国
+CO 哥伦比亚
+CR 哥斯达黎加
+CS 塞尔维亚
+CV 佛得角
+CX 圣诞岛
+CY 塞浦路斯
+CZ 捷克
+DE 德国
+DJ 吉布提
+DK 丹麦
+DM 多米尼克
+DO 多米尼加共和国
+DZ 阿尔及利亚
+EC 厄瓜多尔
+EE 爱沙尼亚
+EG 埃及
+EH 西撒哈拉
+ER 厄立特里亚
+ES 西班牙
+ET 埃塞俄比亚
+FI 芬兰
+FJ 斐济
+FK 福克兰群岛（马尔维纳斯群岛）
+FM 密克罗尼西亚
+FO 法罗群岛
+FR 法国
+GA 加蓬
+GB 英国
+GD 格林纳达
+GE 格鲁吉亚
+GF 法属圭亚那
+GH 加纳
+GI 直布罗陀
+GL 格陵兰
+GM 冈比亚
+GN 几内亚
+GP 瓜德罗普
+GQ 赤道几内亚
+GR 希腊
+GS 南乔治亚和南桑威奇群岛
+GT 危地马拉
+GU 关岛
+GW 几内亚比绍
+GY 圭亚那
+HK 香港
+HM 赫德岛和麦克唐纳群岛
+HN 洪都拉斯
+HR 克罗地亚
+HT 海地
+HU 匈牙利
+ID 印度尼西亚
+IE 爱尔兰
+IL 以色列
+IM 马恩岛
+IN 印度
+IO 英属印度洋领地
+IQ 伊拉克
+IS 冰岛
+IT 意大利
+JM 牙买加
+JO 约旦
+JP 日本
+KE 肯尼亚
+KG 吉尔吉斯斯坦
+KH 柬埔寨
+KI 基里巴斯
+KM 科摩罗
+KN 圣基茨和尼维斯
+KR 韩国
+KW 科威特
+KY 开曼群岛
+KZ 哈萨克斯坦
+LA 老挝
+LB 黎巴嫩
+LC 圣卢西亚
+LI 列支敦士登
+LK 斯里兰卡
+LR 利比里亚
+LS 莱索托
+LT 立陶宛
+LU 卢森堡
+LV 拉脱维亚
+LY 利比亚
+MA 摩洛哥
+MC 摩纳哥
+MD 摩尔多瓦
+ME 黑山
+MG 马达加斯加
+MH 马绍尔群岛
+MK 北马其顿
+ML 马里
+MM 缅甸
+MN 蒙古
+MO 澳门
+MP 北马里亚纳群岛
+MQ 马提尼克
+MR 毛里塔尼亚
+MS 蒙特塞拉特
+MT 马耳他
+MU 毛里求斯
+MV 马尔代夫
+MW 马拉维
+MX 墨西哥
+MY 马来西亚
+MZ 莫桑比克
+NA 纳米比亚
+NC 新喀里多尼亚
+NE 尼日尔
+NF 诺福克岛
+NG 尼日利亚
+NI 尼加拉瓜
+NL 荷兰
+NO 挪威
+NP 尼泊尔
+NR 瑙鲁
+NU 纽埃
+NZ 新西兰
+OM 阿曼
+PA 巴拿马
+PE 秘鲁
+PF 法属波利尼西亚
+PG 巴布亚新几内亚
+PH 菲律宾
+PK 巴基斯坦
+PL 波兰
+PM 圣皮埃尔和密克隆群岛
+PN 皮特凯恩群岛
+PR 波多黎各
+PS 巴勒斯坦
+PT 葡萄牙
+PW 帕劳
+PY 巴拉圭
+QA 卡塔尔
+RE 留尼汪
+RO 罗马尼亚
+RS 塞尔维亚
+RU 俄罗斯
+RW 卢旺达
+SA 沙特阿拉伯
+SB 所罗门群岛
+SC 塞舌尔
+SE 瑞典
+SG 新加坡
+SH 圣赫勒拿
+SI 斯洛文尼亚
+SJ 斯瓦尔巴和扬马延
+SK 斯洛伐克
+SL 塞拉利昂
+SM 圣马力诺
+SN 塞内加尔
+SO 索马里
+SR 苏里南
+ST 圣多美和普林西比
+SV 萨尔瓦多
+SZ 斯威士兰
+TC 特克斯和凯科斯群岛
+TD 乍得
+TF 法属南部领地
+TG 多哥
+TH 泰国
+TJ 塔吉克斯坦
+TK 托克劳
+TL 东帝汶
+TM 土库曼斯坦
+TN 突尼斯
+TO 汤加
+TR 土耳其
+TT 特立尼达和多巴哥
+TV 图瓦卢
+TW 台湾
+TZ 坦桑尼亚
+UA 乌克兰
+UG 乌干达
+UM 美国本土外小岛屿
+US 美国
+UY 乌拉圭
+UZ 乌兹别克斯坦
+VA 梵蒂冈
+VC 圣文森特和格林纳丁斯
+VE 委内瑞拉
+VG 英属维尔京群岛
+VI 美属维尔京群岛
+VN 越南
+VU 瓦努阿图
+WF 瓦利斯和富图纳
+WS 萨摩亚
+YE 也门
+YT 马约特
+ZA 南非
+ZM 赞比亚
+ZW 津巴布韦"""
