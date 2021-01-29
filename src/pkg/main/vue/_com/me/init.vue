@@ -75,16 +75,16 @@ scrollbar(ref="scroll")
         label 性别 或 物种
       p
         input(placeholder=" ")
-        label 公司
+        label 公司 或 组织
       p
         input(placeholder=" ")
-        label 职衔
+        label 职位 或 头衔
       p
         input(placeholder=" ")
-        label 网名
+        label 姓名 或 昵称
       p
         input(placeholder=" ")
-        label 头像图标
+        label 头像
       p
         button(type="submit") 创建账户
     footer
