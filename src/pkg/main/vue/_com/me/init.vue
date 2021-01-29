@@ -110,8 +110,10 @@ setup:=>
   scroll = shallowRef()
   form = shallowRef()
 
+  {language} = navigator
+  language_prefix = language.split("-",1)[0]
   for [en,name] from LANG
-    if en == navigator.language
+    if [language,language_prefix].indexOf(en)+1
       lang = name
     break
   data = ref {
