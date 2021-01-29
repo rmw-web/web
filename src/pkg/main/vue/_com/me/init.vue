@@ -62,6 +62,15 @@ scrollbar(ref="scroll")
         a-select(v-model:value="data.lang" :getPopupContainer="body" :showSearch="true")
           a-select-option(v-for="[code,val] in C.LANG" :value="val") {{val}}
         label 语言
+      p
+        input(placeholder=" ")
+        label 姓名 或 昵称
+      p
+        input(placeholder=" ")
+        label 公司 或 组织
+      p
+        input(placeholder=" ")
+        label 职位 或 头衔
       p(:class="{s:data.sex}")
         a-select(v-model:value="data.sex" :getPopupContainer="body" :showSearch="true")
           a-select-option(v-for="val in C.SEX" :value="val") {{val}}
@@ -73,15 +82,6 @@ scrollbar(ref="scroll")
       p
         input(placeholder=" ")
         label 城市 或 城区
-      p
-        input(placeholder=" ")
-        label 公司 或 组织
-      p
-        input(placeholder=" ")
-        label 职位 或 头衔
-      p
-        input(placeholder=" ")
-        label 姓名 或 昵称
       p
         input(placeholder=" ")
         label 头像

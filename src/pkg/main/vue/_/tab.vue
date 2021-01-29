@@ -164,7 +164,6 @@ setup:=>
   header = shallowRef()
   page = shallowRef()
 
-
   isHide = false
 
   autohide = (m)=>
