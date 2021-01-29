@@ -2,29 +2,43 @@
 @import './me'
 main, footer
   margin-top 2.3rem
+main>h2
+  color #CB3333
+  font-size 1rem
+  margin -1rem 0 0
+  &>p
+    margin 0 0 0.5rem
 form
   margin-top 1.6rem
   &>h1
     margin-bottom 2rem
-p
-  display flex
-  width 50%
-  flex-direction row-reverse
-  align-items center
-  justify-content center
-  position relative
-  margin-bottom 1.5rem
-  &>button
+  p
+    display flex
+    width 50%
+    flex-direction row-reverse
+    align-items center
     justify-content center
-    background #36c
-    color #fff
-    border 1px solid #36f
-  &>label
-    position absolute
-    left 0.5rem
+    position relative
+    margin-bottom 1.5rem
+    &>button
+      justify-content center
+      background #36c
+      color #fff
+      border 1px solid #36f
+    &>label
+      position absolute
+      left 0.65rem
+      padding 0 0.5rem
+      transition all 0.3s
+      color #999
+    &>input:not(:placeholder-shown) + label
+      font-size 0.5rem
+      background #fff
+      color #333
+      top 3.1rem
 input, button
   width 100%
-  padding 0.5rem
+  padding 1rem
   display flex
   font-size 1rem
   outline 0
@@ -45,30 +59,31 @@ form, footer
 scrollbar(ref="scroll")
   main
     i.logo
-    h2 去中心化 · 无服务器
-    h2 人人平等 · 畅所欲言
+    h2
+      p 去中心化 · 无服务器
+      p 人人平等 · 畅所欲言
     form
       h1 欢迎加入下一代互联网
       p
-        input
+        input(placeholder=" ")
         label 网名
       p
-        input
+        input(placeholder=" ")
         label 城市
       p
-        input
+        input(placeholder=" ")
         label 公司
       p
-        input
+        input(placeholder=" ")
         label 职衔
       p
-        input
+        input(placeholder=" ")
         label 发帖语言
       p
-        input
+        input(placeholder=" ")
         label 阅读语言
       p
-        input
+        input(placeholder=" ")
         label 头像图标
       p
         button(type="submit") 创建账户
