@@ -59,16 +59,16 @@ scrollbar(ref="scroll")
     form(ref="form")
       h1 欢迎加入下一代互联网
       p(:class="{s:data.lang}")
-        a-select(v-model:value="data.lang" :getPopupContainer="body" showSearch="true")
-          a-select-option(v-for="[code,val] in opt.lang" :value="val") {{val}}
+        a-select(v-model:value="data.lang" :getPopupContainer="body" :showSearch="true")
+          a-select-option(v-for="[code,val] in C.LANG" :value="val") {{val}}
         label 语言
       p(:class="{s:data.zone}")
-        a-select(v-model:value="data.zone" :getPopupContainer="body" showSearch="true")
-          a-select-option(v-for="[code,val] in opt.zone" :value="val") {{val}}
+        a-select(v-model:value="data.zone" :getPopupContainer="body" :showSearch="true")
+          a-select-option(v-for="[code,val] in C.ZONE" :value="val") {{val}}
         label 国家 或 地区
       p
         input(placeholder=" ")
-        label 城市
+        label 城市 或 城区
       p
         input(placeholder=" ")
         label 公司
@@ -97,8 +97,8 @@ scrollbar(ref="scroll")
 import Scrollbar from '@/lib/scrollbar'
 import {ref, shallowRef, onMounted} from 'vue'
 import ASelect from '@/lib/antd/select'
-import lang from '@/const/lang'
-import zone from '@/const/zone'
+import LANG from '@/const/lang'
+import ZONE from '@/const/zone'
 
 export default {
 components:{
@@ -109,26 +109,28 @@ components:{
 setup:=>
   scroll = shallowRef()
   form = shallowRef()
-  data = ref(
-    lang:""
+
+  for [en,name] from LANG
+    if en == navigator.language
+      lang = name
+    break
+  data = ref {
+    lang
     zone:""
-  )
+  }
   onMounted =>
-    form.value.getElementsByTagName("input")[0].focus()
+    form.value.getElementsByTagName("input")[1].focus()
     return
   {
     form
     scroll
     body:=>
       form.value
-    opt:{
-      lang
-      zone
+    C:{
+      LANG
+      ZONE
     }
     data
-    lang:(val)=>
-      console.log "!!!",val,data.value
-      return
   }
 }
 </script>
