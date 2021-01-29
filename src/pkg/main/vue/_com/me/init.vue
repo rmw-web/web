@@ -12,17 +12,19 @@ main>h2
   &>p
     margin 0 0 0.5rem
 form
-  margin-top 1.6rem
+  margin 1.6rem 0 0
+  padding 0 2.3rem
   &>h1
     margin-bottom 2rem
   p
     display flex
-    width 50%
+    width 100%
     flex-direction row-reverse
     align-items center
     justify-content center
     position relative
-    margin-bottom 1.5rem
+    margin 0 0 1.5rem
+    box-sizing border-box
     &>button
       justify-content center
       background #36c
@@ -38,8 +40,11 @@ form
       font-size 0.5rem
       background #fff
       top 3.1rem
+    &>input:hover
+      border-color #333
     &>input:focus
       border-color #06f
+      box-shadow 0 0 0 2px rgba(24, 14, 255, 20%)
       &+label
         color #666
       &:not(:placeholder-shown)+label
@@ -76,7 +81,7 @@ scrollbar(ref="scroll")
         input(placeholder=" ")
         label 网名
       p
-        input(placeholder=" ")
+        a-select
         label 国家
       p
         input(placeholder=" ")
@@ -88,11 +93,11 @@ scrollbar(ref="scroll")
         input(placeholder=" ")
         label 职衔
       p
-        input(placeholder=" ")
-        label 发帖语言
+        a-select
+        label 第一语言
       p
-        input(placeholder=" ")
-        label 阅读语言
+        a-select
+        label 第二语言（可多选）
       p
         input(placeholder=" ")
         label 头像图标
@@ -108,10 +113,12 @@ scrollbar(ref="scroll")
 <script lang="coffee">
 import Scrollbar from '@/lib/scrollbar'
 import {shallowRef, onMounted} from 'vue'
+import ASelect from '@/lib/antd/select'
 
 export default {
 components:{
   Scrollbar
+  ASelect
 }
 setup:=>
   scroll = shallowRef()
