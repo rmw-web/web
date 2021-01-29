@@ -73,6 +73,9 @@ scrollbar(ref="scroll")
         label 公司
       p
         input(placeholder=" ")
+        label 性别
+      p
+        input(placeholder=" ")
         label 职衔
       p
         input(placeholder=" ")
