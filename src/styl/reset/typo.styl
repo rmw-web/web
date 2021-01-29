@@ -23,21 +23,25 @@ input
     &+label
       color #666
 
-    &:not(:placeholder-shown)+label
-      color #06f
+input+label, .ant-select+label
+  position absolute
+  left 0.95rem
+  pointer-events none
+  padding 0 0.1rem
+  transition all 0.2s
+  color #999
 
-  &+label
-    position absolute
-    left 0.95rem
-    pointer-events none
-    padding 0 0.1rem
-    transition all 0.2s
-    color #999
+input:not(:placeholder-shown) + label, .s>label
+  font-size 0.5rem
+  background #fff
+  top 3.1rem
 
-  &:not(:placeholder-shown) + label
-    font-size 0.5rem
-    background #fff
-    top 3.1rem
+input:not(:placeholder-shown), .s>.ant-select
+  &:hover + label, &:focus + label
+    color #3889e0
+
+.s>.ant-select-focused+label
+  color #3889e0
 
 html
   scroll-behavior smooth

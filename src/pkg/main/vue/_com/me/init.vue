@@ -58,8 +58,8 @@ scrollbar(ref="scroll")
       p 人人平等 · 畅所欲言
     form(ref="form")
       h1 欢迎加入下一代互联网
-      p
-        a-select(@change="lang")
+      p(:class="{s:data.lang}")
+        a-select(@change="lang" v-model:value="data.lang")
           a-select-option(v-for="(val,code) in opt.lang" :value="code") {{val}}
         label 语言
       p
@@ -91,7 +91,7 @@ scrollbar(ref="scroll")
 
 <script lang="coffee">
 import Scrollbar from '@/lib/scrollbar'
-import {shallowRef, onMounted} from 'vue'
+import {ref, shallowRef, onMounted} from 'vue'
 import ASelect from '@/lib/antd/select'
 import lang from '@/const/lang'
 
@@ -104,6 +104,9 @@ components:{
 setup:=>
   scroll = shallowRef()
   form = shallowRef()
+  data = ref(
+    lang:""
+  )
   onMounted =>
     form.value.getElementsByTagName("input")[0].focus()
     return
@@ -113,8 +116,9 @@ setup:=>
     opt:{
       lang
     }
+    data
     lang:(val)=>
-      console.log "!!!",val
+      console.log "!!!",val,data.value
       return
   }
 }
