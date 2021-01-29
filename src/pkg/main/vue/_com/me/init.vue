@@ -115,7 +115,7 @@ setup:=>
   for [en,name] from LANG
     if [language,language_prefix].indexOf(en)+1
       lang = name
-    break
+      break
   data = ref {
     lang
     zone:""
