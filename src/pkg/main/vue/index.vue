@@ -51,7 +51,7 @@ setup:(props,{emit})=>
     {setup} = mod
     mod.setup = =>
       r = setup()
-      nextTick =>
+      onMounted =>
         emitS r.scroll.value
       r
     me.value = mod
