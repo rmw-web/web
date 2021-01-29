@@ -62,6 +62,10 @@ scrollbar(ref="scroll")
         a-select(v-model:value="data.lang" :getPopupContainer="body" :showSearch="true")
           a-select-option(v-for="[code,val] in C.LANG" :value="val") {{val}}
         label 语言
+      p(:class="{s:data.sex}")
+        a-select(v-model:value="data.sex" :getPopupContainer="body" :showSearch="true")
+          a-select-option(v-for="val in C.SEX" :value="val") {{val}}
+        label 性别 或 物种
       p(:class="{s:data.zone}")
         a-select(v-model:value="data.zone" :getPopupContainer="body" :showSearch="true")
           a-select-option(v-for="[code,val] in C.ZONE" :value="val") {{val}}
@@ -69,10 +73,6 @@ scrollbar(ref="scroll")
       p
         input(placeholder=" ")
         label 城市 或 城区
-      p(:class="{s:data.sex}")
-        a-select(v-model:value="data.sex" :getPopupContainer="body" :showSearch="true")
-          a-select-option(v-for="val in C.SEX" :value="val") {{val}}
-        label 性别 或 物种
       p
         input(placeholder=" ")
         label 公司 或 组织
