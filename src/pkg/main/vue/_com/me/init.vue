@@ -25,6 +25,8 @@ form
     position relative
     margin 0 0 1.5rem
     box-sizing border-box
+    &>.ant-select
+      width 100%
     &>button
       justify-content center
       background #36c
@@ -81,7 +83,8 @@ scrollbar(ref="scroll")
         input(placeholder=" ")
         label 网名
       p
-        a-select
+        a-select(@change="lang")
+          a-select-option(v-for="(val,code) in opt.lang" :value="code") {{val}}
         label 国家
       p
         input(placeholder=" ")
@@ -94,10 +97,7 @@ scrollbar(ref="scroll")
         label 职衔
       p
         a-select
-        label 第一语言
-      p
-        a-select
-        label 第二语言（可多选）
+        label 语言
       p
         input(placeholder=" ")
         label 头像图标
@@ -114,11 +114,13 @@ scrollbar(ref="scroll")
 import Scrollbar from '@/lib/scrollbar'
 import {shallowRef, onMounted} from 'vue'
 import ASelect from '@/lib/antd/select'
+import lang from '@/const/lang'
 
 export default {
 components:{
   Scrollbar
   ASelect
+  ASelectOption:ASelect.Option
 }
 setup:=>
   scroll = shallowRef()
@@ -129,6 +131,12 @@ setup:=>
   {
     form
     scroll
+    opt:{
+      lang
+    }
+    lang:(val)=>
+      console.log "!!!",val
+      return
   }
 }
 </script>
