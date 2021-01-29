@@ -4,8 +4,11 @@ main, footer
   margin-top 2.3rem
 main>h2
   color #CB3333
-  font-size 1rem
+  font-size 1.1rem
+  letter-spacing 0.1rem
+  font-weight 100
   margin -1rem 0 0
+  user-select none
   &>p
     margin 0 0 0.5rem
 form
@@ -67,7 +70,7 @@ scrollbar(ref="scroll")
     h2
       p 去中心化 · 无服务器
       p 人人平等 · 畅所欲言
-    form
+    form(ref="form")
       h1 欢迎加入下一代互联网
       p
         input(placeholder=" ")
@@ -112,11 +115,12 @@ components:{
 }
 setup:=>
   scroll = shallowRef()
-  txt = shallowRef()
+  form = shallowRef()
   onMounted =>
-    # txt.value.focus()
+    form.value.getElementsByTagName("input")[0].focus()
+    return
   {
-    txt
+    form
     scroll
   }
 }
