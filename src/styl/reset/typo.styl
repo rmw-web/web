@@ -4,8 +4,40 @@
 // ::selection
 // background #fd2
 // 
-input:focus
-  outline none
+input, button
+  padding 1rem
+
+input
+  border 1px solid #d9d9d9
+  color #333
+
+  &:hover
+    border-color #3889e0
+
+  &:focus
+    color #000
+    outline none
+    border-color #3889e0
+    box-shadow 0 0 0 2px rgba(18, 105, 211, 0.2)
+
+    &+label
+      color #666
+
+    &:not(:placeholder-shown)+label
+      color #06f
+
+  &+label
+    position absolute
+    left 0.95rem
+    pointer-events none
+    padding 0 0.1rem
+    transition all 0.2s
+    color #999
+
+  &:not(:placeholder-shown) + label
+    font-size 0.5rem
+    background #fff
+    top 3.1rem
 
 html
   scroll-behavior smooth
@@ -24,6 +56,6 @@ body>main
   align-items center
   justify-content center
 
-body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, menu, nav, section
+body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, p, blockquote, th, td, hr, article, aside, details, figcaption, figure, footer, header, menu, nav, section
   margin 0
   padding 0

@@ -25,41 +25,20 @@ form
     position relative
     margin 0 0 1.5rem
     box-sizing border-box
-    &>.ant-select
-      width 100%
+    &>
+      input, button, .ant-select
+        width 100%
+        display flex
+        font-size 1rem
+        outline 0
+      .ant-select > ::v-deep(.ant-select-selector)
+        padding 0.84375rem 1rem
+        height auto
     &>button
       justify-content center
-      background #36c
+      background #3889e0
       color #fff
-      border 1px solid #36f
-    &>label
-      position absolute
-      left 0.65rem
-      padding 0 0.5rem
-      transition all 0.2s
-      color #999
-    &>input:not(:placeholder-shown) + label
-      font-size 0.5rem
-      background #fff
-      top 3.1rem
-    &>input:hover
-      border-color #333
-    &>input:focus
-      border-color #06f
-      box-shadow 0 0 0 2px rgba(24, 14, 255, 20%)
-      &+label
-        color #666
-      &:not(:placeholder-shown)+label
-        color #06f
-input, button
-  width 100%
-  padding 1rem
-  display flex
-  font-size 1rem
-  outline 0
-input
-  border 1px solid #ccc
-  color #000
+      border 1px solid #3889e0
 form, footer
   background url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1px'><line x1='0' y1='0' x2='100%' y2='0' stroke-dasharray='3,3' stroke='rgb(185,185,185)'></line></svg>") 0 0 no-repeat
 form, footer
@@ -80,11 +59,11 @@ scrollbar(ref="scroll")
     form(ref="form")
       h1 欢迎加入下一代互联网
       p
-        input(placeholder=" ")
-        label 网名
-      p
         a-select(@change="lang")
           a-select-option(v-for="(val,code) in opt.lang" :value="code") {{val}}
+        label 语言
+      p
+        a-select
         label 国家
       p
         input(placeholder=" ")
@@ -96,8 +75,8 @@ scrollbar(ref="scroll")
         input(placeholder=" ")
         label 职衔
       p
-        a-select
-        label 语言
+        input(placeholder=" ")
+        label 网名
       p
         input(placeholder=" ")
         label 头像图标
