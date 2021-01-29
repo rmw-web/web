@@ -101,7 +101,7 @@ nav>b>b:hover>a, menu>a:hover>b
   color #333
 </style>
 <template lang="pug">
-config-provider
+config-provider(:locale="locale")
   .page(ref="page")
     header(ref="header")
       nav
@@ -142,6 +142,7 @@ import goto from "@/coffee/goto"
 import {shallowRef, onMounted, ref, onUnmounted} from 'vue'
 import tab from './tab/tab'
 #import {onUnmounted, shallowRef, onBeforeMount, ref} from 'vue'
+#import zhCN from 'ant-design-vue/es/locale/zh_CN'
 
 export default {
 components:{
@@ -204,13 +205,20 @@ setup:=>
 
       )
 
-  onMounted =>
-    autohide main.value
 
   $state =>
     pwd.value = location.pathname[1..]
     return
 
+  locale = shallowRef {}
+  onMounted =>
+    autohide main.value
+    lang = navigator.language.replace("-","_")
+    try
+      locale.value = (await import('ant-design-vue/es/locale/'+lang+".js")).default
+    catch err
+      console.error err
+    return
   {
     menu
     page
@@ -220,6 +228,7 @@ setup:=>
     tab
     header
     goto
+    locale
   }
 }
 </script>
