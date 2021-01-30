@@ -31,7 +31,7 @@ scrollbar(ref="scroll")
   main
     i.logo
     h2 去中心化 · 无服务器 · 人人平等 · 畅所欲言
-    form(ref="form")
+    form(ref="form" @submit.prevent="submit")
       h1 欢迎加入下一代互联网
       p(:class="{s:data.lang}")
         a-select(v-model:value="data.lang" :getPopupContainer="body" :showSearch="true")
@@ -103,6 +103,9 @@ setup:=>
   {
     form
     scroll
+    submit:=>
+      console.log data.value
+      return
     body:=>
       form.value
     C:{
