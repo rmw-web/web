@@ -1,4 +1,5 @@
 <style lang="stylus" scoped>
+@import '~@/styl/reset/form.styl'
 @import './me'
 main, footer
   margin-top 2.3rem
@@ -9,36 +10,12 @@ main>h2
   font-weight 100
   margin -1rem 0 0
   user-select none
-  &>p
-    margin 0 0 0.5rem
 form
   margin 1.6rem 0 0
   padding 0 2.3rem
   &>h1
     margin-bottom 2rem
   p
-    display flex
-    width 100%
-    flex-direction row-reverse
-    align-items center
-    justify-content center
-    position relative
-    margin 0 0 1.5rem
-    box-sizing border-box
-    &>
-      input, button, .ant-select
-        width 100%
-        display flex
-        font-size 1rem
-        outline 0
-      .ant-select > ::v-deep(.ant-select-selector)
-        padding 0.84375rem 1rem
-        height auto
-    &>button
-      justify-content center
-      background #3889e0
-      color #fff
-      border 1px solid #3889e0
 form, footer
   background url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1px'><line x1='0' y1='0' x2='100%' y2='0' stroke-dasharray='3,3' stroke='rgb(185,185,185)'></line></svg>") 0 0 no-repeat
 form, footer
@@ -53,9 +30,7 @@ form, footer
 scrollbar(ref="scroll")
   main
     i.logo
-    h2
-      p 去中心化 · 无服务器
-      p 人人平等 · 畅所欲言
+    h2 去中心化 · 无服务器 · 人人平等 · 畅所欲言
     form(ref="form")
       h1 欢迎加入下一代互联网
       p(:class="{s:data.lang}")
