@@ -1,0 +1,83 @@
+form>.ant-form-item, form>.ant-form-item>::v-deep(.ant-form-item-control-wrapper), form>.ant-form-item>::v-deep(.ant-form-item-control-wrapper)>.ant-form-item-control, form>.ant-form-item>::v-deep(.ant-form-item-control-wrapper)>.ant-form-item-control>.ant-form-item-children
+  display flex
+  width 100%
+  box-sizing border-box
+
+form>.ant-form-item>::v-deep(.ant-form-item-control-wrapper)>.ant-form-item-control>.ant-form-item-children
+  flex-direction row-reverse
+  align-items center
+  justify-content center
+  position relative
+  margin 0 0 1.5rem
+
+  .ant-select > .ant-select-selector
+    padding 0.84375rem 1rem
+    height auto
+
+  &>
+    input, button, .ant-select
+      width 100%
+      display flex
+      font-size 1rem
+      outline 0
+
+    button
+      justify-content center
+      cursor pointer
+      color #fff
+      border 1px solid #4688F1
+      background #4688F1
+      transition all 0.3s
+
+      &:focus
+        border-color #069
+        background #39e
+        box-shadow 0 0 1rem rgba(0, 0, 0, 0.2) inset
+
+      &:hover
+        border-color #23c
+        box-shadow 0 0 0.5rem inset rgba(0, 0, 0, 0.5)
+
+      &:active
+        box-shadow 0 0 1rem inset rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(18, 105, 211, 0.2)
+        background darken(#4688F1, 10%)
+
+    input, button
+      padding 1rem
+
+    input
+      border 1px solid #d9d9d9
+      color #333
+
+      &:hover
+        border-color #3889e0
+
+      &:focus
+        color #000
+        outline none
+        border-color #3889e0
+        box-shadow 0 0 0 2px rgba(18, 105, 211, 0.2)
+
+        &+label
+          color #666
+
+    input+label, .ant-select+label
+      position absolute
+      left 0.95rem
+      pointer-events none
+      padding 0 0.1rem
+      transition all 0.2s
+      color #999
+
+form>.ant-form-item
+  &::v-deep(.ant-form-item-control-wrapper)>.ant-form-item-control>.ant-form-item-children>.ant-select>input:not(:placeholder-shown), &.s>::v-deep(.ant-form-item-control-wrapper)>.ant-form-item-control>.ant-form-item-children>.ant-select
+    &:hover + label, &:focus + label
+      color #3889e0
+
+  &.s>::v-deep(.ant-form-item-control-wrapper)>.ant-form-item-control>.ant-form-item-children>.ant-select-focused+label
+    color #3889e0
+
+  &::v-deep(.ant-form-item-control-wrapper)>.ant-form-item-control>.ant-form-item-children>input:not(:placeholder-shown) + label, &.s>::v-deep(.ant-form-item-control-wrapper)>.ant-form-item-control>.ant-form-item-children>label
+    font-size 0.5rem
+    background #fff
+    top 3.1rem
