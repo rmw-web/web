@@ -47,7 +47,7 @@ scrollbar(ref="scroll")
         input(placeholder=" ")
         label 职位 或 头衔
       p(:class="{s:data.sex}")
-        a-select(v-model:value="data.sex" :getPopupContainer="body" :showSearch="true")
+        a-select(v-model:value="data.sex" :getPopupContainer="body")
           a-select-option(v-for="val in C.SEX" :value="val") {{val}}
         label 性别 或 物种
       p(:class="{s:data.zone}")
