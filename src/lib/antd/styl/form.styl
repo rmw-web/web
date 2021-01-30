@@ -1,9 +1,11 @@
-form>.ant-form-item, form>.ant-form-item>::v-deep(.ant-form-item-control-wrapper), form>.ant-form-item>::v-deep(.ant-form-item-control-wrapper)>.ant-form-item-control, form>.ant-form-item>::v-deep(.ant-form-item-control-wrapper)>.ant-form-item-control>.ant-form-item-children
+.ant-form-item, .ant-form-item-control-wrapper, .ant-form-item-control-wrapper, .ant-form-item-control, .ant-form-item-children
   display flex
   width 100%
   box-sizing border-box
+  margin 0
+  line-height inherit
 
-form>.ant-form-item>::v-deep(.ant-form-item-control-wrapper)>.ant-form-item-control>.ant-form-item-children
+.ant-form>.ant-form-item>.ant-form-item-control-wrapper>.ant-form-item-control>.ant-form-item-children
   flex-direction row-reverse
   align-items center
   justify-content center
@@ -69,15 +71,15 @@ form>.ant-form-item>::v-deep(.ant-form-item-control-wrapper)>.ant-form-item-cont
       transition all 0.2s
       color #999
 
-form>.ant-form-item
-  &::v-deep(.ant-form-item-control-wrapper)>.ant-form-item-control>.ant-form-item-children>.ant-select>input:not(:placeholder-shown), &.s>::v-deep(.ant-form-item-control-wrapper)>.ant-form-item-control>.ant-form-item-children>.ant-select
+form.ant-form>.ant-form-item
+  &.ant-form-item-control-wrapper>.ant-form-item-control>.ant-form-item-children>.ant-select>input:not(:placeholder-shown), &.s>.ant-form-item-control-wrapper>.ant-form-item-control>.ant-form-item-children>.ant-select
     &:hover + label, &:focus + label
       color #3889e0
 
-  &.s>::v-deep(.ant-form-item-control-wrapper)>.ant-form-item-control>.ant-form-item-children>.ant-select-focused+label
+  &.s>.ant-form-item-control-wrapper>.ant-form-item-control>.ant-form-item-children>.ant-select-focused+label
     color #3889e0
 
-  &::v-deep(.ant-form-item-control-wrapper)>.ant-form-item-control>.ant-form-item-children>input:not(:placeholder-shown) + label, &.s>::v-deep(.ant-form-item-control-wrapper)>.ant-form-item-control>.ant-form-item-children>label
+  &.ant-form-item-control-wrapper>.ant-form-item-control>.ant-form-item-children>input:not(:placeholder-shown) + label, &.s>.ant-form-item-control-wrapper>.ant-form-item-control>.ant-form-item-children>label
     font-size 0.5rem
     background #fff
     top 3.1rem
