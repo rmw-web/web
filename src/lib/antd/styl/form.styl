@@ -1,3 +1,4 @@
+
 .ant-form-explain
   margin-top -1rem
   margin-bottom 0.6rem
@@ -90,3 +91,11 @@ form.ant-form>.ant-form-item
     font-size 0.5rem
     background #fff
     top 3.1rem
+
+form.ant-form>.ant-form-item>.ant-form-item-control-wrapper>.ant-form-item-control.has-error>.ant-form-item-children
+  &>input, &>.ant-select
+    border-color #f00
+    box-shadow 0 0 0 2px rgba(255, 0, 0, 0.2)
+
+    &+label, &:hover + label, &:focus + label
+      color #f66

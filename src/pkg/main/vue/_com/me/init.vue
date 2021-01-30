@@ -35,25 +35,25 @@ scrollbar(ref="scroll")
         a-select(v-model:value="form.lang" :getPopupContainer="body" :showSearch="true")
           a-select-option(v-for="val in C.LANG" :value="val") {{val}}
         label 语言
-      a-form-item
-        input(placeholder=" " required)
+      a-form-item(name="name")
+        input(placeholder=" " v-model="form.name" autocomplete="off")
         label 姓名 或 昵称
-      a-form-item
-        input(placeholder=" " required)
+      a-form-item(name="org")
+        input(placeholder=" " v-model="form.org" autocomplete="off")
         label 公司 或 组织
-      a-form-item
-        input(placeholder=" " required)
+      a-form-item(name="title")
+        input(placeholder=" " v-model="form.title" autocomplete="off")
         label 职位 或 头衔
       a-form-item(:class="{s:form.sex}" name="sex")
         a-select(v-model:value="form.sex" :getPopupContainer="body")
           a-select-option(v-for="val in C.SEX" :value="val") {{val}}
         label 性别 或 物种
-      a-form-item(:class="{s:form.zone}")
+      a-form-item(:class="{s:form.zone}" name="zone")
         a-select(v-model:value="form.zone" :getPopupContainer="body" :showSearch="true")
           a-select-option(v-for="val in C.ZONE" :value="val") {{val}}
         label 国家 或 自治区
-      a-form-item
-        input(placeholder=" " required)
+      a-form-item(name="city")
+        input(placeholder=" " v-model="form.city" autocomplete="off")
         label 城市 或 城区
       a-form-item
         input(placeholder=" ")
@@ -95,19 +95,34 @@ setup:=>
   form = ref {
     lang
     zone:""
+    name:""
+    org:""
     sex:""
+    title:""
+    zone:""
+    city:""
   }
   onMounted =>
     # form.value.getElementsByTagName("input")[1].focus()
     return
+
+  requireSelect = [
+    { required: true, message: '请选择', trigger: 'blur' }
+  ]
+  requireInput = [
+    { required: true, message: '请输入', trigger: 'blur' }
+  ]
   {
     main
     form
     scroll
     rules:{
-      sex:[
-        { required: true, message: '请选择', trigger: 'blur' }
-      ]
+      city:requireInput
+      name:requireInput
+      org:requireInput
+      sex:requireSelect
+      title:requireInput
+      zone:requireSelect
     }
     body:=>
       main.value
