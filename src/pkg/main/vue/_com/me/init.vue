@@ -29,7 +29,7 @@ scrollbar(ref="scroll")
   main(ref="main")
     i.logo
     h2 去中心化 · 无服务器 · 人人平等 · 畅所欲言
-    a-form(:model="form" :rules="rules" @validate="validate")
+    a-form(:model="form" :rules="rules" @finishFailed="finishFailed")
       h1 欢迎加入下一代互联网
       a-form-item(:class="{s:form.lang}")
         a-select(v-model:value="form.lang" :getPopupContainer="body" :showSearch="true")
@@ -131,7 +131,7 @@ setup:=>
       ZONE:(i[0] for i from ZONE)
       SEX:"男/女/机器人".split('/')
     }
-    validate:(o)=>
+    finishFailed:(o)=>
       console.log o
       return
   }
