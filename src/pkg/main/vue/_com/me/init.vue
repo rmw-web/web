@@ -29,7 +29,7 @@ scrollbar(ref="scroll")
   main(ref="main")
     i.logo
     h2 去中心化 · 无服务器 · 人人平等 · 畅所欲言
-    a-form(:model="form")
+    a-form(:model="form" :rules="rules")
       h1 欢迎加入下一代互联网
       a-form-item(:class="{s:form.lang}")
         a-select(v-model:value="form.lang" :getPopupContainer="body" :showSearch="true")
@@ -44,8 +44,8 @@ scrollbar(ref="scroll")
       a-form-item
         input(placeholder=" " required)
         label 职位 或 头衔
-      a-form-item(:class="{s:form.sex}")
-        a-select(v-model:value="form.sex" :getPopupContainer="body" required)
+      a-form-item(:class="{s:form.sex}" name="sex")
+        a-select(v-model:value="form.sex" :getPopupContainer="body")
           a-select-option(v-for="val in C.SEX" :value="val") {{val}}
         label 性别 或 物种
       a-form-item(:class="{s:form.zone}")
@@ -88,7 +88,7 @@ setup:=>
   main = shallowRef()
   {language} = navigator
   language_prefix = language.split("-",1)[0]
-  for [en,name] from LANG
+  for [name, en] from LANG
     if [language,language_prefix].indexOf(en)+1
       lang = name
       break
@@ -104,6 +104,11 @@ setup:=>
     main
     form
     scroll
+    rules:{
+      sex:[
+        { required: true, message: '请选择', trigger: 'blur' }
+      ]
+    }
     body:=>
       main.value
     C:{
