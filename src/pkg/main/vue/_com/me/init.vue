@@ -35,7 +35,7 @@ scrollbar(ref="scroll")
       h1 欢迎加入下一代互联网
       p(:class="{s:data.lang}")
         a-select(v-model:value="data.lang" :getPopupContainer="body" :showSearch="true")
-          a-select-option(v-for="[code,val] in C.LANG" :value="val") {{val}}
+          a-select-option(v-for="val in C.LANG" :value="val") {{val}}
         label 语言
       p
         input(placeholder=" ")
@@ -52,7 +52,7 @@ scrollbar(ref="scroll")
         label 性别 或 物种
       p(:class="{s:data.zone}")
         a-select(v-model:value="data.zone" :getPopupContainer="body" :showSearch="true")
-          a-select-option(v-for="[code,val] in C.ZONE" :value="val") {{val}}
+          a-select-option(v-for="val in C.ZONE" :value="val") {{val}}
         label 国家 或 自治区
       p
         input(placeholder=" ")
@@ -109,8 +109,8 @@ setup:=>
     body:=>
       form.value
     C:{
-      LANG
-      ZONE
+      LANG:(i[0] for i from LANG)
+      ZONE:(i[0] for i from ZONE)
       SEX:"男/女/机器人".split('/')
     }
     data
