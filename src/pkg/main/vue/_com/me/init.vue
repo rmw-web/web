@@ -29,20 +29,20 @@ scrollbar(ref="scroll")
   main
     i.logo
     h2 去中心化 · 无服务器 · 人人平等 · 畅所欲言
-    a-form(:model="form" :rules="rules" @finishFailed="finishFailed")
+    a-form(:model="form" :rules="rules" @finishFailed="finishFailed" autocomplete="off")
       h1 欢迎加入下一代互联网
       a-form-item(:class="{s:form.lang}")
         a-select(v-model:value="form.lang" :getPopupContainer="body" :showSearch="true")
           a-select-option(v-for="val in C.LANG" :value="val") {{val}}
         label 语言
       a-form-item(name="name")
-        input(placeholder=" " v-model="form.name" autocomplete="off")
+        input(placeholder=" " v-model="form.name")
         label 姓名 或 昵称
       a-form-item(name="org")
-        input(placeholder=" " v-model="form.org" autocomplete="off")
+        input(placeholder=" " v-model="form.org")
         label 公司 或 组织
       a-form-item(name="title")
-        input(placeholder=" " v-model="form.title" autocomplete="off")
+        input(placeholder=" " v-model="form.title")
         label 职位 或 头衔
       a-form-item(:class="{s:form.sex}" name="sex")
         a-select(v-model:value="form.sex" :getPopupContainer="body")
@@ -53,7 +53,7 @@ scrollbar(ref="scroll")
           a-select-option(v-for="val in C.ZONE" :value="val") {{val}}
         label 国家 或 自治区
       a-form-item(name="city")
-        input(placeholder=" " v-model="form.city" autocomplete="off")
+        input(placeholder=" " v-model="form.city")
         label 城市 或 城区
       a-form-item
         input(placeholder=" ")
