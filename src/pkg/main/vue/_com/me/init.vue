@@ -26,7 +26,7 @@ form, footer
 
 <template lang="pug">
 scrollbar(ref="scroll")
-  main(ref="main")
+  main
     i.logo
     h2 去中心化 · 无服务器 · 人人平等 · 畅所欲言
     a-form(:model="form" :rules="rules" @finishFailed="finishFailed")
@@ -113,7 +113,6 @@ setup:=>
     { required: true, message: '请输入', trigger: 'blur' }
   ]
   {
-    main
     form
     scroll
     rules:{
@@ -125,14 +124,17 @@ setup:=>
       zone:requireSelect
     }
     body:=>
-      main.value
+      scroll.value.main
     C:{
       LANG:(i[0] for i from LANG)
       ZONE:(i[0] for i from ZONE)
       SEX:"男/女/机器人".split('/')
     }
     finishFailed:(o)=>
-      console.log o
+      m = scroll.value.main
+      err = m.getElementsByClassName("has-error")[0]
+      m.scrollTop = err.parentNode.parentNode.offsetTop - 16
+      err.getElementsByTagName("input")[0].focus()
       return
   }
 }
